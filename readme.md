@@ -6,14 +6,22 @@ Página para segregação dos rótulos através de filtros conforme, país, pre�
 Área de login do usuário, onde ele deverá fazer seu cadastro para poder efetuar suas compras e consultar seus históricos.
 Por fim, não menos importante, temos como proposta democratizar nossa aplicação, com uma interface simples e intuitiva.
 
-O sistema deve permitir:
-Cadastrar acesso do cliente;
-Acessar a conta do cliente;
-Consultar perfil do cliente;
-Alterar perfil do cliente;
-Excluir perfil do cliente;
-Consultar o produto;
-Montar a venda;
-Finalizar a venda;
-Registrar a venda e
-Consultar a venda.
+* O sistema deve permitir:
+* Cadastrar acesso do cliente;
+* Acessar a conta do cliente;
+* Consultar perfil do cliente;
+* Alterar perfil do cliente;
+* Excluir perfil do cliente;
+* Consultar o produto;
+* Montar a venda;
+* Finalizar a venda;
+* Registrar a venda e
+* Consultar a venda.
+
+
+## Modelo Conceitual
+![Modelo de Dados](/Telas/imagem_Modelo_Conceitual.PNG)
+
+
+## Modelo Lógico
+![Modelo de Dados](/Telas/imagem_Modelo_Logico.PNG)
