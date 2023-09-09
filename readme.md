@@ -23,6 +23,14 @@ Por fim, não menos importante, temos como proposta democratizar nossa aplicaç�
 ![Modelo Login](/Projeto/Login.jpeg)
 
 
+## Modelo Tela Pagina Inicial
+![Modelo PaginaInicial](/Projeto/PaginaInicial.JPG)
+
+
+## Modelo Tela Pagina Principal
+![Modelo PaginaPrincipal](/Projeto/PaginaPrincipal.jpeg)
+
+
 ## Modelo Conceitual
 ![Modelo de Dados](/Telas/imagem_Modelo_Conceitual.PNG)
 
