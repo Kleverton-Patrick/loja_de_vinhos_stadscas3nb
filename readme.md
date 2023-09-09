@@ -32,8 +32,8 @@ Por fim, não menos importante, temos como proposta democratizar nossa aplicaç�
 
 
 ## Modelo Conceitual
-![Modelo de Dados](/Telas/imagem_Modelo_Conceitual.PNG)
+![Modelo de Dados](/Projeto/imagem_Modelo_Conceitual.PNG)
 
 
 ## Modelo Lógico
-![Modelo de Dados](/Telas/imagem_Modelo_Logico.PNG)
+![Modelo de Dados](/Projeto/imagem_Modelo_Logico.PNG)
