@@ -19,10 +19,21 @@ Por fim, não menos importante, temos como proposta democratizar nossa aplicaç�
 * Registrar a venda e
 * Consultar a venda.
 
+## Modelo Tela Login
+![Modelo Login](/Projeto/Login.jpeg)
+
+
+## Modelo Tela Pagina Inicial
+![Modelo PaginaInicial](/Projeto/PaginaInicial.JPG)
+
+
+## Modelo Tela Pagina Principal
+![Modelo PaginaPrincipal](/Projeto/PaginaPrincipal.jpeg)
+
 
 ## Modelo Conceitual
-![Modelo de Dados](/Telas/imagem_Modelo_Conceitual.PNG)
+![Modelo de Dados](/Projeto/imagem_Modelo_Conceitual.PNG)
 
 
 ## Modelo Lógico
-![Modelo de Dados](/Telas/imagem_Modelo_Logico.PNG)
+![Modelo de Dados](/Projeto/imagem_Modelo_Logico.PNG)
