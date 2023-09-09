@@ -12,7 +12,7 @@ Por fim, não menos importante, temos como proposta democratizar nossa aplicaç�
 * Acessar a conta do cliente;
 * Consultar perfil do cliente;
 * Alterar perfil do cliente;
-* Excluir perfil do cliente;
+* Inativar perfil do cliente;
 * Consultar o produto;
 * Montar a venda;
 * Finalizar a venda;
