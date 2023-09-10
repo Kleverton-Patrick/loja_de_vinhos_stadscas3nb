@@ -50,12 +50,23 @@ body{
     width: 200px;
 }
 
-.search-button {
+.search-button{
     background-color: #ffffff;
     border: none;
-    border-radius: 5px;
+    border-radius: 90px;
     padding: 5px 10px;
     cursor: pointer;
+
+}
+
+.txt{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 20px auto;
+    color: #770000;
+
 }
 
 /* Estilo para a barra de navegação */
@@ -171,25 +182,24 @@ body{
 
 /* Estilo para os cards */
 .card {
-    width: 300px;
-    margin: 10px;
-    border: 1px solid #e90303;
-    border-radius: 5px;
-    overflow: hidden;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    
+    width: 300px; /* largura desejada para os cards */
+    height: 400px; /* altura desejada para os cards */
+    border: 1px solid #ccc; 
+    margin: 10px; /* margem para separar os cards */
+    display: inline-block; /* Para que os cards apareçam na mesma linha */
+    text-align: center; /* Alinhe o conteúdo ao centro */
 }
 
 /* Estilo para as imagens dos cards */
 .card img {
-    width: 100%;
-    height: auto;
+    max-width: 100%; 
+    max-height: 100%;
 }
 
 /* Estilo para as informações dos cards */
 .card-info {
     padding: 10px;
-    background-color: #f9f9f9;
+    background-color: #f6f2f2;
 }
 
 /* Estilo para o título dos cards */
@@ -218,7 +228,30 @@ body{
 
 .select-button:hover {
     background-color: #770000;
+} 
+
+
+
+/* Estilo para o botão "Sugestão" */
+.suggestion-button {
+    margin-left: 8px; /* Espaço entre o botão e a área de pesquisa */
 }
+
+.suggestion-link {
+    background-color: #950000;
+    color: #ffffff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 5px;
+    text-decoration: none; 
+}
+
+.suggestion-link:hover {
+    background-color: #770000;
+}
+
 
 
 
