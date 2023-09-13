@@ -21,15 +21,17 @@ Por fim, não menos importante, temos como proposta democratizar nossa aplicaç�
 
 
 ## Modelo Tela Pagina Inicial
-![Modelo PaginaInicial](/Projeto/Pagina Inicial.png)
+![Modelo PaginaInicial](/Projeto/Tela_Inicial.png)
 
+## Modelo Tela pesquisa de Produto
+![Modelo Tela Pesquisa De Produtos](/Projeto/Tela_de_Pesquisa_de_Produto.jpg)
 
 ## Modelo Tela Pagina Principal
 ![Modelo PaginaPrincipal](/Projeto/PaginaPrincipal.jpeg)
 
 
 ## Modelo Tela Filtro de Acompanhamento
-![Modelo Login](/Projeto/Tela_Filtro_Acompanhamento.jpg)
+![Modelo Tela Filtro Acompanhamento](/Projeto/Tela_Filtro_Acompanhamento.jpg)
 
 
 ## Modelo Tela Login
