@@ -21,7 +21,7 @@ Por fim, não menos importante, temos como proposta democratizar nossa aplicaç�
 
 
 ## Modelo Tela Pagina Inicial
-![Modelo PaginaInicial](/Projeto/PaginaInicial.JPG)
+![Modelo PaginaInicial](/Projeto/Pagina Inicial.png)
 
 
 ## Modelo Tela Pagina Principal
