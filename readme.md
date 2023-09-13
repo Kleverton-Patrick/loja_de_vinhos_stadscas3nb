@@ -19,7 +19,6 @@ Por fim, não menos importante, temos como proposta democratizar nossa aplicaç�
 * Registrar a venda e
 * Consultar a venda.
 
-
 ## Modelo Tela Pagina Inicial
 ![Modelo PaginaInicial](/Projeto/Tela_Inicial.png)
 
@@ -35,7 +34,7 @@ Por fim, não menos importante, temos como proposta democratizar nossa aplicaç�
 
 
 ## Modelo Tela Login
-![Modelo Login](/Projeto/Tela_de_Login.jpeg)
+![Modelo Login](/Projeto/Tela_Login.jpeg)
 
 
 ## Modelo Conceitual
