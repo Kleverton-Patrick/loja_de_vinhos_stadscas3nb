@@ -25,16 +25,13 @@ Por fim, não menos importante, temos como proposta democratizar nossa aplicaç�
 ## Modelo Tela pesquisa de Produto
 ![Modelo Tela Pesquisa De Produtos](/Projeto/Tela_de_Pesquisa_de_Produto.jpg)
 
-## Modelo Tela Pagina Principal
-![Modelo PaginaPrincipal](/Projeto/PaginaPrincipal.jpeg)
-
 
 ## Modelo Tela Filtro de Acompanhamento
 ![Modelo Tela Filtro Acompanhamento](/Projeto/Tela_Filtro_Acompanhamento.jpg)
 
 
 ## Modelo Tela Login
-![Modelo Login](/Projeto/Tela_de_Login.jpeg)
+![Modelo Login](/Projeto/Tela_de_Login.jpg)
 
 
 ## Modelo Conceitual
