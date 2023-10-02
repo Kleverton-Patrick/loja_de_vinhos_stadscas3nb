@@ -1,5 +1,6 @@
 package br.com.lojavinho.dao;
 
+import br.com.lojavinho.config.ConnectionPoolConfig;
 import br.com.lojavinho.model.Vinho;
 
 import java.sql.Connection;
@@ -17,22 +18,20 @@ public class VinhoDao {
         String SQL = "INSERT INTO VINHO (NAME) VALUES (?)";
 
         try {
-            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
-
-            System.out.println("success in database connection");
+            Connection connection = ConnectionPoolConfig.getConnection();
 
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
 
             preparedStatement.setString(1, vinho.getName());
             preparedStatement.execute();
 
-            System.out.println("success in insert vinho");
+            System.out.println("success in insert vinho CREATE");
 
             connection.close();
 
         } catch (Exception e) {
 
-            System.out.println("fail in database connection");
+            System.out.println("fail in database connection CREATE");
 
         }
 
@@ -43,9 +42,7 @@ public class VinhoDao {
         String SQL = "SELECT * FROM VINHO";
 
         try {
-            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
-
-            System.out.println("success in database connection");
+            Connection connection = ConnectionPoolConfig.getConnection();
 
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
 
@@ -63,7 +60,7 @@ public class VinhoDao {
                 vinhos.add(vinho);
             }
 
-            System.out.println("success in select * vinho");
+            System.out.println("success in select * vinho FIND");
 
             connection.close();
 
@@ -71,7 +68,7 @@ public class VinhoDao {
 
         } catch (Exception e) {
 
-            System.out.println("fail in database connection");
+            System.out.println("fail in database connection FIND");
 
             return Collections.emptyList();
         }
@@ -83,21 +80,19 @@ public class VinhoDao {
 
         try {
 
-            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
-
-            System.out.println("success in database connection");
+            Connection connection = ConnectionPoolConfig.getConnection();
 
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
             preparedStatement.setString(1, vinhoId);
             preparedStatement.execute();
 
-            System.out.println("success on delete vinho with id: " + vinhoId);
+            System.out.println("success on delete vinho with id: DELETE " + vinhoId);
 
             connection.close();
 
         } catch (Exception e) {
 
-            System.out.println("fail in database connection");
+            System.out.println("fail in database connection DELETE");
 
         }
 
@@ -108,9 +103,7 @@ public class VinhoDao {
         String SQL = "UPDATE VINHO SET NAME = ? WHERE ID = ?";
 
         try {
-            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
-
-            System.out.println("success in database connection");
+            Connection connection = ConnectionPoolConfig.getConnection();
 
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
 
@@ -118,13 +111,13 @@ public class VinhoDao {
             preparedStatement.setString(2, vinho.getId());
             preparedStatement.execute();
 
-            System.out.println("success in UPDATE vinho");
+            System.out.println("success in UPDATE vinho UPDATE");
 
             connection.close();
 
         } catch (Exception e) {
 
-            System.out.println("fail in database connection");
+            System.out.println("fail in database connection UPDATE");
             System.out.println("Error: " + e.getMessage());
 
         }
