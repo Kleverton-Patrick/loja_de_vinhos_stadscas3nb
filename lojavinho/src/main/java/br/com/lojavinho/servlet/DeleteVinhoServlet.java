@@ -17,7 +17,7 @@ public class DeleteVinhoServlet extends HttpServlet {
 
         String vinhoId = req.getParameter("id");
 
-        new VinhoDao().deleteVihnoById(vinhoId);
+        new VinhoDao().deleteVinhoById(vinhoId);
 
         resp.sendRedirect("/find-all-vinhos");
     }

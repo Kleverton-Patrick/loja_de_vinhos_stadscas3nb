@@ -27,7 +27,7 @@
                 <c:if test="${sessionScope.loggedUser != null}">
                     <td>
                         <form action="/delete-vinho" method="post">
-                             <input type="hidden" id="id" name"id" values="${vinho.id}">
+                             <input type="hidden" id="id" name="id" values="${vinho.id}">
                              <button type="submit">Delete</button>
                              <span> | </span>
                              <a href="index.jsp?id=${vinho.id}&name=${vinho.name}">Update</a>

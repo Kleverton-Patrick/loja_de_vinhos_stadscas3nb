@@ -74,7 +74,7 @@ public class VinhoDao {
         }
     }
 
-    public void deleteVihnoById(String vinhoId) {
+    public void deleteVinhoById(String vinhoId) {
 
         String SQL = "DELETE VINHO WHERE ID = ?";
 

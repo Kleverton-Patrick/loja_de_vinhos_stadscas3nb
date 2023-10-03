@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Login</title>
 </head>
+<body>
 
                     <form action="/login" method="post">
                         <span>${requestScope.message}</span>
