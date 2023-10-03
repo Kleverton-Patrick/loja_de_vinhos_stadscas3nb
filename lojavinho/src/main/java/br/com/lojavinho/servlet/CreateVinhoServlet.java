@@ -3,7 +3,6 @@ package br.com.lojavinho.servlet;
 import br.com.lojavinho.dao.VinhoDao;
 import br.com.lojavinho.model.Vinho;
 
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -14,19 +13,25 @@ import java.io.IOException;
 public class CreateVinhoServlet extends HttpServlet {
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
-        String vinhoNome = request.getParameter("vinho-name");
-        System.out.println(vinhoNome);
+        String vinhoId = req.getParameter("id");
+        String vinhoName = req.getParameter("vinho-name");
 
-        //super.doPost(request, response);
+        Vinho vinho = new Vinho(vinhoId, vinhoName);
 
-        //System.out.println(vinhoNome);
+        VinhoDao vinhoDao = new VinhoDao();
 
-        Vinho vinho = new Vinho(vinhoNome);
-        new VinhoDao().createVinho(vinho);
+        if (vinhoId.isBlank()) {
 
-        request.getRequestDispatcher("index.html").forward(request, response);
+            vinhoDao.createVinho(vinho);
+
+        } else {
+
+            vinhoDao.updateVinho(vinho);
+        }
+
+        resp.sendRedirect("/find-all-vinhos");
 
     }
 
