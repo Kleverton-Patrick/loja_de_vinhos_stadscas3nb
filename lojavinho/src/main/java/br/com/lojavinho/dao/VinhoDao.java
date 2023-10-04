@@ -4,7 +4,6 @@ import br.com.lojavinho.config.ConnectionPoolConfig;
 import br.com.lojavinho.model.Vinho;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -15,7 +14,7 @@ public class VinhoDao {
 
     public void createVinho(Vinho vinho) {
 
-        String SQL = "INSERT INTO VINHO (NAME) VALUES (?)";
+        String SQL = "INSERT INTO VINHO (NAME, IMAGE) VALUES (?, ?)";
 
         try {
             Connection connection = ConnectionPoolConfig.getConnection();
@@ -23,6 +22,7 @@ public class VinhoDao {
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
 
             preparedStatement.setString(1, vinho.getName());
+            preparedStatement.setString(2, vinho.getImage());
             preparedStatement.execute();
 
             System.out.println("success in insert vinho CREATE");
@@ -32,6 +32,7 @@ public class VinhoDao {
         } catch (Exception e) {
 
             System.out.println("fail in database connection CREATE");
+            System.out.println("Error: " + e.getMessage());
 
         }
 
@@ -54,8 +55,9 @@ public class VinhoDao {
 
                 String vinhoId = resultSet.getString("id");
                 String vinhoName = resultSet.getString("name");
+                String image = resultSet.getString("image");
 
-                Vinho vinho = new Vinho(vinhoId, vinhoName);
+                Vinho vinho = new Vinho(vinhoId, vinhoName, image);
 
                 vinhos.add(vinho);
             }
@@ -69,6 +71,7 @@ public class VinhoDao {
         } catch (Exception e) {
 
             System.out.println("fail in database connection FIND");
+            System.out.println("Error: " + e.getMessage());
 
             return Collections.emptyList();
         }
@@ -100,7 +103,7 @@ public class VinhoDao {
 
     public void updateVinho(Vinho vinho) {
 
-        String SQL = "UPDATE VINHO SET NAME = ? WHERE ID = ?";
+        String SQL = "UPDATE VINHO SET NAME = ?, IMAGE = ? WHERE ID = ?";
 
         try {
             Connection connection = ConnectionPoolConfig.getConnection();
@@ -108,7 +111,8 @@ public class VinhoDao {
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
 
             preparedStatement.setString(1, vinho.getName());
-            preparedStatement.setString(2, vinho.getId());
+            preparedStatement.setString(2, vinho.getImage());
+            preparedStatement.setString(3, vinho.getId());
             preparedStatement.execute();
 
             System.out.println("success in UPDATE vinho UPDATE");

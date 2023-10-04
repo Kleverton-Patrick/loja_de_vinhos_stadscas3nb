@@ -11,12 +11,12 @@
 
                         <br>
 
-       <label for="username">Username</label>
+       <label for="username">Usuario</label>
        <input type="text" id="username" name="username">
 
        <br>
 
-       <label for="password">Password</label>
+       <label for="password">Senha</label>
        <input type="password" id="password" name="password">
 
       <button type="submit">Login</button>
