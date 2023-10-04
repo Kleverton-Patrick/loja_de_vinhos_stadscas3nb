@@ -6,6 +6,7 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -23,7 +24,7 @@ import static org.apache.commons.fileupload.servlet.ServletFileUpload.isMultipar
 public class CreateVinhoServlet extends HttpServlet {
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         req.setCharacterEncoding("UTF-8");
 
@@ -37,16 +38,11 @@ public class CreateVinhoServlet extends HttpServlet {
         VinhoDao vinhoDao = new VinhoDao();
         Vinho vinho = new Vinho(vinhoId, vinhoName, image);
 
-        if (vinhoId.isBlank()) {
 
-            vinhoDao.createVinho(vinho);
+        Vinho vinho = new Vinho(vinhoNome);
+        new VinhoDao().createVinho(vinho);
 
-        } else {
-
-            vinhoDao.updateVinho(vinho);
-        }
-
-        resp.sendRedirect("/find-all-vinhos");
+        request.getRequestDispatcher("index.html").forward(request, response);
 
     }
 

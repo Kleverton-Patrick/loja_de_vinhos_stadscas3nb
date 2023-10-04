@@ -1,15 +1,9 @@
 package br.com.lojavinho.dao;
 
-import br.com.lojavinho.config.ConnectionPoolConfig;
 import br.com.lojavinho.model.Vinho;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
 public class VinhoDao {
 
     public void createVinho(Vinho vinho) {
@@ -17,7 +11,9 @@ public class VinhoDao {
         String SQL = "INSERT INTO VINHO (NAME, IMAGE) VALUES (?, ?)";
 
         try {
-            Connection connection = ConnectionPoolConfig.getConnection();
+            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa","sa");
+
+            System.out.println("success in database connection");
 
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
 
@@ -25,7 +21,7 @@ public class VinhoDao {
             preparedStatement.setString(2, vinho.getImage());
             preparedStatement.execute();
 
-            System.out.println("success in insert vinho CREATE");
+            System.out.println("success in insert vinho");
 
             connection.close();
 
