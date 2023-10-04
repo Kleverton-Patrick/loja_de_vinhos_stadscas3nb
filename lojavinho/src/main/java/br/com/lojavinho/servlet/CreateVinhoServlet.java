@@ -26,9 +26,9 @@ public class CreateVinhoServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        req.setCharacterEncoding("UTF-8");
+        request.setCharacterEncoding("UTF-8");
 
-        Map<String, String> parameters = uploadImage(req);
+        Map<String, String> parameters = uploadImage(request);
 
         String vinhoId = parameters.get("id");
         String vinhoName = parameters.get("vinho-name");
@@ -36,13 +36,12 @@ public class CreateVinhoServlet extends HttpServlet {
 
 
         VinhoDao vinhoDao = new VinhoDao();
+
         Vinho vinho = new Vinho(vinhoId, vinhoName, image);
 
-
-        Vinho vinho = new Vinho(vinhoNome);
         new VinhoDao().createVinho(vinho);
 
-        request.getRequestDispatcher("index.html").forward(request, response);
+        request.getRequestDispatcher("index.jsp").forward(request, response);
 
     }
 

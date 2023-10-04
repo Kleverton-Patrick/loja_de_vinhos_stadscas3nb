@@ -3,7 +3,13 @@ package br.com.lojavinho.dao;
 import br.com.lojavinho.model.Vinho;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public class VinhoDao {
 
     public void createVinho(Vinho vinho) {
@@ -39,7 +45,7 @@ public class VinhoDao {
         String SQL = "SELECT * FROM VINHO";
 
         try {
-            Connection connection = ConnectionPoolConfig.getConnection();
+            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa","sa");
 
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
 
@@ -79,7 +85,7 @@ public class VinhoDao {
 
         try {
 
-            Connection connection = ConnectionPoolConfig.getConnection();
+            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa","sa");
 
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
             preparedStatement.setString(1, vinhoId);
@@ -102,7 +108,7 @@ public class VinhoDao {
         String SQL = "UPDATE VINHO SET NAME = ?, IMAGE = ? WHERE ID = ?";
 
         try {
-            Connection connection = ConnectionPoolConfig.getConnection();
+            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa","sa");
 
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
 
