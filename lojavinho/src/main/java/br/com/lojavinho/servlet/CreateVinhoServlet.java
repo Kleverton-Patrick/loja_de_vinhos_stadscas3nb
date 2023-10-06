@@ -1,12 +1,11 @@
 package br.com.lojavinho.servlet;
-
+///
 import br.com.lojavinho.dao.VinhoDao;
 import br.com.lojavinho.model.Vinho;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -24,11 +23,11 @@ import static org.apache.commons.fileupload.servlet.ServletFileUpload.isMultipar
 public class CreateVinhoServlet extends HttpServlet {
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
-        request.setCharacterEncoding("UTF-8");
+        req.setCharacterEncoding("UTF-8");
 
-        Map<String, String> parameters = uploadImage(request);
+        Map<String, String> parameters = uploadImage(req);
 
         String vinhoId = parameters.get("id");
         String vinhoName = parameters.get("vinho-name");
@@ -36,12 +35,18 @@ public class CreateVinhoServlet extends HttpServlet {
 
 
         VinhoDao vinhoDao = new VinhoDao();
-
         Vinho vinho = new Vinho(vinhoId, vinhoName, image);
 
-        new VinhoDao().createVinho(vinho);
+        if (vinhoId.isBlank()) {
 
-        request.getRequestDispatcher("index.jsp").forward(request, response);
+            vinhoDao.createVinho(vinho);
+
+        } else {
+
+            vinhoDao.updateVinho(vinho);
+        }
+
+        resp.sendRedirect("/find-all-vinhos");
 
     }
 

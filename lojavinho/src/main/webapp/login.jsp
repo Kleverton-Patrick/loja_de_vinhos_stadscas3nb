@@ -1,27 +1,46 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo.css">
+    <title>Tela de login</title>
 </head>
+
+<header>
+ <!-- Aqui fica o cabeçalho -->
+ <header class="header">
+    <div class="container">
+        <div class="logo">
+            <!-- <img src="IMG_0297.PNG" alt="Logo" class="logo-image"> -->
+            <h1 class="logo-text">WIN-E</h1>
+        </div>
+
+    </div>
+
+</header>
+
+
 <body>
-
-                    <form action="/login" method="post">
-                        <span>${requestScope.message}</span>
-
-                        <br>
-
-       <label for="username">Usuario</label>
-       <input type="text" id="username" name="username">
-
-       <br>
-
-       <label for="password">Senha</label>
-       <input type="password" id="password" name="password">
-
-      <button type="submit">Login</button>
-
-</form>
-
+    <div class="container">
+        <div class="login-card">
+            <h2>Area Admin</h2>
+            <form action="/login" method="post">
+                    <span>${requestScope.message}</span>
+                <br>
+                <div class="form-group">
+                    <label for="username">Usuario:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Senha:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit">Entrar</button>
+            </form>
+        </div>
+    </div>
 </body>
+<script src="main.js"></script>
 </html>
