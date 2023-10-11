@@ -30,7 +30,7 @@ public class RegistroClienteServlet extends HttpServlet {
 
         if (isRegistered) {
             req.getSession().setAttribute("logadoUsuarioCliente", usuarioNameCliente);
-            resp.sendRedirect("/find-all-vinhos");
+            resp.sendRedirect("/TelaDeBusca/Produtos.html");
         } else {
             req.setAttribute("message", "Failed to register. Please try again.");
             req.getRequestDispatcher("cadastrocliente.jsp").forward(req, resp);

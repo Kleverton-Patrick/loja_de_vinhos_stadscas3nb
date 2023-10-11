@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<link rel="stylesheet" href="dashboard.css">
+
 <head>
     <meta charset="UTF-8">
     <title>Painel</title>
 </head>
 <body>
-  <div>
+  <div class="container">
    <c:if test="${sessionScope.loggedUser != null}">
         <span>${sessionScope.loggedUser}</span>
         <a href="/logout">Logout</a>

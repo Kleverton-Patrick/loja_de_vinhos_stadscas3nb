@@ -1,0 +1,258 @@
+*{
+margin: 0;
+padding: 0;
+}
+body{
+    background-color: #ffffff;
+}
+
+.header {
+    background-color: #950000;
+    padding: 20px 0;
+    color: #ffffff;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-image {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.logo-text {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Estilo para o formulário de pesquisa */
+.search-form {
+    display: flex;
+    align-items: center;
+    align-items: center;
+}
+
+.search-input {
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 15px;
+    width: 200px;
+    
+}
+
+.search-button{
+    background-color: #ffffff;
+    border: none;
+    border-radius: 90px;
+    padding: 5px 10px;
+    cursor: pointer;
+    
+
+}
+
+.txt{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 20px auto;
+    color: #770000;
+
+}
+
+/* Estilo para a barra de navegação */
+.navbar {
+    background-color: #950000;
+    color: #ffffff;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.nav-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+}
+
+.nav-item {
+    margin-right: 20px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+/* Estilo para o conteúdo principal */
+.content {
+    padding: 20px 0;
+}
+
+.content .container {
+    text-align: center;
+}
+
+/* Estilo para o rodapé */
+.footer {
+    background-color: #950000;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px 0;
+    padding: 20px 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+
+
+
+/* Estilo para a dropdown container */
+.dropdown-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    border-radius: 30px;
+}
+
+/* Estilo para os botões de dropdown */
+.dropdown-btn {
+    background-color: #950000;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    border-radius: 90px;
+}
+
+/* Estilo para o conteúdo dos dropdowns */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Estilo para os links dos dropdowns */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Estilo para os links dos dropdowns ao passar o mouse */
+.dropdown-content a:hover {
+    background-color: #ddd;
+    border-radius: 90px;
+}
+
+/* Mostrar o conteúdo do dropdown quando o botão é hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+/* Estilo para a container dos cards */
+.cards-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 20px auto;
+    
+}
+
+/* Estilo para os cards */
+.card {
+    width: 300px; /* largura desejada para os cards */
+    height: 400px; /* altura desejada para os cards */
+    border: 1px solid #ccc; 
+    margin: 10px; /* margem para separar os cards */
+    display: inline-block; /* Para que os cards apareçam na mesma linha */
+    text-align: center; /* Alinhe o conteúdo ao centro */
+}
+
+/* Estilo para as imagens dos cards */
+.card img {
+    max-width: 100%; 
+    max-height: 100%;
+}
+
+/* Estilo para as informações dos cards */
+.card-info {
+    padding: 10px;
+    background-color: #f6f2f2;
+}
+
+/* Estilo para o título dos cards */
+.card-info h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+/* Estilo para a descrição dos cards */
+.card-info p {
+    margin: 10px 0;
+    font-size: 14px;
+}
+
+
+/* Estilo para o botão "Selecionar" */
+.select-button {
+    background-color: #950000;
+    color: #ffffff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+.select-button:hover {
+    background-color: #770000;
+} 
+
+
+
+/* Estilo para o botão "Sugestão" */
+.suggestion-button {
+    margin-left: 8px; /* Espaço entre o botão e a área de pesquisa */
+}
+
+.suggestion-link {
+    background-color: #950000;
+    color: #ffffff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 5px;
+    text-decoration: none; 
+}
+
+.suggestion-link:hover {
+    background-color: #770000;
+}
+
+
+
+
