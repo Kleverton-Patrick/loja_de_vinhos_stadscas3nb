@@ -1,0 +1,120 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #ffffff;
+     overflow: hidden;
+}
+
+.header {
+    background-color: #950000;
+    padding: 20px 0;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header .container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-image {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.logo-text {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.login-button,
+.register-button {
+    background-color: #ffffff;
+    color: #ff0000;
+    border: none;
+    font-size: 18px;
+    border-radius: 100px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.image-container {
+    text-align: center;
+}
+
+.image-center{
+   max-width: 700px;
+
+       margin: 0 auto;
+       margin-top: 10px;
+}
+
+button-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.product-button {
+    background-color: #950000;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    font-size: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 90px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.product-button:hover {
+    background-color: #ff0000;
+    text-decoration: none;
+}
+
+
+.footer {
+    background-color: #950000;
+    color: #ffffff;
+    text-align: center;
+    padding: 13px 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer p {
+    margin: 0;
+}
+
+.footer a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
