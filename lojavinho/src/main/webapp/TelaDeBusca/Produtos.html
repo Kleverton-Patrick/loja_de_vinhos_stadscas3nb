@@ -36,37 +36,45 @@
 </div>
 
 <main class="content">
+
     <div class="dropdown-container">
-        <div class="dropdown">
-            <button class="dropdown-btn">PAÍS</button>
-            <div class="dropdown-content">
-                <a href="#">Brasil</a>
-                <a href="#">Chile</a>
-                <a href="#">Argentina</a>
-                <a href="#">França</a>
 
-            </div>
+        <div class="dropdown">
+            <select class="dropdown-btn" name="pais" id="pais">
+                <option selected> PAÍS </option>
+                <option value="Argentina">Argentina</option>
+                <option value="Chile">Chile</option>
+                <option value="Espanha">Espanha</option>
+                <option value="Italia">Italia</option>
+                <option value="Portugal">Portugal</option>
+            </select>
+        </div>
+
+
+        <div class="dropdown">
+            <select class="dropdown-btn" name="tipoVinho" id="tipoVinho">
+                <option selected>TIPO DE VINHO </option>
+                <option value="Branco">Branco</option>
+                <option value="Espumante">Espumante</option>
+                <option value="Rosé">Rosé</option>
+                <option value="Tinto">Tinto</option>
+            </select>
         </div>
 
         <div class="dropdown">
-            <button class="dropdown-btn">TIPO DO VINHO</button>
-            <div class="dropdown-content">
-                <a href="#">SECO</a>
-                <a href="#">SUAVE</a>
-                <a href="#">BRANCO</a>
-
-            </div>
+            <select class="dropdown-btn" name="uva" id="uva">
+                <option selected> TIPO DE UVA </option>
+                <option value="Cabernet Sauvignon">Cabernet Sauvignon</option>
+                <option value="Chardonnay">Chardonnay</option>
+                <option value="Merlot">Merlot</option>
+                <option value="Malbec">Malbec</option>
+                <option value="Pinot Noir">Pinot Noir</option>
+            </select>
         </div>
 
-        <div class="dropdown">
-            <button class="dropdown-btn">TIPO DA UVA</button>
-            <div class="dropdown-content">
-                <a href="#">Cabernet Sauvignon</a>
-                <a href="#">Merlot</a>
-                <a href="#">Chardonnay</a>
-            </div>
-        </div>
+
     </div>
+
 </main>
 <!-- FIM -->
 
