@@ -40,7 +40,7 @@ public class LoginServlet extends HttpServlet {
 
             req.setAttribute("message", "Invalid credentials!");
 
-            req.getRequestDispatcher("/TelaDeBusca/Produtos.html").forward(req, resp);
+            req.getRequestDispatcher("/TelaDeBusca/Produtos.jsp").forward(req, resp);
 
         }
 

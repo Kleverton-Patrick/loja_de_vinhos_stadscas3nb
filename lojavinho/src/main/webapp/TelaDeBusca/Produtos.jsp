@@ -16,9 +16,9 @@
             <h1 class="logo-text">WIN-E</h1>
         </div>
 
-        <form class="search-form" role="search">
-            <input type="text" class="search-input" placeholder="Busque seu rótulo" aria-label="Search">
-            <button type="submit" class="search-button">Buscar</button>
+        <form class="search-form" role="search" method="GET" action="/TelaDeProdutos">
+            <input type="text" class="search-input" name="busca" placeholder="Busque seu rótulo" aria-label="Search">
+            <button  type="submit" class="search-button">Buscar</button>
         </form>
         <div class="suggestion-button">
             <a href="entrarcliente.jsp" class="suggestion-link">Login</a>
@@ -41,34 +41,26 @@
 
         <div class="dropdown">
             <select class="dropdown-btn" name="pais" id="pais">
-                <option selected> PAÍS </option>
-                <option value="Argentina">Argentina</option>
-                <option value="Chile">Chile</option>
-                <option value="Espanha">Espanha</option>
-                <option value="Italia">Italia</option>
-                <option value="Portugal">Portugal</option>
+                <c:forEach value="${pais}" var="paises">
+                    <option value="${PAIS.paisID}">${PAIS.nomePais}</option>
+                </c:forEach>
             </select>
         </div>
 
 
         <div class="dropdown">
             <select class="dropdown-btn" name="tipoVinho" id="tipoVinho">
-                <option selected>TIPO DE VINHO </option>
-                <option value="Branco">Branco</option>
-                <option value="Espumante">Espumante</option>
-                <option value="Rosé">Rosé</option>
-                <option value="Tinto">Tinto</option>
+                <c:forEach value="${tipoVinho}" var="tiposVinho">
+                    <option value="${TipoVinho.tipoVinhoID}">${TipoVinho.nomeTipoVinho}</option>
+                </c:forEach>
             </select>
         </div>
 
         <div class="dropdown">
             <select class="dropdown-btn" name="uva" id="uva">
-                <option selected> TIPO DE UVA </option>
-                <option value="Cabernet Sauvignon">Cabernet Sauvignon</option>
-                <option value="Chardonnay">Chardonnay</option>
-                <option value="Merlot">Merlot</option>
-                <option value="Malbec">Malbec</option>
-                <option value="Pinot Noir">Pinot Noir</option>
+                <c:forEach value="${tipoipoUva}" var="tiposUva">
+                    <option value="${TipoUva.tipoUvaID}">${TipoUva.NomeTipoUva}</option>
+                </c:forEach>
             </select>
         </div>
 
@@ -125,7 +117,7 @@
     </div>
 </footer>
 <!-- FIM  -->
-<script src="main.js"></script>
+<
 </body>
 
 </html>

@@ -1,11 +1,15 @@
 package br.com.lojavinho.dao;
 
 import br.com.lojavinho.config.ConnectionPoolConfig;
+import br.com.lojavinho.model.Pais;
+import br.com.lojavinho.model.TipoUva;
+import br.com.lojavinho.model.TipoVinho;
 import br.com.lojavinho.model.Vinho;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -38,7 +42,7 @@ public class VinhoDao {
 
     }
 
-    public List<Vinho> findAllVinhos() {
+   public List<Vinho> findAllVinhos() {
 
         String SQL = "SELECT * FROM VINHO";
 
@@ -82,7 +86,6 @@ public class VinhoDao {
         String SQL = "DELETE VINHO WHERE ID = ?";
 
         try {
-
             Connection connection = ConnectionPoolConfig.getConnection();
 
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
@@ -127,4 +130,90 @@ public class VinhoDao {
 
         }
     }
+
+    public static List<Pais> obterPaises() {
+        List<Pais> listaDePaises = new ArrayList<>();
+
+        try (Connection connection = ConnectionPoolConfig.getConnection()) {
+            String sql = "SELECT * FROM PAIS";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                int id = resultSet.getInt("PAISID");
+                String nome = resultSet.getString("NOMEPAIS");
+                Pais pais = new Pais(id, nome);
+                listaDePaises.add(pais);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return listaDePaises;
+    }
+
+    public static List<TipoVinho> obterTiposVinho() {
+        List<TipoVinho> listaTiposVinhos = new ArrayList<>();
+
+        try (Connection connection = ConnectionPoolConfig.getConnection()) {
+            String sql = "SELECT * FROM TIPOVINHO";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                int id = resultSet.getInt("TIPOVINHOID");
+                String tipoVinho = resultSet.getString("NOMETIPOVINHO");
+                TipoVinho nomeTipoVinho = new TipoVinho(id, tipoVinho);
+                listaTiposVinhos.add(nomeTipoVinho);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return listaTiposVinhos;
+    }
+
+    public static List<TipoUva> obterTiposUva() {
+        List<TipoUva> listaTipoUva = new ArrayList<>();
+
+        try (Connection connection = ConnectionPoolConfig.getConnection()) {
+            String sql = "SELECT * FROM TIPOUVA";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                int id = resultSet.getInt("TIPOUVAID");
+                String tipoUva = resultSet.getString("NOMETIPOUVA");
+                TipoUva nomeTipoUva = new TipoUva(id, tipoUva);
+                listaTipoUva.add(nomeTipoUva);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return listaTipoUva;
+    }
+
+    public static List<String> obterNomesDosVinhos(String nomeVinho) {
+        List<String> nomesDosVinhos = new ArrayList<>();
+
+        try (Connection connection = ConnectionPoolConfig.getConnection()) {
+            System.out.println("Conexao bd ok");
+            String sql = "SELECT NOMEVINHO FROM VINHO WHERE NOMEVINHO LIKE ?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, "%" + nomeVinho + "%");
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                nomeVinho = resultSet.getString("NOMEVINHO");
+                nomesDosVinhos.add(nomeVinho);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return nomesDosVinhos;
+    }
+
 }

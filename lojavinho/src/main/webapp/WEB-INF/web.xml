@@ -22,7 +22,7 @@
   </servlet-mapping>
 
 <welcome-file-list>
-  <welcome-file>TelaInicial/TelaInicial.html</welcome-file>
+  <welcome-file>TelaInicial/TelaInicial.jsp</welcome-file>
 </welcome-file-list>
 
 </web-app>

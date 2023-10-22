@@ -1,3 +1,4 @@
+/*
 const selectButtons = document.querySelectorAll(".select-button");
 selectButtons.forEach((button, index) => {
     button.addEventListener("click", () => {
@@ -23,3 +24,4 @@ selectButtons.forEach((button, index) => {
         alert(mensagem);
     });
 });
+*/

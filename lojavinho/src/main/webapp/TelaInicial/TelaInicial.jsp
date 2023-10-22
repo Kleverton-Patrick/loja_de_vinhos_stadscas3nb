@@ -20,9 +20,11 @@
     <div class="image-container">
         <img src="TelaInicial/IMG_0297.PNG" alt="Imagem Centralizada" class="image-center">
     </div>
+    <form method="POST" action="/TelaDeProdutos">
     <div class="button-container">
-        <a href="../TelaDeBusca/Produtos.html" class="product-button">Clique e conheça nosso catálogo</a>
+        <button  type="submit" class="search-button">Clique e conheça nosso catálogo</button>
     </div>
+    </form>
 </div>
 
 <!-- INICIO DO RODAPÉ -->
