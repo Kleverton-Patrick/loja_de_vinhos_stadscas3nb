@@ -29,8 +29,7 @@ public class SenhaClienteServlet extends HttpServlet {
 
         if (isValidUsuarioCliente) {
 
-            //req.getSession().setAttribute("loggedUserCliente", usuarioNomeCliente);
-            req.getSession().setAttribute("loggedUser", usuarioNomeCliente);
+            req.getSession().setAttribute("logadoUsuarioCliente", usuarioNomeCliente);
 
             resp.sendRedirect("/find-all-vinhos");
 

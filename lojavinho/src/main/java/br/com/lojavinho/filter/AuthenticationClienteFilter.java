@@ -17,7 +17,7 @@ public class AuthenticationClienteFilter implements Filter {
 
         HttpServletRequest httpServletRequest = (HttpServletRequest) servletRequest;
 
-        if (isUserLoggedOn(httpServletRequest)) {
+        if (isUserLoggedOnClient(httpServletRequest)) {
 
             chain.doFilter(servletRequest, response);
 
@@ -25,7 +25,7 @@ public class AuthenticationClienteFilter implements Filter {
 
             servletRequest.setAttribute("message", "user not authenticated!");
 
-            servletRequest.getRequestDispatcher("/cadastrocliente.jsp").forward(httpServletRequest, response);
+            servletRequest.getRequestDispatcher("/entrarcliente.jsp").forward(httpServletRequest, response);
 
         }
     }
@@ -35,7 +35,7 @@ public class AuthenticationClienteFilter implements Filter {
 
     }
 
-    private boolean isUserLoggedOn(HttpServletRequest httpServletRequest) {
+    private boolean isUserLoggedOnClient(HttpServletRequest httpServletRequest) {
 
         return httpServletRequest.getSession().getAttribute("logadoUsuarioCliente") != null;
     }

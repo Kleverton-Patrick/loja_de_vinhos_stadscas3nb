@@ -35,30 +35,30 @@
         </div>
 
 
-                <div class="form-group">
-                <label for="cpfCliente">CPF:</label>
-                <input type="text" id="cpfCliente" name="cpfCliente" required>
-                </div>
+        <div class="form-group">
+            <label for="cpfCliente">CPF:</label>
+            <input type="text" id="cpfCliente" name="cpfCliente" required>
+        </div>
 
-                        <br>
-                        <div class="form-group">
-                        <label for="emailCliente">E-mail:</label>
-                        <input type="text" id="emailCliente" name="emailCliente" required>
-                        </div>
+        <br>
+        <div class="form-group">
+            <label for="emailCliente">E-mail:</label>
+            <input type="text" id="emailCliente" name="emailCliente" required>
+        </div>
 
-                                <br>
-                                <div class="form-group">
-                                <label for="telefoneCliente">Telefone:</label>
-                                <input type="text" id="telefoneCliente" name="telefoneCliente" required>
-                                </div>
+        <br>
+        <div class="form-group">
+        <label for="telefoneCliente">Telefone:</label>
+        <input type="text" id="telefoneCliente" name="telefoneCliente" required>
+        </div>
 
-                                        <br>
-                                        <div class="form-group">
-                                        <label for="senhaCliente">Senha:</label>
-                                        <input type="senhaCliente" id="senhaCliente" name="senhaCliente" required>
-                                        </div>
+        <br>
+        <div class="form-group">
+            <label for="senhaCliente">Senha:</label>
+            <input type="senhaCliente" id="senhaCliente" name="senhaCliente" required>
+        </div>
 
-                                                <br>
+        <br>
 
                 <button type="submit">Cadastrar</button>
             </form>

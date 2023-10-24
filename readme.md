@@ -20,23 +20,23 @@ Por fim, não menos importante, temos como proposta democratizar nossa aplicaç�
 * Consultar a venda.
 
 ## Modelo Tela Pagina Inicial
-![Modelo PaginaInicial](/Projeto/Tela_Inicial.png)
+![Modelo PaginaInicial](/ImagensReadme/Tela_Inicial.png)
 
 ## Modelo Tela pesquisa de Produto
-![Modelo Tela Pesquisa De Produtos](/Projeto/Tela_de_Pesquisa_de_Produto.jpg)
+![Modelo Tela Pesquisa De Produtos](/ImagensReadme/Tela_de_Pesquisa_de_Produto.jpg)
 
 
 ## Modelo Tela Filtro de Acompanhamento
-![Modelo Tela Filtro Acompanhamento](/Projeto/Tela_Filtro_Acompanhamento.jpg)
+![Modelo Tela Filtro Acompanhamento](/ImagensReadme/Tela_Filtro_Acompanhamento.jpg)
 
 
 ## Modelo Tela Login
-![Modelo Login](/Projeto/Tela_de_Login.jpg)
+![Modelo Login](/ImagensReadme/Tela_de_Login.jpg)
 
 
 ## Modelo Conceitual
-![Modelo de Dados](/Projeto/imagem_Modelo_Conceitual.PNG)
+![Modelo de Dados](/ImagensReadme/imagem_Modelo_Conceitual.PNG)
 
 
 ## Modelo Lógico
-![Modelo de Dados](/Projeto/imagem_Modelo_Logico.PNG)
+![Modelo de Dados](/ImagensReadme/imagem_Modelo_Logico.PNG)
