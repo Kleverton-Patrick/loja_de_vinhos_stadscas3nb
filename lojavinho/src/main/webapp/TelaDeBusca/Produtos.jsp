@@ -1,3 +1,24 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page import="java.util.List" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="br.com.lojavinho.model.Pais" %>
+<%@ page import="br.com.lojavinho.model.TipoVinho" %>
+<%@ page import="br.com.lojavinho.model.TipoUva" %>
+<%@ page import="br.com.lojavinho.dao.VinhoDao" %>
+
+<%
+
+    VinhoDao vinhoDao = new VinhoDao();
+    List<Pais> paises = vinhoDao.obterPaises();
+    List<TipoVinho> tiposVinho = vinhoDao.obterTiposVinho();
+    List<TipoUva> tiposUva = vinhoDao.obterTiposUva();
+
+
+    request.setAttribute("pais", paises);
+    request.setAttribute("tipoVinho", tiposVinho);
+    request.setAttribute("tipoUva", tiposUva);
+%>
+
 <!DOCTYPE html>
 <html lang="pt">
 
@@ -8,116 +29,104 @@
     <link rel="stylesheet" href="Home.css">
 </head>
 
-<!-- Aqui fica o cabeçalho -->
-<header class="header">
-    <div class="container">
-        <div class="logo">
-            <!-- <img src="IMG_0297.PNG" alt="Logo" class="logo-image"> -->
-            <h1 class="logo-text">WIN-E</h1>
-        </div>
-
-        <form class="search-form" role="search" method="GET" action="/TelaDeProdutos">
-            <input type="text" class="search-input" name="busca" placeholder="Busque seu rótulo" aria-label="Search">
-            <button  type="submit" class="search-button">Buscar</button>
-        </form>
-        <div class="suggestion-button">
-            <a href="entrarcliente.jsp" class="suggestion-link">Login</a>
-        </div>
-    </div>
-</header>
-
 <body>
-</nav>
-<!-- Estrutura dos dropd -->
-
-<!-- INICIO -->
-<div class="txt">
-    <h1>Escolha o seu vinho</h1>
-</div>
-
-<main class="content">
-
-    <div class="dropdown-container">
-
-        <div class="dropdown">
-            <select class="dropdown-btn" name="pais" id="pais">
-                <c:forEach value="${pais}" var="paises">
-                    <option value="${PAIS.paisID}">${PAIS.nomePais}</option>
-                </c:forEach>
-            </select>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1 class="logo-text">WIN-E</h1>
+            </div>
+            <form class="search-form" role="search" method="GET" action="/Busca">
+                <input type="text" class="search-input" name="busca" placeholder="Busque seu rótulo" aria-label="Search">
+                <button type="submit" class="search-button">Buscar</button>
+            </form>
+            <div class="suggestion-button">
+                <a href="entrarcliente.jsp" class="suggestion-link">Login</a>
+            </div>
         </div>
+    </header>
 
-
-        <div class="dropdown">
-            <select class="dropdown-btn" name="tipoVinho" id="tipoVinho">
-                <c:forEach value="${tipoVinho}" var="tiposVinho">
-                    <option value="${TipoVinho.tipoVinhoID}">${TipoVinho.nomeTipoVinho}</option>
-                </c:forEach>
-            </select>
-        </div>
-
-        <div class="dropdown">
-            <select class="dropdown-btn" name="uva" id="uva">
-                <c:forEach value="${tipoipoUva}" var="tiposUva">
-                    <option value="${TipoUva.tipoUvaID}">${TipoUva.NomeTipoUva}</option>
-                </c:forEach>
-            </select>
-        </div>
-
-
+    <!-- Estrutura dos dropdowns -->
+    <!-- INÍCIO -->
+    <div class="txt text-center">
+        <h1>Escolha o seu vinho</h1>
     </div>
 
-</main>
-<!-- FIM -->
+<div class="dropdown-container ">
+    <select class="dropdown-btn text-center" name="pais" id="pais"> <!-- Adicionado a classe text-center -->
+        <option value="">Selecione o país</option>
+        <c:forEach items="${pais}" var="pais">
+            <option value="${pais.paisID}">${pais.nomePais}</option>
+        </c:forEach>
+    </select>
 
-<div class="cards-container">
-    <div class="card">
-        <img src="Carne.jpg" alt="Harmonização 1">
-        <div class="card-info">
-            <h3>CARNE VERMELHA</h3>
-            <p>Para cortes de carne vermelha diversos</p>
-            <button class="select-button">Selecionar</button>
-        </div>
+
+    <div class="dropdown text-center"> <!-- Adicionado a classe text-center -->
+        <select class="dropdown-btn" name="tipoVinho" id="tipoVinho">
+            <option value="">Selecione o tipo de vinho</option>
+            <c:forEach items="${tipoVinho}" var="tipoVinho">
+                <option value="${tipoVinho.tipoVinhoID}">${tipoVinho.nomeTipoVinho}</option>
+            </c:forEach>
+        </select>
     </div>
 
-    <div class="card">
-        <img src="FrutosDoMar.jpg" alt="Harmonização 2">
-        <div class="card-info">
-            <h3>FRUTOS DO MAR</h3>
-            <p>Para Frutos do Mar e comida Japonesa.</p>
-            <button class="select-button">Selecionar</button>
-        </div>
-    </div>
-
-    <div class="card">
-        <img src="Queijo.jpg" alt="Harmonização 3">
-        <div class="card-info">
-            <h3>QUEIJOS</h3>
-            <p>Para Queijos Branco,Parmesão e Canastra.</p>
-            <button class="select-button">Selecionar</button>
-        </div>
-    </div>
-
-    <div class="card">
-        <img src="SobreMesa.jpg" alt="Harmonização 4">
-        <div class="card-info">
-            <h3>SOBREMESA</h3>
-            <p>Descrição da harmonização 4.</p>
-            <button class="select-button">Selecionar</button>
-        </div>
+    <div class="dropdown text-center"> <!-- Adicionado a classe text-center -->
+        <select class="dropdown-btn" name="uva" id="uva">
+            <option value="">Selecione o tipo de uva</option>
+            <c:forEach items="${tipoUva}" var="tipoUva">
+                <option value="${tipoUva.tipoUvaID}">${tipoUva.nomeTipoUva}</option>
+            </c:forEach>
+        </select>
     </div>
 </div>
 
+    <!-- FIM -->
 
+    <div class="cards-container">
+        <div class="card">
+            <img src="Carne.jpg" alt="Harmonização 1">
+            <div class="card-info">
+                <h3>CARNE VERMELHA</h3>
+                <p>Para cortes de carne vermelha diversos</p>
+                <button class="select-button">Selecionar</button>
+            </div>
+        </div>
 
-<!-- INICIO DO RODAPÉ -->
-<footer class="footer">
-    <div class="container">
-        <p>&copy; 2023 WIN-E. Todos os direitos reservados.</p>
+        <div class="card">
+            <img src="FrutosDoMar.jpg" alt="Harmonização 2">
+            <div class "card-info">
+                <h3>FRUTOS DO MAR</h3>
+                <p>Para Frutos do Mar e comida Japonesa.</p>
+                <button class="select-button">Selecionar</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="Queijo.jpg" alt="Harmonização 3">
+            <div class="card-info">
+                <h3>QUEIJOS</h3>
+                <p>Para Queijos Branco, Parmesão e Canastra.</p>
+                <button class="select-button">Selecionar</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="SobreMesa.jpg" alt="Harmonização 4">
+            <div class="card-info">
+                <h3>SOBREMESA</h3>
+                <p>Descrição da harmonização 4.</p>
+                <button class="select-button">Selecionar</button>
+            </div>
+        </div>
     </div>
-</footer>
-<!-- FIM  -->
-<
+
+    <!-- INÍCIO DO RODAPÉ -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2023 WIN-E. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+    <!-- FIM -->
+
 </body>
 
 </html>

@@ -18,13 +18,8 @@ import java.util.List;
 @WebServlet("/TelaDeProdutos")
 public class TelaDeProdutosServlet extends HttpServlet {
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        String nomeVinho = request.getParameter("busca");
-        if (!nomeVinho.isEmpty()) {
-            doGet(request,response);
-        }
-        else
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         {
             List<Pais> paises = VinhoDao.obterPaises();
             List<TipoVinho> tiposVinho = VinhoDao.obterTiposVinho();
@@ -34,23 +29,16 @@ public class TelaDeProdutosServlet extends HttpServlet {
             request.setAttribute("tipoVinho", tiposVinho);
             request.setAttribute("tipoUva", tiposUva);
 
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/TelaDeBusca/Produtos.jsp");
+            String contextPath = request.getContextPath();
+            String jspPath = "/TelaDeBusca/Produtos.jsp";
+            String fullPath = contextPath + jspPath;
+
+            RequestDispatcher dispatcher = request.getRequestDispatcher(fullPath);
             dispatcher.forward(request, response);
+
         }
     }
 
-
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-
-        String nomeVinho = request.getParameter("busca");
-        if (!nomeVinho.isEmpty()) {
-            List<String> nomesDosVinhos = VinhoDao.obterNomesDosVinhos(nomeVinho);
-            request.setAttribute("resultados", nomesDosVinhos);
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/TelaDeBusca/Resultado.jsp");
-            dispatcher.forward(request, response);
-        }
-    }
 }
 
 

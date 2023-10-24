@@ -8,28 +8,23 @@ public class Pais {
     }
 
     public Pais(int paisID, String nomePais) {
-        this.nomePais = nomePais;
         this.paisID = paisID;
+        this.nomePais = nomePais;
     }
 
-    public int getpaisID()
-    {
+    public int getPaisID() {
         return paisID;
     }
 
-    public void setpaisID(int paisID)
-    {
+    public void setPaisID(int paisID) {
         this.paisID = paisID;
     }
 
-    public String getNomePais()
-    {
+    public String getNomePais() {
         return nomePais;
     }
 
-    public void setNomePais(String nomePais)
-    {
+    public void setNomePais(String nomePais) {
         this.nomePais = nomePais;
     }
-
 }

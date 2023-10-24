@@ -118,3 +118,12 @@ button-container {
     text-decoration: underline;
 }
 
+.select-button {
+    background-color: #950000;
+    color: #ffffff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 5px;
+}

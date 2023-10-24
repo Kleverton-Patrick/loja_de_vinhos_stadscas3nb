@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt">
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <head>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bem Vindo</title>
     <link rel="stylesheet" href="/TelaInicial/TelaInicial.css">
@@ -20,11 +20,13 @@
     <div class="image-container">
         <img src="TelaInicial/IMG_0297.PNG" alt="Imagem Centralizada" class="image-center">
     </div>
-    <form method="POST" action="/TelaDeProdutos">
-    <div class="button-container">
-        <button  type="submit" class="search-button">Clique e conheça nosso catálogo</button>
+    <div class="product-button ">
+    <form  action="/TelaDeBusca/Produtos.jsp">
+    <div class="select-button">
+        <button  type="submit" class="product-button" >Clique e conheça nosso catálogo</button>
     </div>
     </form>
+    </div>
 </div>
 
 <!-- INICIO DO RODAPÉ -->
