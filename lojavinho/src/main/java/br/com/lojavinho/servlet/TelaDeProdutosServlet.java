@@ -16,29 +16,37 @@ import java.io.IOException;
 import java.util.List;
 
 @WebServlet("/TelaDeProdutos")
-public class TelaDeProdutosServlet extends HttpServlet {
+public class TelaDeProdutosServlet extends HttpServlet
+{
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        String nomeVinho = request.getParameter("busca");
+        if (nomeVinho != null && !nomeVinho.isEmpty())
         {
-            List<Pais> paises = VinhoDao.obterPaises();
-            List<TipoVinho> tiposVinho = VinhoDao.obterTiposVinho();
-            List<TipoUva> tiposUva = VinhoDao.obterTiposUva();
-
-            request.setAttribute("pais", paises);
-            request.setAttribute("tipoVinho", tiposVinho);
-            request.setAttribute("tipoUva", tiposUva);
-
-            String contextPath = request.getContextPath();
-            String jspPath = "/TelaDeBusca/Produtos.jsp";
-            String fullPath = contextPath + jspPath;
-
-            RequestDispatcher dispatcher = request.getRequestDispatcher(fullPath);
+            List<String> nomesDosVinhos = VinhoDao.obterNomesDosVinhos(nomeVinho);
+            request.setAttribute("resultados", nomesDosVinhos);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/TelaDeBusca/Resultados.jsp");
             dispatcher.forward(request, response);
 
+        return;
         }
-    }
 
+        VinhoDao vinhoDao = new VinhoDao();
+        List<Pais> paises = vinhoDao.obterPaises();
+        List<TipoVinho> tiposVinho = vinhoDao.obterTiposVinho();
+        List<TipoUva> tiposUva = vinhoDao.obterTiposUva();
+
+
+        request.setAttribute("pais", paises);
+        request.setAttribute("tipoVinho", tiposVinho);
+        request.setAttribute("tipoUva", tiposUva);
+
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/TelaDeBusca/Produtos.jsp");
+        dispatcher.forward(request, response);
+    }
 }
+
 
 

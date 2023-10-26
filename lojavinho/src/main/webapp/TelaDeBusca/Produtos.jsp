@@ -1,23 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="java.util.List" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import="br.com.lojavinho.model.Pais" %>
-<%@ page import="br.com.lojavinho.model.TipoVinho" %>
-<%@ page import="br.com.lojavinho.model.TipoUva" %>
-<%@ page import="br.com.lojavinho.dao.VinhoDao" %>
-
-<%
-
-    VinhoDao vinhoDao = new VinhoDao();
-    List<Pais> paises = vinhoDao.obterPaises();
-    List<TipoVinho> tiposVinho = vinhoDao.obterTiposVinho();
-    List<TipoUva> tiposUva = vinhoDao.obterTiposUva();
-
-
-    request.setAttribute("pais", paises);
-    request.setAttribute("tipoVinho", tiposVinho);
-    request.setAttribute("tipoUva", tiposUva);
-%>
 
 <!DOCTYPE html>
 <html lang="pt">
@@ -26,7 +9,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página Inicial</title>
-    <link rel="stylesheet" href="Home.css">
+    <link rel="stylesheet" href="/TelaDeBusca/Home.css">
 </head>
 
 <body>
@@ -34,8 +17,8 @@
         <div class="container">
             <div class="logo">
                 <h1 class="logo-text">WIN-E</h1>
-            </div>
-            <form class="search-form" role="search" method="GET" action="/Busca">
+        </div>
+            <form class="search-form" role="search" method="GET" action="/TelaDeProdutos">
                 <input type="text" class="search-input" name="busca" placeholder="Busque seu rótulo" aria-label="Search">
                 <button type="submit" class="search-button">Buscar</button>
             </form>

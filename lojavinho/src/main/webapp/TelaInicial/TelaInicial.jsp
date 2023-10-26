@@ -21,7 +21,7 @@
         <img src="TelaInicial/IMG_0297.PNG" alt="Imagem Centralizada" class="image-center">
     </div>
     <div class="product-button ">
-    <form  action="/TelaDeBusca/Produtos.jsp">
+    <form  action="/TelaDeProdutos" method="GET">
     <div class="select-button">
         <button  type="submit" class="product-button" >Clique e conheça nosso catálogo</button>
     </div>
