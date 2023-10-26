@@ -42,7 +42,7 @@ public class VinhoDao {
 
     }
 
-   public List<Vinho> findAllVinhos() {
+    public List<Vinho> findAllVinhos() {
 
         String SQL = "SELECT * FROM VINHO";
 
@@ -215,5 +215,41 @@ public class VinhoDao {
 
         return nomesDosVinhos;
     }
+
+    public static List<String> obterVinhos(String paisID, String tipoVinhoID, String tipoUvaID) {
+        List<String> nomesDosVinhos = new ArrayList<>();
+
+        try (Connection connection = ConnectionPoolConfig.getConnection()) {
+            String sql = "SELECT V.NomeVinho " +
+                    "FROM Vinho AS V " +
+                    "INNER JOIN Pais AS P ON P.PaisID = V.PaisId " +
+                    "INNER JOIN TipoUva AS TU ON TU.TipoUvaID = V.TipoUvaId " +
+                    "INNER JOIN TipoVinho AS TV ON TV.TipoVinhoID = V.TipoVinhoId " +
+                    "WHERE (P.PaisID = ? OR ? IS NULL) " +
+                    "AND (TU.TipoUvaID = ? OR ? IS NULL) " +
+                    "AND (TV.TipoVinhoID = ? OR ? IS NULL)";
+
+            PreparedStatement statement = connection.prepareStatement(sql);
+
+            statement.setObject(1, paisID);
+            statement.setObject(2, paisID);
+            statement.setObject(3, tipoUvaID);
+            statement.setObject(4, tipoUvaID);
+            statement.setObject(5, tipoVinhoID);
+            statement.setObject(6, tipoVinhoID);
+
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                String nomeVinho = resultSet.getString("NomeVinho");
+                nomesDosVinhos.add(nomeVinho);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return nomesDosVinhos;
+    }
+
 
 }

@@ -34,16 +34,15 @@
         <h1>Escolha o seu vinho</h1>
     </div>
 
-<div class="dropdown-container ">
-    <select class="dropdown-btn text-center" name="pais" id="pais"> <!-- Adicionado a classe text-center -->
+<form class="search-form" role="search" method="GET" action="/TelaDeProdutos">
+    <select class="dropdown-btn text-center" name="pais" id="pais">
         <option value="">Selecione o país</option>
         <c:forEach items="${pais}" var="pais">
             <option value="${pais.paisID}">${pais.nomePais}</option>
         </c:forEach>
     </select>
 
-
-    <div class="dropdown text-center"> <!-- Adicionado a classe text-center -->
+    <div class="dropdown text-center">
         <select class="dropdown-btn" name="tipoVinho" id="tipoVinho">
             <option value="">Selecione o tipo de vinho</option>
             <c:forEach items="${tipoVinho}" var="tipoVinho">
@@ -52,21 +51,24 @@
         </select>
     </div>
 
-    <div class="dropdown text-center"> <!-- Adicionado a classe text-center -->
-        <select class="dropdown-btn" name="uva" id="uva">
+    <div class="dropdown text-center">
+        <select class="dropdown-btn" name="tipoUva" id="tipoUva">
             <option value="">Selecione o tipo de uva</option>
             <c:forEach items="${tipoUva}" var="tipoUva">
                 <option value="${tipoUva.tipoUvaID}">${tipoUva.nomeTipoUva}</option>
             </c:forEach>
         </select>
     </div>
-</div>
+
+    <button type="submit" class="search-button" name="buscaComposta">Buscar</button>
+</form>
+
 
     <!-- FIM -->
 
     <div class="cards-container">
         <div class="card">
-            <img src="Carne.jpg" alt="Harmonização 1">
+            <img src="/TelaDeBusca/Carne.jpg" alt="Harmonização 1">
             <div class="card-info">
                 <h3>CARNE VERMELHA</h3>
                 <p>Para cortes de carne vermelha diversos</p>
@@ -75,7 +77,7 @@
         </div>
 
         <div class="card">
-            <img src="FrutosDoMar.jpg" alt="Harmonização 2">
+            <img src="/TelaDeBusca/FrutosDoMar.jpg" alt="Harmonização 2">
             <div class "card-info">
                 <h3>FRUTOS DO MAR</h3>
                 <p>Para Frutos do Mar e comida Japonesa.</p>
@@ -84,7 +86,7 @@
         </div>
 
         <div class="card">
-            <img src="Queijo.jpg" alt="Harmonização 3">
+            <img src="/TelaDeBusca/Queijo.jpg" alt="Harmonização 3">
             <div class="card-info">
                 <h3>QUEIJOS</h3>
                 <p>Para Queijos Branco, Parmesão e Canastra.</p>
@@ -93,7 +95,7 @@
         </div>
 
         <div class="card">
-            <img src="SobreMesa.jpg" alt="Harmonização 4">
+            <img src="/TelaDeBusca/SobreMesa.jpg" alt="Harmonização 4">
             <div class="card-info">
                 <h3>SOBREMESA</h3>
                 <p>Descrição da harmonização 4.</p>

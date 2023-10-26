@@ -16,22 +16,54 @@ import java.io.IOException;
 import java.util.List;
 
 @WebServlet("/TelaDeProdutos")
-public class TelaDeProdutosServlet extends HttpServlet
-{
+public class TelaDeProdutosServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String nomeVinho = request.getParameter("busca");
-        if (nomeVinho != null && !nomeVinho.isEmpty())
-        {
+        if (nomeVinho != null && !nomeVinho.isEmpty()) {
             List<String> nomesDosVinhos = VinhoDao.obterNomesDosVinhos(nomeVinho);
             request.setAttribute("resultados", nomesDosVinhos);
             RequestDispatcher dispatcher = request.getRequestDispatcher("/TelaDeBusca/Resultados.jsp");
             dispatcher.forward(request, response);
 
-        return;
+            return;
         }
+
+        if (request.getParameter("buscaComposta") != null) {
+
+            String pais = request.getParameter("pais");
+            String paisID = null;
+            if (pais != null && !pais.isEmpty()) {
+                paisID = pais;
+            }
+
+            String tipoVinho = request.getParameter("tipoVinho");
+            String tipoVinhoID = null;
+            if (tipoVinho != null && !tipoVinho.isEmpty()) {
+                tipoVinhoID = tipoVinho;
+            }
+
+            String tipoUva = request.getParameter("tipoUva");
+            String tipoUvaID = null;
+            if (tipoUva != null && !tipoUva.isEmpty()) {
+
+                tipoUvaID = tipoUva;
+
+            }
+
+            List<String> resultados = VinhoDao.obterVinhos(paisID, tipoVinhoID, tipoUvaID);
+
+            request.setAttribute("resultados", resultados);
+
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/TelaDeBusca/Resultados.jsp");
+            dispatcher.forward(request, response);
+
+            return;
+
+        }
+
 
         VinhoDao vinhoDao = new VinhoDao();
         List<Pais> paises = vinhoDao.obterPaises();
