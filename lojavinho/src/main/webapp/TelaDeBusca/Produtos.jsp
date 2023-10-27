@@ -94,15 +94,18 @@
             </div>
         </div>
 
-        <div class="card">
-            <img src="/TelaDeBusca/SobreMesa.jpg" alt="Harmonização 4">
-            <div class="card-info">
-                <h3>SOBREMESA</h3>
-                <p>Descrição da harmonização 4.</p>
-                <button class="select-button">Selecionar</button>
-            </div>
-        </div>
-    </div>
+  <div class="card">
+      <img src="/TelaDeBusca/SobreMesa.jpg" alt="Harmonização 4">
+      <div class="card-info">
+          <h3>SOBREMESA</h3>
+          <p>Descrição da harmonização 4.</p>
+          <form action="/TelaDeProdutos" method="get">
+              <input type="hidden" name="categoria" value="4">
+              <button class="select-button" type="submit" name="buscarSobremesas">Selecionar</button>
+          </form>
+      </div>
+  </div>
+
 
     <!-- INÍCIO DO RODAPÉ -->
     <footer class="footer">

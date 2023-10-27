@@ -20,6 +20,15 @@
         </ul>
         </div>
     </div>
+ <div class="content">
+            <h1>Resultados da Busca</h1>
+            <c:forEach var="vinho" items="${vinhosSobremesa}">
+                <ul>
+                 <li>${vinhosSobremesa}</li>
+                </c:forEach>
+                </ul>
+
+        </div>
      <footer class="footer">
             <div class="container">
                 <p>&copy; 2023 WIN-E. Todos os direitos reservados.</p>

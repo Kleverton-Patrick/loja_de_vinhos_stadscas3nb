@@ -252,4 +252,26 @@ public class VinhoDao {
     }
 
 
+    public static List<String> obterVinhosSobremesa(String sobreMesa) {
+        List<String> vinhosSobremesa = new ArrayList<>();
+
+        try (Connection connection = ConnectionPoolConfig.getConnection()) {
+            String sql = "SELECT nomeVinho FROM Vinho WHERE HarmonizacaoId = ?";
+
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setObject(1, sobreMesa);
+
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                String nomeVinho = resultSet.getString("nomeVinho");
+                vinhosSobremesa.add(nomeVinho);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return vinhosSobremesa;
+    }
+
 }

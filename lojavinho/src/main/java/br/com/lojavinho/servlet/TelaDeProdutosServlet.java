@@ -21,33 +21,53 @@ public class TelaDeProdutosServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        String sobreMesa = request.getParameter("categoria");
+        if (sobreMesa != null)
+        {
+            List<String> vinhosSobremesa = VinhoDao.obterVinhosSobremesa(sobreMesa);
+
+            request.setAttribute("vinhosSobremesa", vinhosSobremesa);
+
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/TelaDeBusca/Resultados.jsp");
+            dispatcher.forward(request, response);
+
+       return;
+        }
+
         String nomeVinho = request.getParameter("busca");
-        if (nomeVinho != null && !nomeVinho.isEmpty()) {
+        if (nomeVinho != null && !nomeVinho.isEmpty())
+        {
             List<String> nomesDosVinhos = VinhoDao.obterNomesDosVinhos(nomeVinho);
+
             request.setAttribute("resultados", nomesDosVinhos);
             RequestDispatcher dispatcher = request.getRequestDispatcher("/TelaDeBusca/Resultados.jsp");
+
             dispatcher.forward(request, response);
 
             return;
         }
 
-        if (request.getParameter("buscaComposta") != null) {
+        if (request.getParameter("buscaComposta") != null)
+        {
 
             String pais = request.getParameter("pais");
             String paisID = null;
-            if (pais != null && !pais.isEmpty()) {
+            if (pais != null && !pais.isEmpty())
+            {
                 paisID = pais;
             }
 
             String tipoVinho = request.getParameter("tipoVinho");
             String tipoVinhoID = null;
-            if (tipoVinho != null && !tipoVinho.isEmpty()) {
+            if (tipoVinho != null && !tipoVinho.isEmpty())
+            {
                 tipoVinhoID = tipoVinho;
             }
 
             String tipoUva = request.getParameter("tipoUva");
             String tipoUvaID = null;
-            if (tipoUva != null && !tipoUva.isEmpty()) {
+            if (tipoUva != null && !tipoUva.isEmpty())
+            {
 
                 tipoUvaID = tipoUva;
 
@@ -78,6 +98,8 @@ public class TelaDeProdutosServlet extends HttpServlet {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/TelaDeBusca/Produtos.jsp");
         dispatcher.forward(request, response);
     }
+
+
 }
 
 
