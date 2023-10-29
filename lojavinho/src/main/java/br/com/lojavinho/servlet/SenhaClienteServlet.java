@@ -1,6 +1,6 @@
 package br.com.lojavinho.servlet;
 
-import br.com.lojavinho.dao.UserDao;
+import br.com.lojavinho.dao.ClienteDao;
 import br.com.lojavinho.model.UsuarioCliente;
 
 import javax.servlet.ServletException;
@@ -25,7 +25,7 @@ public class SenhaClienteServlet extends HttpServlet {
 
         UsuarioCliente usuarioCliente = new UsuarioCliente(usuarioNomeCliente, senhaCliente);
 
-        boolean isValidUsuarioCliente = new UserDao().verifyCredentialsCliente(usuarioCliente);
+        boolean isValidUsuarioCliente = new ClienteDao().verifyCredentialsCliente(usuarioCliente);
 
         if (isValidUsuarioCliente) {
 

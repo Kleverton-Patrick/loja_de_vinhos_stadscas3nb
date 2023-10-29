@@ -26,16 +26,16 @@
     <div class="container">
         <div class="login-card">
             <h2>Area Admin</h2>
-            <form action="/login" method="post">
+            <form action="/loginAdmin" method="post">
                     <span>${requestScope.message}</span>
                 <br>
                 <div class="form-group">
-                    <label for="username">Usuario:</label>
-                    <input type="text" id="username" name="username" required>
+                    <label for="emailAdmin">E-mail:</label>
+                    <input type="text" id="emailAdmin" name="emailAdmin" required>
                 </div>
                 <div class="form-group">
-                    <label for="password">Senha:</label>
-                    <input type="password" id="password" name="password" required>
+                    <label for="senhaAdmin">Senha:</label>
+                    <input type="password" id="senhaAdmin" name="senhaAdmin" required>
                 </div>
                 <button type="submit">Entrar</button>
             </form>

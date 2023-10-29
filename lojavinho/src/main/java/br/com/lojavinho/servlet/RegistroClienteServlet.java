@@ -1,6 +1,6 @@
 package br.com.lojavinho.servlet;
 
-import br.com.lojavinho.dao.UserDao;
+import br.com.lojavinho.dao.ClienteDao;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -25,8 +25,8 @@ public class RegistroClienteServlet extends HttpServlet {
         String telefoneCliente = req.getParameter("telefoneCliente");
         String senhaCliente = req.getParameter("senhaCliente");
 
-        UserDao userDao = new UserDao();
-        boolean isRegistered = userDao.registerUsuarioCliente(usuarioNameCliente, cpfCliente, emailCliente, telefoneCliente, senhaCliente);
+        ClienteDao clienteDao = new ClienteDao();
+        boolean isRegistered = clienteDao.registerUsuarioCliente(usuarioNameCliente, cpfCliente, emailCliente, telefoneCliente, senhaCliente);
 
         if (isRegistered) {
             req.getSession().setAttribute("logadoUsuarioCliente", usuarioNameCliente);

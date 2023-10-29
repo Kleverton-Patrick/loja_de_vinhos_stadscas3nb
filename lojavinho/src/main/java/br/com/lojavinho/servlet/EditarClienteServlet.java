@@ -1,6 +1,6 @@
 package br.com.lojavinho.servlet;
 
-import br.com.lojavinho.dao.UserDao;
+import br.com.lojavinho.dao.ClienteDao;
 import br.com.lojavinho.model.UsuarioCliente;
 
 import javax.servlet.ServletException;
@@ -55,13 +55,13 @@ public class EditarClienteServlet extends HttpServlet {
 
     private UsuarioCliente obterDetalhesClientePorNome(String usuarioNomeCliente) {
 
-        UserDao userDao = new UserDao();
-        return userDao.obterDetalhesClientePorNome(usuarioNomeCliente);
+        ClienteDao clienteDao = new ClienteDao();
+        return clienteDao.obterDetalhesClientePorNome(usuarioNomeCliente);
     }
 
     private boolean atualizarCadastroCliente(String usuarioNomeCliente, String cpfCliente, String emailCliente, String telefoneCliente, String senhaCliente) {
 
-        UserDao userDao = new UserDao();
-        return userDao.atualizarCadastroCliente(usuarioNomeCliente, cpfCliente, emailCliente, telefoneCliente, senhaCliente);
+        ClienteDao clienteDao = new ClienteDao();
+        return clienteDao.atualizarCadastroCliente(usuarioNomeCliente, cpfCliente, emailCliente, telefoneCliente, senhaCliente);
     }
 }
