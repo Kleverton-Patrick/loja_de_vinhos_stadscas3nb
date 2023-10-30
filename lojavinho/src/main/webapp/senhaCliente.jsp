@@ -26,12 +26,12 @@
     <div class="container">
         <div class="login-card">
             <h2>Area do Cliente</h2>
-            <form action="/entrarcliente" method="post">
+            <form action="/senhaCliente" method="post">
                     <span>${requestScope.message}</span>
                 <br>
                 <div class="form-group">
-                    <label for="usuarioNomeCliente">Cliente:</label>
-                    <input type="text" id="usuarioNomeCliente" name="usuarioNomeCliente" required>
+                    <label for="cpfCliente">CPF Cliente:</label>
+                    <input type="text" id="cpfCliente" name="cpfCliente" required>
                 </div>
                 <div class="form-group">
                     <label for="senhaCliente">Senha:</label>

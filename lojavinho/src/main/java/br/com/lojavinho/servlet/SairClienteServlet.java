@@ -17,7 +17,7 @@ public class SairClienteServlet extends HttpServlet {
 
         req.setAttribute("message", "success on logout");
 
-        req.getRequestDispatcher("entrarcliente.jsp").forward(req,resp);
+        req.getRequestDispatcher("senhaCliente.jsp").forward(req,resp);
 
     }
 }

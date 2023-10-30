@@ -28,7 +28,7 @@ public class LoginAdminServlet extends HttpServlet {
 
         UsuarioAdmin usuarioAdmin = new UsuarioAdmin(emailAdmin, senhaAdmin);
 
-        boolean inValidUser = new UsuarioAdminDao().verifyCredentials(usuarioAdmin);
+        boolean inValidUser = new UsuarioAdminDao().verificarCredenciais(usuarioAdmin);
 
         if (inValidUser) {
 

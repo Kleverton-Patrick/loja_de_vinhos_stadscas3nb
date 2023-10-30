@@ -10,26 +10,29 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/entrarcliente")
+@WebServlet("/senhaCliente")
 public class SenhaClienteServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("entrarcliente.jsp").forward(req, resp);
+
+        req.getRequestDispatcher("senhaCliente.jsp").forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String usuarioNomeCliente = req.getParameter("usuarioNomeCliente");
+
+        String cpfCliente = req.getParameter("cpfCliente");
         String senhaCliente = req.getParameter("senhaCliente");
 
-        UsuarioCliente usuarioCliente = new UsuarioCliente(usuarioNomeCliente, senhaCliente);
+        UsuarioCliente usuarioCliente = new UsuarioCliente(cpfCliente, senhaCliente);
 
-        boolean isValidUsuarioCliente = new ClienteDao().verifyCredentialsCliente(usuarioCliente);
+        boolean isValidUsuarioCliente = new ClienteDao().verificarCredenciaisCliente(usuarioCliente);
 
         if (isValidUsuarioCliente) {
 
-            req.getSession().setAttribute("logadoUsuarioCliente", usuarioNomeCliente);
+            req.getSession().setAttribute("logadoUsuarioCliente", cpfCliente);
+            //req.getSession().setAttribute("loggedUser", cpfCliente);
 
             resp.sendRedirect("/find-all-vinhos");
 
@@ -37,7 +40,7 @@ public class SenhaClienteServlet extends HttpServlet {
 
             req.setAttribute("message", "Invalid credentials!");
 
-            req.getRequestDispatcher("entrarcliente.jsp").forward(req, resp);
+            req.getRequestDispatcher("senhaCliente.jsp").forward(req, resp);
 
         }
 

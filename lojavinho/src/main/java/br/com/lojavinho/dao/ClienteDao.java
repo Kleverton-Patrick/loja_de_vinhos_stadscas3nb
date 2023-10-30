@@ -1,8 +1,7 @@
 package br.com.lojavinho.dao;
-///
 
 import br.com.lojavinho.config.ConnectionPoolConfig;
-import br.com.lojavinho.model.UsuarioAdmin;
+//import br.com.lojavinho.model.UsuarioAdmin;
 import br.com.lojavinho.model.UsuarioCliente;
 
 import java.sql.Connection;
@@ -11,9 +10,9 @@ import java.sql.ResultSet;
 
 public class ClienteDao {
 
-    public boolean registerUsuarioCliente(String usuarioCliente, String cpfCliente, String emailCliente, String telefoneCliente, String senhaCliente) {
+    public boolean registroUsuario(String cliente, String cpfCliente, String emailCliente, String telefoneCliente, String senhaCliente) {
 
-        String SQL = "INSERT INTO USUARIO_CLIENTE (USUARIO_NOME_CLIENTE, CPFCLIENTE, EMAILCLIENTE, TELEFONECLIENTE, SENHA_CLIENTE) VALUES (?, ?, ?, ?, ?)";
+        String SQL = "INSERT INTO CLIENTE (DSC_NOME_CLIENTE, NUM_CPF, DSC_EMAIL, NUM_TELEFONE, DSC_SENHA) VALUES (?, ?, ?, ?, ?)";
 
         try {
 
@@ -21,7 +20,7 @@ public class ClienteDao {
 
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
 
-            preparedStatement.setString(1, usuarioCliente);
+            preparedStatement.setString(1, cliente);
             preparedStatement.setString(2, cpfCliente);
             preparedStatement.setString(3, emailCliente);
             preparedStatement.setString(4, telefoneCliente);
@@ -43,9 +42,9 @@ public class ClienteDao {
     }
 
 
-    public boolean verifyCredentialsCliente(UsuarioCliente usuarioCliente) {
+    public boolean verificarCredenciaisCliente(UsuarioCliente usuarioCliente) {
 
-        String SQL = "SELECT * FROM USUARIO_CLIENTE WHERE USUARIO_NOME_CLIENTE = ?";
+        String SQL = "SELECT DSC_SENHA FROM CLIENTE WHERE NUM_CPF = ?";
 
         try {
 
@@ -53,19 +52,21 @@ public class ClienteDao {
 
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
 
-            preparedStatement.setString(1, usuarioCliente.getUsuarioNomeCliente());
+            preparedStatement.setString(1, usuarioCliente.getCpfCliente());
 
             ResultSet resultSet = preparedStatement.executeQuery();
 
-            System.out.println("success in select usuarioNomeCLIENTE");
+            System.out.println("success in select CPFCliente");
 
-            while (resultSet.next()) {
+            if (resultSet != null) {
+                while (resultSet.next()) {
 
-                String senhaCliente = resultSet.getString("SENHA_CLIENTE");
+                    String senhaCliente = resultSet.getString("dsc_senha");
 
-                if (senhaCliente.equals(usuarioCliente.getSenhaCliente())) {
+                    if (senhaCliente.equals(usuarioCliente.getSenhaCliente())) {
 
-                    return true;
+                        return true;
+                    }
                 }
             }
 

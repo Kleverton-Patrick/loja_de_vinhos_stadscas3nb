@@ -13,7 +13,7 @@
             <h1 class="logo-text">WIN-E</h1>
         </div>
     </div>
-    <a href="cadastrocliente.jsp" class="suggestion-link">Login</a>
+    <a href="cadastroCliente.jsp" class="suggestion-link">Login</a>
 </header>
 
 <div class="content">

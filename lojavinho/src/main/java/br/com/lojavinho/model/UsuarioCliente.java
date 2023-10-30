@@ -2,29 +2,31 @@ package br.com.lojavinho.model;
 
 public class UsuarioCliente {
 
-    private String usuarioNomeCliente;
+    private String cliente;
     private String senhaCliente;
     private String cpfCliente;
-
-    private String emailCliente;;
-
+    private String emailCliente;
     private String telefoneCliente;
 
-    public UsuarioCliente(String usuarioNomeCliente, String senhaCliente) {
-        this.usuarioNomeCliente = usuarioNomeCliente;
-        this.senhaCliente = senhaCliente;
+    public UsuarioCliente(String cliente) {
+        this.cliente = cliente;
     }
 
-    public UsuarioCliente(String usuarioNomeCliente, String senhaCliente, String cpfCliente, String emailCliente, String telefoneCliente) {
-        this.usuarioNomeCliente = usuarioNomeCliente;
+    public UsuarioCliente(String senhaCliente, String cpfCliente) {
+        this.senhaCliente = senhaCliente;
+        this.cpfCliente = cpfCliente;
+    }
+
+    public UsuarioCliente(String cliente, String senhaCliente, String cpfCliente, String emailCliente, String telefoneCliente) {
+        this.cliente = cliente;
         this.senhaCliente = senhaCliente;
         this.cpfCliente = cpfCliente;
         this.emailCliente = emailCliente;
         this.telefoneCliente = telefoneCliente;
     }
 
-    public String getUsuarioNomeCliente() {
-        return usuarioNomeCliente;
+    public String getCliente() {
+        return cliente;
     }
 
     public String getSenhaCliente() {

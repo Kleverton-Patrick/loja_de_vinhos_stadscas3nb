@@ -9,7 +9,7 @@ import java.sql.ResultSet;
 
 public class UsuarioAdminDao {
 
-    public boolean verifyCredentials(UsuarioAdmin usuarioAdmin) {
+    public boolean verificarCredenciais(UsuarioAdmin usuarioAdmin) {
 
         String SQL = "SELECT DSC_SENHA_ADMIN FROM USUARIO_ADMIN WHERE DSC_EMAIL_ADMIN = ?";
 

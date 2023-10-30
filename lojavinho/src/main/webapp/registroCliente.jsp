@@ -25,12 +25,12 @@
     <div class="container">
         <div class="login-card">
     <h2>Cadastro de Cliente</h2>
-    <form action="/cadastrocliente" method="post">
+    <form action="/registroCliente" method="post">
         <span>${requestScope.message}</span>
         <br>
         <div class="form-group">
-        <label for="usuarioNomeCliente">Usuario:</label>
-        <input type="text" id="usuarioNomeCliente" name="usuarioNomeCliente" required>
+        <label for="cliente">Usuario:</label>
+        <input type="text" id="cliente" name="cliente" required>
         </div>
 
 
