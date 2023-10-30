@@ -72,7 +72,10 @@
             <div class="card-info">
                 <h3>CARNE VERMELHA</h3>
                 <p>Para cortes de carne vermelha diversos</p>
-                <button class="select-button">Selecionar</button>
+                <form action="/TelaDeProdutos" method="get">
+               <input type="hidden" name="categoria" value="1">
+                <button class="select-button" type="submit" name="buscarHarmonizacao">Selecionar</button>
+            </form>
             </div>
         </div>
 
@@ -81,7 +84,10 @@
             <div class "card-info">
                 <h3>FRUTOS DO MAR</h3>
                 <p>Para Frutos do Mar e comida Japonesa.</p>
-                <button class="select-button">Selecionar</button>
+                <form action="/TelaDeProdutos" method="get">
+                <input type="hidden" name="categoria" value="2">
+                 <button class="select-button" type="submit" name="buscarHarmonizacao">Selecionar</button>
+             </form>
             </div>
         </div>
 
@@ -90,7 +96,10 @@
             <div class="card-info">
                 <h3>QUEIJOS</h3>
                 <p>Para Queijos Branco, Parmesão e Canastra.</p>
-                <button class="select-button">Selecionar</button>
+             <form action="/TelaDeProdutos" method="get">
+             <input type="hidden" name="categoria" value="3">
+              <button class="select-button" type="submit" name="buscarHarmonizacao">Selecionar</button>
+            </form>
             </div>
         </div>
 
@@ -101,7 +110,7 @@
           <p>Descrição da harmonização 4.</p>
           <form action="/TelaDeProdutos" method="get">
               <input type="hidden" name="categoria" value="4">
-              <button class="select-button" type="submit" name="buscarSobremesas">Selecionar</button>
+              <button class="select-button" type="submit" name="buscarHarmonizacao">Selecionar</button>
           </form>
       </div>
   </div>
