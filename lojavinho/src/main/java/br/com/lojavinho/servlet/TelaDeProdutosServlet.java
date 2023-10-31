@@ -4,6 +4,7 @@ import br.com.lojavinho.dao.VinhoDao;
 import br.com.lojavinho.model.Pais;
 import br.com.lojavinho.model.TipoUva;
 import br.com.lojavinho.model.TipoVinho;
+import br.com.lojavinho.model.Vinho;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -43,7 +44,7 @@ public class TelaDeProdutosServlet extends HttpServlet {
 
                 request.setAttribute("vinhosSobremesa", vinhosSobremesa);
 
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/TelaDeBusca/Resultados.jsp");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/TelaDeResultado/Resultados.jsp");
                 dispatcher.forward(request, response);
 
                 return;
@@ -52,10 +53,11 @@ public class TelaDeProdutosServlet extends HttpServlet {
 
         String nomeVinho = request.getParameter("busca");
         if (nomeVinho != null && !nomeVinho.isEmpty()) {
-            List<String> nomesDosVinhos = VinhoDao.obterNomesDosVinhos(nomeVinho);
 
-            request.setAttribute("resultados", nomesDosVinhos);
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/TelaDeBusca/Resultados.jsp");
+            List<Vinho> resultados = VinhoDao.obterDetalhesDosVinhos(nomeVinho);
+
+            request.setAttribute("resultados", resultados);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/TelaDeResultado/Resultados.jsp");
 
             dispatcher.forward(request, response);
 
@@ -84,11 +86,11 @@ public class TelaDeProdutosServlet extends HttpServlet {
 
             }
 
-            List<String> resultados = VinhoDao.obterVinhos(paisID, tipoVinhoID, tipoUvaID);
+            List<Vinho> resultados = VinhoDao.obterVinhos(paisID, tipoVinhoID, tipoUvaID);
 
             request.setAttribute("resultados", resultados);
 
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/TelaDeBusca/Resultados.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("//TelaDeResultado/Resultados.jsp");
             dispatcher.forward(request, response);
 
             return;

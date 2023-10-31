@@ -59,9 +59,10 @@ public class VinhoDao {
 
                 String vinhoId = resultSet.getString("id");
                 String vinhoName = resultSet.getString("name");
+                String vinhoDescricao = resultSet.getString("descricao");
                 String image = resultSet.getString("image");
 
-                Vinho vinho = new Vinho(vinhoId, vinhoName, image);
+                Vinho vinho = new Vinho(vinhoId, vinhoName, vinhoDescricao, image);
 
                 vinhos.add(vinho);
             }
@@ -195,32 +196,49 @@ public class VinhoDao {
         return listaTipoUva;
     }
 
-    public static List<String> obterNomesDosVinhos(String nomeVinho) {
-        List<String> nomesDosVinhos = new ArrayList<>();
+    public static List<Vinho> obterDetalhesDosVinhos(String nomeVinho) {
+        List<Vinho> nomesDosVinhos = new ArrayList<>();
 
         try (Connection connection = ConnectionPoolConfig.getConnection()) {
             System.out.println("Conexao bd ok");
-            String sql = "SELECT NOMEVINHO FROM VINHO WHERE NOMEVINHO LIKE ?";
+            String sql = "SELECT * FROM VINHO WHERE NOMEVINHO LIKE ?";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, "%" + nomeVinho + "%");
             ResultSet resultSet = statement.executeQuery();
 
             while (resultSet.next()) {
-                nomeVinho = resultSet.getString("NOMEVINHO");
-                nomesDosVinhos.add(nomeVinho);
+                String idVinho = resultSet.getString("VINHOID");
+                String name = resultSet.getString("NOMEVINHO");
+                String description = resultSet.getString("DESCRICAO");
+                String image = resultSet.getString("IMAGE");
+
+                Vinho vinho = new Vinho(idVinho, name, description, image);
+
+                nomesDosVinhos.add(vinho);
             }
+
+            System.out.println("success in select * Vinho");
+
+            connection.close();
+
+            return nomesDosVinhos;
+
         } catch (SQLException e) {
-            e.printStackTrace();
+
+            System.out.println("fail in database connection");
+            System.out.println("Error" + e.getMessage());
+
+            return Collections.emptyList();
         }
 
-        return nomesDosVinhos;
     }
 
-    public static List<String> obterVinhos(String paisID, String tipoVinhoID, String tipoUvaID) {
-        List<String> nomesDosVinhos = new ArrayList<>();
+    public static List<Vinho> obterVinhos(String paisID, String tipoVinhoID, String tipoUvaID) {
+
+        List<Vinho> nomesDosVinhos = new ArrayList<>();
 
         try (Connection connection = ConnectionPoolConfig.getConnection()) {
-            String sql = "SELECT V.NomeVinho " +
+            String sql = "SELECT * " +
                     "FROM Vinho AS V " +
                     "INNER JOIN Pais AS P ON P.PaisID = V.PaisId " +
                     "INNER JOIN TipoUva AS TU ON TU.TipoUvaID = V.TipoUvaId " +
@@ -241,14 +259,29 @@ public class VinhoDao {
             ResultSet resultSet = statement.executeQuery();
 
             while (resultSet.next()) {
-                String nomeVinho = resultSet.getString("NomeVinho");
-                nomesDosVinhos.add(nomeVinho);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+                String idVinho = resultSet.getString("VINHOID");
+                String name = resultSet.getString("NOMEVINHO");
+                String description = resultSet.getString("DESCRICAO");
+                String image = resultSet.getString("IMAGE");
 
-        return nomesDosVinhos;
+                Vinho vinho = new Vinho(idVinho, name, description, image);
+
+                nomesDosVinhos.add(vinho);
+            }
+
+            System.out.println("success in select * Vinho");
+
+            connection.close();
+
+            return nomesDosVinhos;
+
+        } catch (SQLException e) {
+
+            System.out.println("fail in database connection");
+            System.out.println("Error" + e.getMessage());
+
+            return Collections.emptyList();
+        }
     }
 
 

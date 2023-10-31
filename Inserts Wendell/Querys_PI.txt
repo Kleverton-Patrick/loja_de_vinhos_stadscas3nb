@@ -1,0 +1,11 @@
+
+/*query para busca no header da pagina*/
+select * from Vinho where NomeVinho like '%Font%';
+
+/*query para filtro atraves dos dropdowns */
+SELECT V.NomeVinho , TU.NomeTipoUva, TV.NomeTipoVinho
+FROM Vinho AS V
+INNER JOIN Pais AS P ON P.PaisID = V.PaisId
+INNER JOIN TipoUva AS TU ON TU.TipoUvaID = V.TipoUvaId
+inner join TipoVinho as TV on TV.TipoVinhoID = V.TipoVinhoId
+WHERE P.PaisID = 3 and TV.TipoVinhoID = '2';

@@ -1,0 +1,57 @@
+create table Vinho (
+	VinhoID int primary key auto_increment,
+	NomeVinho varchar(100)not null,
+	PaisId int not null,
+    FOREIGN KEY (PaisId) REFERENCES Pais(PaisID),
+    TipoUvaId int not null,
+    foreign key (TipoUvaId) references TipoUva(TipoUvaID),
+    TipoVinhoId int not null,
+    foreign key (TipoVinhoId) references TipoVinho (TipoVinhoID)
+) ;
+
+create table TipoVinho (
+	TipoVinhoID int primary key auto_increment,
+    NomeTipoVinho varchar (100) not null
+    );
+
+create table Pais(
+PaisID int primary key auto_increment,
+NomePais varchar (100)not null
+);
+
+create table TipoUva(
+TipoUvaID int primary key auto_increment,
+NomeTipoUva varchar (100)not null
+);
+
+insert into TipoVinho (NomeTipoVinho) values
+('Branco'),
+('Tinto'),
+('Rosé'),
+('Espumante');
+
+insert into Pais (NomePais) values 
+('Italia'),
+('Espanha'),
+('Chile'),
+('Portugal'),
+('Argentina');
+
+insert into TipoUva (NomeTipoUva) values
+('Chardonay'),
+('Carenet Sauvignon'),
+('Merlot'),
+('Syrah'),
+('Pinot noir'),
+('Tempranillo'),
+('Castelão'),
+('Sangiovese');
+
+insert into Vinho (NomeVinho, PaisId, TipoUvaId, TipoVinhoId) values 
+('Santa carolina', 3, 3, 2),
+('Santa carolina', 3, 2, 2),
+('Pata negra', 2, 6, 2),
+('DV catena', 5, 1, 1),
+('Virrey Loreto', 5, 4, 2),
+('Julia florista', 4, 7, 2),
+('Fonte Regia Chianti', 1, 8, 2);

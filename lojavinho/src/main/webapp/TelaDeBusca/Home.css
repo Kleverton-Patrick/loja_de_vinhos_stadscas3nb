@@ -71,6 +71,7 @@ body{
 
 }
 
+
 /* Estilo para a barra de navegação */
 .navbar {
     background-color: #950000;
@@ -214,6 +215,7 @@ body{
 .card-info p {
     margin: 10px 0;
     font-size: 14px;
+    color: #000000;
 }
 
 
