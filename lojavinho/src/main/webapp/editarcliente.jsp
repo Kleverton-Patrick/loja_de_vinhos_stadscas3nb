@@ -3,10 +3,18 @@
 <h2>Editar Cadastro</h2>
 <form action="/editarcliente" method="post">
     <div class="form-group">
-        <label for="usuarioNomeCliente">Usuario:</label>
-        <input type="text" id="usuarioNomeCliente" name="usuarioNomeCliente" value="${cliente.usuarioNomeCliente}" required>
+        <label for="nomeCliente">Usuario:</label>
+        <input type="text" id="nomeCliente" name="nomeCliente" required>
+
     </div>
     <br>
+
+    <div class="form-group">
+         <label for="cpfCliente">CPF:</label>
+         <input type="text" id="cpfCliente" name="cpfCliente" value="${cliente.cpfCliente}" required>
+    </div>
+    <br>
+
     <div class="form-group">
         <label for="emailCliente">E-mail:</label>
         <input type="text" id="emailCliente" name="emailCliente" required>

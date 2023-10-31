@@ -26,7 +26,7 @@
     <div class="container">
         <div class="login-card">
             <h2>Area do Cliente</h2>
-            <form action="/senhaCliente" method="post">
+            <form action="/conectarcliente" method="post">
                     <span>${requestScope.message}</span>
                 <br>
                 <div class="form-group">

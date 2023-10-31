@@ -10,13 +10,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/senhaCliente")
+@WebServlet("/conectarcliente")
 public class SenhaClienteServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        req.getRequestDispatcher("senhaCliente.jsp").forward(req, resp);
+        req.getRequestDispatcher("conectarcliente.jsp").forward(req, resp);
     }
 
     @Override
@@ -32,7 +32,6 @@ public class SenhaClienteServlet extends HttpServlet {
         if (isValidUsuarioCliente) {
 
             req.getSession().setAttribute("logadoUsuarioCliente", cpfCliente);
-            //req.getSession().setAttribute("loggedUser", cpfCliente);
 
             resp.sendRedirect("/find-all-vinhos");
 
@@ -40,7 +39,7 @@ public class SenhaClienteServlet extends HttpServlet {
 
             req.setAttribute("message", "Invalid credentials!");
 
-            req.getRequestDispatcher("senhaCliente.jsp").forward(req, resp);
+            req.getRequestDispatcher("conectarcliente.jsp").forward(req, resp);
 
         }
 

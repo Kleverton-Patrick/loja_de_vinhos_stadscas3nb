@@ -61,7 +61,7 @@ public class ClienteDao {
             if (resultSet != null) {
                 while (resultSet.next()) {
 
-                    String senhaCliente = resultSet.getString("dsc_senha");
+                    String senhaCliente = resultSet.getString("senhaCliente");
 
                     if (senhaCliente.equals(usuarioCliente.getSenhaCliente())) {
 
@@ -84,24 +84,26 @@ public class ClienteDao {
     }
 
 
-    public UsuarioCliente obterDetalhesClientePorNome(String usuarioNomeCliente) {
-        String SQL = "SELECT * FROM USUARIO_CLIENTE WHERE USUARIO_NOME_CLIENTE = ?";
+    public UsuarioCliente obterDetalhesClientePorCpf(String cpfCliente) {
+        String SQL = "SELECT * FROM CLIENTE WHERE NUM_CPF = ?";
 
         try {
             Connection connection = ConnectionPoolConfig.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
-            preparedStatement.setString(1, usuarioNomeCliente);
+            preparedStatement.setString(1, cpfCliente);
 
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
 
-                String cpfCliente = resultSet.getString("CPFCLIENTE");
-                String emailCliente = resultSet.getString("EMAILCLIENTE");
-                String telefoneCliente = resultSet.getString("TELEFONECLIENTE");
+                //String cpfCliente = resultSet.getString("NUM_CPF");
+                String nomeCliente = resultSet.getString("DSC_NOME_CLIENTE");
+                String emailCliente = resultSet.getString("DSC_EMAIL");
+                String telefoneCliente = resultSet.getString("NUM_TELEFONE");
+                String senhaCliente = resultSet.getString("DSC_SENHA");
 
 
-                return new UsuarioCliente(usuarioNomeCliente, null, cpfCliente, emailCliente, telefoneCliente);
+                return new UsuarioCliente(null, nomeCliente, telefoneCliente, emailCliente, telefoneCliente);
             }
 
             connection.close();
@@ -112,18 +114,18 @@ public class ClienteDao {
         return null;
     }
 
-    public boolean atualizarCadastroCliente(String usuarioNomeCliente, String cpfCliente, String emailCliente, String telefoneCliente, String senhaCliente) {
-        String SQL = "UPDATE USUARIO_CLIENTE SET CPFCLIENTE = ?, EMAILCLIENTE = ?, TELEFONECLIENTE = ?, SENHA_CLIENTE = ? WHERE USUARIO_NOME_CLIENTE = ?";
+    public boolean atualizarCadastroCliente(String nomeCliente, String cpfCliente, String emailCliente, String telefoneCliente, String senhaCliente) {
+        String SQL = "UPDATE CLIENTE SET DSC_NOME_CLIENTE = ?, DSC_EMAIL = ?, NUM_TELEFONE = ?, DSC_SENHA = ? WHERE NUM_CPF = ?";
 
         try {
             Connection connection = ConnectionPoolConfig.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
 
-            preparedStatement.setString(1, cpfCliente);
+            preparedStatement.setString(1, nomeCliente);
             preparedStatement.setString(2, emailCliente);
             preparedStatement.setString(3, telefoneCliente);
             preparedStatement.setString(4, senhaCliente);
-            preparedStatement.setString(5, usuarioNomeCliente);
+            preparedStatement.setString(5, cpfCliente);
 
             int rowsAffected = preparedStatement.executeUpdate();
 

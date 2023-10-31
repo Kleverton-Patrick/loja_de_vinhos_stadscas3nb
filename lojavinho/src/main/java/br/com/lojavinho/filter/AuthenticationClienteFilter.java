@@ -25,7 +25,7 @@ public class AuthenticationClienteFilter implements Filter {
 
             servletRequest.setAttribute("message", "user not authenticated!");
 
-            servletRequest.getRequestDispatcher("/senhaCliente.jsp").forward(httpServletRequest, response);
+            servletRequest.getRequestDispatcher("/conectarcliente.jsp").forward(httpServletRequest, response);
 
         }
     }
