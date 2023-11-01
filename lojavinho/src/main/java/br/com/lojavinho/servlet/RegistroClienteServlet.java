@@ -14,28 +14,47 @@ public class RegistroClienteServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        // Quando uma solicitação GET é feita, encaminha para a página de registro do cliente.
         req.getRequestDispatcher("registroCliente.jsp").forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String cliente = req.getParameter("cliente");
+        // Quando um formulário é enviado via POST, este método é acionado para processar o registro do cliente.
+
+        // Obtém os parâmetros do formulário
+        String nomeCliente = req.getParameter("nomeCliente");
         String cpfCliente = req.getParameter("cpfCliente");
         String emailCliente = req.getParameter("emailCliente");
         String telefoneCliente = req.getParameter("telefoneCliente");
         String senhaCliente = req.getParameter("senhaCliente");
 
         ClienteDao clienteDao = new ClienteDao();
-        boolean isRegistered = clienteDao.registroUsuario(cliente, cpfCliente, emailCliente, telefoneCliente, senhaCliente);
+        boolean cpfJaCadastrado = clienteDao.verificarCpfExistente(cpfCliente);
 
-        if (isRegistered) {
-            req.getSession().setAttribute("logadoUsuarioCliente", cliente);
-            resp.sendRedirect("/TelaDeBusca/Produtos.jsp");
-        } else {
-            req.setAttribute("message", "Falha ao registrar. Por favor, tente novamente.");
+        if (cpfJaCadastrado) {
+
+            // Se o CPF já está cadastrado, exibe uma mensagem de erro e redireciona de volta para a página registroCliente.jsp.
+            req.setAttribute("cpfExistente", "CPF já cadastrado!");
             req.getRequestDispatcher("registroCliente.jsp").forward(req, resp);
-            System.out.println("Mensagem: " + req.getAttribute("message"));
+            System.out.println("Mensagem: " + req.getAttribute("cpfExistente"));
+        } else {
 
+            // Se o CPF não está cadastrado, tenta registrar o cliente.
+            boolean isRegistered = clienteDao.registroUsuario(nomeCliente, cpfCliente, emailCliente, telefoneCliente, senhaCliente);
+
+            if (isRegistered) {
+
+                // Registro bem sucedido, redirecione para a página escolhida.
+                req.getSession().setAttribute("logadoUsuarioCliente", nomeCliente);
+                resp.sendRedirect("/TelaDeBusca/Produtos.jsp");
+            } else {
+
+                // Falha no registro, exiba uma mensagem de erro
+                req.setAttribute("message", "Falha ao registrar. Por favor, tente novamente.");
+                req.getRequestDispatcher("registroCliente.jsp").forward(req, resp);
+                System.out.println("Mensagem: " + req.getAttribute("message"));
+            }
         }
     }
 }

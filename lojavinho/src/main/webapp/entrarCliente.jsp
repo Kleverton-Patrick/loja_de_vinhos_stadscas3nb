@@ -26,8 +26,9 @@
     <div class="container">
         <div class="login-card">
             <h2>Area do Cliente</h2>
-            <form action="/conectarcliente" method="post">
+            <form action="/entrarcliente" method="post">
                     <span>${requestScope.message}</span>
+
                 <br>
                 <div class="form-group">
                     <label for="cpfCliente">CPF Cliente:</label>
@@ -35,10 +36,12 @@
                 </div>
                 <div class="form-group">
                     <label for="senhaCliente">Senha:</label>
-                    <input type="senhaCliente" id="senhaCliente" name="senhaCliente" required>
+                    <input type="password" id="senhaCliente" name="senhaCliente" required>
                 </div>
                 <button type="submit">Entrar</button>
             </form>
+            <a href="/registroCliente" class="register-button">Registrar</a>
+            <a href="/TelaDeBusca/Produtos.jsp">Ver Produtos</a>
         </div>
     </div>
 </body>

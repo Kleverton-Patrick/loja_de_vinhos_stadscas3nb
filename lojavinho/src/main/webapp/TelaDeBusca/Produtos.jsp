@@ -23,7 +23,7 @@
                 <button type="submit" class="search-button">Buscar</button>
             </form>
             <div class="suggestion-button">
-                <a href="entrarcliente.jsp" class="suggestion-link">Login</a>
+                <a href="???entrarCliente.jsp???" class="suggestion-link">Entrar</a>
             </div>
         </div>
     </header>

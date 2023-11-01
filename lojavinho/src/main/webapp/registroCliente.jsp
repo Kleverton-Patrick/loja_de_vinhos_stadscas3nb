@@ -29,14 +29,15 @@
         <span>${requestScope.message}</span>
         <br>
         <div class="form-group">
-        <label for="cliente">Usuario:</label>
-        <input type="text" id="cliente" name="cliente" required>
+        <label for="nomeCliente">Usuario:</label>
+        <input type="text" id="nomeCliente" name="nomeCliente" required>
         </div>
-
 
         <div class="form-group">
             <label for="cpfCliente">CPF:</label>
             <input type="text" id="cpfCliente" name="cpfCliente" required>
+            <span>${requestScope.cpfExistente}</span>
+
         </div>
 
         <br>
@@ -58,9 +59,9 @@
         </div>
 
         <br>
-
-                <button type="submit">Cadastrar</button>
+        <button type="submit">Cadastrar</button>
             </form>
+            <a href="/entrarcliente" class="back-button">Voltar para Entrar</a>
         </div>
     </div>
 </body>
