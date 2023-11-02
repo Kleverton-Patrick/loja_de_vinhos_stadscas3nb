@@ -15,8 +15,10 @@
         <div class="logo">
             <!-- <img src="IMG_0297.PNG" alt="Logo" class="logo-image"> -->
             <h1 class="logo-text">WIN-E</h1>
+
         </div>
 
+<button class="btn-back">Voltar</button>
     </div>
 
 </header>
@@ -40,8 +42,8 @@
                 </div>
                 <button type="submit">Entrar</button>
             </form>
-            <a href="/registroCliente" class="register-button">Registrar</a>
-            <a href="/TelaDeBusca/Produtos.jsp">Ver Produtos</a>
+            <a href="/registroCliente" class="register-button">Registrar-se</a>
+
         </div>
     </div>
 </body>

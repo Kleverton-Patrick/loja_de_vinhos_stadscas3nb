@@ -25,7 +25,7 @@
     <div>
         <h1>Resultados da Busca</h1>
     </div>
-    <br>
+
 
     <div class="content">
              <div class="txt text-center">
