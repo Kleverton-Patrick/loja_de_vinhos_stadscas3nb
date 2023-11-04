@@ -1,38 +1,6 @@
-*{
-margin: 0;
-padding: 0;
-}
 body{
     background-color: #ffffff;
     overflow: hidden;
-}
-
-.header {
-    background-color: #950000;
-    padding: 20px 0;
-    color: #ffffff;
-}
-
-.header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-}
-
-.logo-image {
-    width: 30px;
-    height: 30px;
-    margin-right: 10px;
-}
-
-.logo-text {
-    font-size: 24px;
-    font-weight: bold;
 }
 
 /* Estilo para o formulário de pesquisa */
@@ -69,7 +37,6 @@ body{
     flex-wrap: wrap;
     margin: 20px auto;
     color: #770000;
-
 }
 
 
@@ -109,20 +76,6 @@ body{
     text-align: center;
 }
 
-/* Estilo para o rodapé */
-.footer {
-    background-color: #950000;
-    color: #ffffff;
-    text-align: center;
-    padding: 10px 0;
-    padding: 20px 0;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-}
-
-
-
 
 /* Estilo para a dropdown container */
 .dropdown-container {
@@ -132,8 +85,6 @@ body{
     margin-top: 20px;
     border-radius: 30px;
 }
-
-
 
 /* Estilo para os botões de dropdown */
 .dropdown-btn {
@@ -183,13 +134,14 @@ body{
     align-items: center;
     flex-wrap: wrap;
     margin: 20px auto;
+    margin-bottom
 
 }
 
 
 .card {
     width: 300px; /* largura desejada para os cards */
-    height: 400px; /* altura desejada para os cards */
+    height: 333px; /* altura desejada para os cards */
     border: 1px solid #ccc;
     margin: 10px; /* margem para separar os cards */
     display: inline-block; /* Para que os cards apareçam na mesma linha */
@@ -198,8 +150,8 @@ body{
 
 /* Estilo para as imagens dos cards */
 .card img {
-    max-width: 100%;
-    max-height: 100%;
+    width: 300px;
+    height: 225px;
 }
 
 /* Estilo para as informações dos cards */
@@ -237,24 +189,3 @@ body{
     background-color: #770000;
 }
 
-
-
-
-.suggestion-button {
-    margin-left: 8px; /* Espaço entre o botão e a área de pesquisa */
-}
-
-.suggestion-link {
-    background-color: #950000;
-    color: #ffffff;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-size: 20px;
-    border-radius: 5px;
-    text-decoration: none;
-}
-
-.suggestion-link:hover {
-    background-color: #770000;
-}

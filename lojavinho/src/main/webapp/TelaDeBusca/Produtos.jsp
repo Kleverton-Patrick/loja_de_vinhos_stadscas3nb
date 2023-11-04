@@ -6,22 +6,20 @@
 <html lang="pt">
 
 <head>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página Inicial</title>
     <link rel="stylesheet" href="/TelaDeBusca/Home.css">
+    <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
     <header class="header">
         <div class="container">
             <div class="logo">
+            <a href="http://localhost:8080/">
                 <h1 class="logo-text">WIN-E</h1>
+            </a>
         </div>
-            <form class="search-form" role="search" method="GET" action="/TelaDeProdutos">
-                <input type="text" class="search-input" name="busca" placeholder="Busque seu rótulo" aria-label="Search">
-                <button type="submit" class="search-button">Buscar</button>
-            </form>
             <div class="suggestion-button">
                 <a href="./entrarCliente.jsp" class="suggestion-link">Entrar</a>
             </div>
@@ -33,6 +31,13 @@
     <div class="txt text-center">
         <h1>Escolha o seu vinho</h1>
     </div>
+
+    <!-- Pesquisa -->
+                <form class="search-form" role="search" method="GET" action="/TelaDeProdutos">
+                    <input type="text" class="search-input" name="busca" placeholder="Busque seu rótulo" aria-label="Search">
+                    <button type="submit" class="search-button">Buscar</button>
+                </form>
+                </form>
 
 <form class="search-form" role="search" method="GET" action="/TelaDeProdutos">
     <select class="dropdown-btn text-center" name="pais" id="pais">
@@ -63,9 +68,6 @@
     <button type="submit" class="search-button" name="buscaComposta">Buscar</button>
 </form>
 
-
-    <!-- FIM -->
-
     <div class="cards-container">
         <div class="card">
             <img src="/TelaDeBusca/Carne.jpg" alt="Harmonização 1">
@@ -73,7 +75,7 @@
                 <h3>CARNE VERMELHA</h3>
                 <p>Para cortes de carne vermelha diversos</p>
                 <form action="/TelaDeProdutos" method="get">
-               <input type="hidden" name="categoria" value="1">
+                <input type="hidden" name="categoria" value="1">
                 <button class="select-button" type="submit" name="buscarHarmonizacao">Selecionar</button>
             </form>
             </div>
@@ -81,7 +83,7 @@
 
         <div class="card">
             <img src="/TelaDeBusca/FrutosDoMar.jpg" alt="Harmonização 2">
-            <div class "card-info">
+            <div class="card-info">
                 <h3>FRUTOS DO MAR</h3>
                 <p>Para Frutos do Mar e comida Japonesa.</p>
                 <form action="/TelaDeProdutos" method="get">
@@ -118,12 +120,11 @@
 
     <!-- INÍCIO DO RODAPÉ -->
     <footer class="footer">
-        <div class="container">
+        <div>
             <p>&copy; 2023 WIN-E. Todos os direitos reservados.</p>
         </div>
     </footer>
     <!-- FIM -->
-
 </body>
 
 </html>
