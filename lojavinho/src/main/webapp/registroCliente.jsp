@@ -35,7 +35,7 @@
                 </div>
                 <div class="form-group">
                     <label for="cpfCliente">CPF:</label>
-                    <input type="text" id="cpfCliente" name="cpfCliente" required>
+                    <input type="text" id="cpfCliente" name="cpfCliente" required oninput="atualizarCPFFormatado()">
                     <span>${requestScope.cpfExistente}</span>
                 </div>
                 <div class="form-group">
@@ -70,5 +70,5 @@
     </footer>
     <!-- FIM  -->
 </body>
-
+ <script src="ScriptCPF.js"></script>
 </html>

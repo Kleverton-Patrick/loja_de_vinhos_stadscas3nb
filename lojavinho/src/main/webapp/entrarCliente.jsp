@@ -33,7 +33,7 @@
                 <br>
                 <div class="form-group">
                     <label for="cpfCliente">CPF Cliente:</label>
-                    <input type="text" id="cpfCliente" name="cpfCliente" required>
+                    <input type="text" id="cpfCliente" name="cpfCliente" required oninput="atualizarCPFFormatado()">
                 </div>
                 <div class="form-group">
                     <label for="senhaCliente">Senha:</label>
@@ -60,5 +60,5 @@
     </footer>
     <!-- FIM  -->
 </body>
-
+<script src="ScriptCPF.js"></script>
 </html>
