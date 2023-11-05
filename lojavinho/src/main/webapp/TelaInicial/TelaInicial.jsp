@@ -26,16 +26,12 @@
 
     <!-- Conteúdo -->
     <div class="content">
-        <div class="image-container">
-            <img src="TelaInicial/IMG_0297.PNG" alt="Imagem Centralizada" class="image-center">
-        </div>
-        <div class="product-button ">
             <form action="/TelaDeProdutos" method="GET">
-                <div class="select-button">
-                    <button type="submit" class="product-button">Clique e conheça nosso catálogo</button>
-                </div>
+                 <button type="submit" class="catalogo">
+                       <img src="TelaInicial/IMG_0297.PNG" alt="Imagem Centralizada" class="image-center">
+                       <h1 class="texto-catalogo">Conheça nosso catalogo</h1>
+                 </button>
             </form>
-        </div>
     </div>
 
     <!-- INICIO DO RODAPÉ -->
