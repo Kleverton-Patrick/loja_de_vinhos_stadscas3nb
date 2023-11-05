@@ -5,10 +5,16 @@ function formatarCPF(cpf) {
     return cpf;
 }
 
-// Função para atualizar o campo de CPF formatado
+// Função para atualizar o campo de CPF formatado e limitar o comprimento
 function atualizarCPFFormatado() {
     const cpfInput = document.getElementById('cpfCliente');
-    const cpfValue = cpfInput.value;
+    let cpfValue = cpfInput.value;
+
+    // Limita o CPF a 11 dígitos (incluindo os números e os pontos e traço)
+    if (cpfValue.length > 14) {
+        cpfValue = cpfValue.slice(0, 14);
+    }
+
     cpfInput.value = formatarCPF(cpfValue);
 }
 
