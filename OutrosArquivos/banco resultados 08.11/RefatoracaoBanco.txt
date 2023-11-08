@@ -1,0 +1,25 @@
+create table Vinho (
+	VinhoID int primary key auto_increment,
+	NomeVinho varchar(100)not null,
+	PaisId int not null,
+    FOREIGN KEY (PaisId) REFERENCES Pais(PaisID),
+    TipoUvaId int not null,
+    foreign key (TipoUvaId) references TipoUva(TipoUvaID),
+    TipoVinhoId int not null,
+    foreign key (TipoVinhoId) references TipoVinho (TipoVinhoID),
+    HARMONIZACAOID int not null,
+	foreign key (HARMONIZACAOID) references HARMONIZACAO(HARMONIZACAOID),
+	Descricao varchar(300),
+	Image varchar(255)
+) ;
+
+
+
+insert into Vinho (NomeVinho, PaisId, TipoUvaId, TipoVinhoId, HarmonizacaoID, Descricao, Image) values 
+('Santa carolina', 3, 3, 2 , 1,'Vinho santa carolina safra 2023' , '/img/santaCarolina.jpg'),
+('Santa carolina Branco', 3, 2, 2, 2,'Vinho Santa Carolina Branco safra 2013' ,'/img/santaCarolinaBranco.jpg'),
+('Pata negra', 2, 6, 2, 1,'Vinho pata negra safra 2018','/img/pataNegra.jpg'),
+('DV catena', 5, 1, 1, 2,'Vinho DV Catena safra 2019','/img/dvCatena.jpg'),
+('Virrey Loreto', 5, 4, 2, 3,'Vinho Virrey Loreto safra 2015','/img/virreyLoreto.jpg'),
+('Julia florista', 4, 7, 2, 1,'Vinho Julia florista safra 2022','/img/juliaFlorista.jpg'),
+('Fonte Regia Chianti', 1, 8, 2, 1,'Vinho Fonte Regia Chianti safra 2019','/img/fonteRegia.jpg');
