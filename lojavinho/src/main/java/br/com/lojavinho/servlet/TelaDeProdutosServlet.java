@@ -33,22 +33,25 @@ public class TelaDeProdutosServlet extends HttpServlet {
                     break;
                 case "3":
                     harmonizacaoID = "3";
+                    break;
                 case "4":
                     harmonizacaoID = "4";
                 default:
                     break;
             }
+
             if (!harmonizacaoID.isEmpty()) {
-                List<String> vinhosSobremesa = VinhoDao.obterVinhosSobremesa(harmonizacaoID);
 
+                List<Vinho> resultados = VinhoDao.obterCard(harmonizacaoID);
 
-                request.setAttribute("vinhosSobremesa", vinhosSobremesa);
+                request.setAttribute("resultados", resultados);
 
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/TelaDeResultado/Resultados.jsp");
                 dispatcher.forward(request, response);
 
                 return;
             }
+
         }
 
         String nomeVinho = request.getParameter("busca");

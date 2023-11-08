@@ -197,7 +197,7 @@ public class VinhoDao {
     }
 
     public static List<Vinho> obterDetalhesDosVinhos(String nomeVinho) {
-        List<Vinho> nomesDosVinhos = new ArrayList<>();
+        List<Vinho> Vinhos = new ArrayList<>();
 
         try (Connection connection = ConnectionPoolConfig.getConnection()) {
             System.out.println("Conexao bd ok");
@@ -214,14 +214,14 @@ public class VinhoDao {
 
                 Vinho vinho = new Vinho(idVinho, name, description, image);
 
-                nomesDosVinhos.add(vinho);
+                Vinhos.add(vinho);
             }
 
             System.out.println("success in select * Vinho");
 
             connection.close();
 
-            return nomesDosVinhos;
+            return Vinhos;
 
         } catch (SQLException e) {
 
@@ -235,7 +235,7 @@ public class VinhoDao {
 
     public static List<Vinho> obterVinhos(String paisID, String tipoVinhoID, String tipoUvaID) {
 
-        List<Vinho> nomesDosVinhos = new ArrayList<>();
+        List<Vinho> Vinhos = new ArrayList<>();
 
         try (Connection connection = ConnectionPoolConfig.getConnection()) {
             String sql = "SELECT * " +
@@ -266,14 +266,14 @@ public class VinhoDao {
 
                 Vinho vinho = new Vinho(idVinho, name, description, image);
 
-                nomesDosVinhos.add(vinho);
+                Vinhos.add(vinho);
             }
 
             System.out.println("success in select * Vinho");
 
             connection.close();
 
-            return nomesDosVinhos;
+            return Vinhos;
 
         } catch (SQLException e) {
 
@@ -285,26 +285,41 @@ public class VinhoDao {
     }
 
 
-    public static List<String> obterVinhosSobremesa(String sobreMesa) {
-        List<String> vinhosSobremesa = new ArrayList<>();
+    public static List<Vinho> obterCard(String HarmonizacaoID) {
+        List<Vinho> vinhos = new ArrayList<>();
 
         try (Connection connection = ConnectionPoolConfig.getConnection()) {
-            String sql = "SELECT nomeVinho FROM Vinho WHERE HarmonizacaoId = ?";
+            String sql = "SELECT * FROM Vinho WHERE HarmonizacaoId = ?";
 
             PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setObject(1, sobreMesa);
+            statement.setObject(1, HarmonizacaoID);
 
             ResultSet resultSet = statement.executeQuery();
 
             while (resultSet.next()) {
-                String nomeVinho = resultSet.getString("nomeVinho");
-                vinhosSobremesa.add(nomeVinho);
+                String idVinho = resultSet.getString("VINHOID");
+                String name = resultSet.getString("NOMEVINHO");
+                String description = resultSet.getString("DESCRICAO");
+                String image = resultSet.getString("IMAGE");
+
+                Vinho vinho = new Vinho(idVinho, name, description, image);
+
+                vinhos.add(vinho);
             }
+
+            System.out.println("success in select * Vinho");
+
+            connection.close();
+
+            return vinhos;
+
         } catch (SQLException e) {
-            e.printStackTrace();
+
+            System.out.println("fail in database connection");
+            System.out.println("Error" + e.getMessage());
+
+            return Collections.emptyList();
         }
 
-        return vinhosSobremesa;
     }
-
 }
