@@ -47,7 +47,7 @@ public class RegistroClienteServlet extends HttpServlet {
 
                 // Registro bem sucedido, redirecione para a página escolhida.
                 req.getSession().setAttribute("logadoUsuarioCliente", nomeCliente);
-                resp.sendRedirect("/TelaDeBusca/Produtos.jsp");
+                resp.sendRedirect("/TelaDeProdutos");
             } else {
 
                 // Falha no registro, exiba uma mensagem de erro

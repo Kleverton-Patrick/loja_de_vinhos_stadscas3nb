@@ -40,7 +40,7 @@ public class EntrarClienteServlet extends HttpServlet {
             req.getSession().setAttribute("logadoUsuarioCliente", cpfCliente);
 
             // Redireciona para a página escolhida.
-            resp.sendRedirect("/find-all-vinhos");
+            resp.sendRedirect("/TelaDeProdutos");
 
         } else {
             // Se as credenciais forem inválidas, exibe uma mensagem de erro e redireciona de volta para a página de entrarCliente.
