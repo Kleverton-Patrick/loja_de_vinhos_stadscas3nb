@@ -24,20 +24,20 @@ TipoUvaID int primary key auto_increment,
 NomeTipoUva varchar (100)not null
 );
 
-insert into TipoVinho (NomeTipoVinho) values
+INSERT INTO (DSC_TIPO_VINHO) VALUES
 ('Branco'),
 ('Tinto'),
 ('Rosé'),
 ('Espumante');
 
-insert into Pais (NomePais) values 
+INSERT INTO PAIS (DSC_PAIS_PRODUTOR) VALUES
 ('Italia'),
 ('Espanha'),
 ('Chile'),
 ('Portugal'),
 ('Argentina');
 
-insert into TipoUva (NomeTipoUva) values
+INSERT INTO TIPO_UVA (DSC_TIPO_VINHO) VALUES
 ('Chardonay'),
 ('Carenet Sauvignon'),
 ('Merlot'),

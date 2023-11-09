@@ -34,12 +34,14 @@
 
         <section class="card">
               <div class="icon">
-                 <img src="${resultado.image}" alt="...">
+                 <img src="${resultado.imagem}" alt="...">
               </div>
 
-                <h2 class="card-title">${resultado.name}</h5>
-                <h5 class="card-info p"> ${resultado.description} </h1>
-                <a href="#" class="btn btn-primary">Comprar</a>
+                <h2 class="card-title">${resultado.nome}</h5>
+                <h5 class="card-info p"> ${resultado.descricao} </h1>
+                <h5 class="card-info p"> Valor: ${resultado.valor} </h1>
+                <h5 class="card-info p"> QTD em estoque: ${resultado.estoque} </h1>
+                <a href="#" class="btn btn-primary">ADICIONAR AO CARRINHO</a>
 
         </section>
     </c:forEach>

@@ -31,12 +31,14 @@ public class CreateVinhoServlet extends HttpServlet {
 
         String vinhoId = parameters.get("id");
         String vinhoName = parameters.get("vinho-name");
+        String vinhoValor = parameters.get("valor");
+        String vinhoEstoque = parameters.get("estoque");
         String vinhoDescricao = parameters.get("descricao");
         String image = parameters.get("image");
 
 
         VinhoDao vinhoDao = new VinhoDao();
-        Vinho vinho = new Vinho(vinhoId, vinhoName, vinhoDescricao, image);
+        Vinho vinho = new Vinho(vinhoId, vinhoName, vinhoValor, vinhoEstoque, vinhoDescricao, image);
 
         if (vinhoId.isBlank()) {
 

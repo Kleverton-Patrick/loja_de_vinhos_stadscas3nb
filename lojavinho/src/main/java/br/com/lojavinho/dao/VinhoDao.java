@@ -18,18 +18,18 @@ public class VinhoDao {
 
     public void createVinho(Vinho vinho) {
 
-        String SQL = "INSERT INTO VINHO (NAME, IMAGE) VALUES (?, ?)";
+        String SQL = "INSERT INTO VINHO (DSC_NOME_VINHO, IMAGEM) VALUES (?, ?)";
 
         try {
             Connection connection = ConnectionPoolConfig.getConnection();
 
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
 
-            preparedStatement.setString(1, vinho.getName());
-            preparedStatement.setString(2, vinho.getImage());
+            preparedStatement.setString(1, vinho.getNome());
+            preparedStatement.setString(2, vinho.getImagem());
             preparedStatement.execute();
 
-            System.out.println("success in insert vinho CREATE");
+            System.out.println("success in insert vinho");
 
             connection.close();
 
@@ -53,25 +53,27 @@ public class VinhoDao {
 
             ResultSet resultSet = preparedStatement.executeQuery();
 
-            List<Vinho> vinhos = new ArrayList<>();
+            List<Vinho> Vinhos = new ArrayList<>();
 
             while (resultSet.next()) {
 
                 String vinhoId = resultSet.getString("id");
-                String vinhoName = resultSet.getString("name");
+                String vinhoNome = resultSet.getString("nome");
+                String vinhoValor = resultSet.getString("valor");
+                String vinhoEstoque = resultSet.getString("estoque");
                 String vinhoDescricao = resultSet.getString("descricao");
-                String image = resultSet.getString("image");
+                String imagem = resultSet.getString("imagem");
 
-                Vinho vinho = new Vinho(vinhoId, vinhoName, vinhoDescricao, image);
+                Vinho vinho = new Vinho(vinhoId, vinhoNome, vinhoValor, vinhoEstoque, vinhoDescricao, imagem);
 
-                vinhos.add(vinho);
+                Vinhos.add(vinho);
             }
 
             System.out.println("success in select * vinho FIND");
 
             connection.close();
 
-            return vinhos;
+            return Vinhos;
 
         } catch (Exception e) {
 
@@ -84,7 +86,7 @@ public class VinhoDao {
 
     public void deleteVinhoById(String vinhoId) {
 
-        String SQL = "DELETE VINHO WHERE ID = ?";
+        String SQL = "DELETE VINHO WHERE NUM_SEQUENCIA = ?";
 
         try {
             Connection connection = ConnectionPoolConfig.getConnection();
@@ -108,19 +110,19 @@ public class VinhoDao {
 
     public void updateVinho(Vinho vinho) {
 
-        String SQL = "UPDATE VINHO SET NAME = ?, IMAGE = ? WHERE ID = ?";
+        String SQL = "UPDATE VINHO SET DSC_NOME_VINHO = ?, IMAGEM = ? WHERE NUM_SEQUENCIA = ?";
 
         try {
             Connection connection = ConnectionPoolConfig.getConnection();
 
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
 
-            preparedStatement.setString(1, vinho.getName());
-            preparedStatement.setString(2, vinho.getImage());
+            preparedStatement.setString(1, vinho.getNome());
+            preparedStatement.setString(2, vinho.getImagem());
             preparedStatement.setString(3, vinho.getId());
             preparedStatement.execute();
 
-            System.out.println("success in UPDATE vinho UPDATE");
+            System.out.println("success in UPDATE vinho ");
 
             connection.close();
 
@@ -141,8 +143,8 @@ public class VinhoDao {
             ResultSet resultSet = statement.executeQuery();
 
             while (resultSet.next()) {
-                int id = resultSet.getInt("PAISID");
-                String nome = resultSet.getString("NOMEPAIS");
+                int id = resultSet.getInt("NUM_SEQUENCIA");
+                String nome = resultSet.getString("DSC_PAIS_PRODUTOR");
                 Pais pais = new Pais(id, nome);
                 listaDePaises.add(pais);
             }
@@ -158,13 +160,13 @@ public class VinhoDao {
         List<TipoVinho> listaTiposVinhos = new ArrayList<>();
 
         try (Connection connection = ConnectionPoolConfig.getConnection()) {
-            String sql = "SELECT * FROM TIPOVINHO";
+            String sql = "SELECT * FROM TIPO_VINHO";
             PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet resultSet = statement.executeQuery();
 
             while (resultSet.next()) {
-                int id = resultSet.getInt("TIPOVINHOID");
-                String tipoVinho = resultSet.getString("NOMETIPOVINHO");
+                int id = resultSet.getInt("NUM_SEQUENCIA");
+                String tipoVinho = resultSet.getString("DSC_TIPO_VINHO");
                 TipoVinho nomeTipoVinho = new TipoVinho(id, tipoVinho);
                 listaTiposVinhos.add(nomeTipoVinho);
             }
@@ -179,13 +181,13 @@ public class VinhoDao {
         List<TipoUva> listaTipoUva = new ArrayList<>();
 
         try (Connection connection = ConnectionPoolConfig.getConnection()) {
-            String sql = "SELECT * FROM TIPOUVA";
+            String sql = "SELECT * FROM TIPO_UVA";
             PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet resultSet = statement.executeQuery();
 
             while (resultSet.next()) {
-                int id = resultSet.getInt("TIPOUVAID");
-                String tipoUva = resultSet.getString("NOMETIPOUVA");
+                int id = resultSet.getInt("NUM_SEQUENCIA");
+                String tipoUva = resultSet.getString("DSC_TIPO_UVA");
                 TipoUva nomeTipoUva = new TipoUva(id, tipoUva);
                 listaTipoUva.add(nomeTipoUva);
             }
@@ -201,18 +203,20 @@ public class VinhoDao {
 
         try (Connection connection = ConnectionPoolConfig.getConnection()) {
             System.out.println("Conexao bd ok");
-            String sql = "SELECT * FROM VINHO WHERE NOMEVINHO LIKE ?";
+            String sql = "SELECT * FROM VINHO WHERE DSC_NOME_VINHO LIKE ?";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, "%" + nomeVinho + "%");
             ResultSet resultSet = statement.executeQuery();
 
             while (resultSet.next()) {
-                String idVinho = resultSet.getString("VINHOID");
-                String name = resultSet.getString("NOMEVINHO");
-                String description = resultSet.getString("DESCRICAO");
-                String image = resultSet.getString("IMAGE");
+                String vinhoId = resultSet.getString("NUM_SEQUENCIA");
+                String vinhoNome = resultSet.getString("DSC_NOME_VINHO");
+                String vinhoValor = resultSet.getString("VLR_VENDA");
+                String vinhoEstoque = resultSet.getString("QTD_ESTOQUE");
+                String vinhoDescricao = resultSet.getString("DESCRICAO");
+                String imagem = resultSet.getString("IMAGEM");
 
-                Vinho vinho = new Vinho(idVinho, name, description, image);
+                Vinho vinho = new Vinho(vinhoId, vinhoNome, vinhoValor, vinhoEstoque, vinhoDescricao, imagem);
 
                 Vinhos.add(vinho);
             }
@@ -239,13 +243,13 @@ public class VinhoDao {
 
         try (Connection connection = ConnectionPoolConfig.getConnection()) {
             String sql = "SELECT * " +
-                    "FROM Vinho AS V " +
-                    "INNER JOIN Pais AS P ON P.PaisID = V.PaisId " +
-                    "INNER JOIN TipoUva AS TU ON TU.TipoUvaID = V.TipoUvaId " +
-                    "INNER JOIN TipoVinho AS TV ON TV.TipoVinhoID = V.TipoVinhoId " +
-                    "WHERE (P.PaisID = ? OR ? IS NULL) " +
-                    "AND (TU.TipoUvaID = ? OR ? IS NULL) " +
-                    "AND (TV.TipoVinhoID = ? OR ? IS NULL)";
+                    "FROM VINHO AS V " +
+                    "INNER JOIN PAIS AS P ON P.NUM_SEQUENCIA = V.NUM_SEQUENCIA " +
+                    "INNER JOIN TIPO_UVA AS TU ON TU.NUM_SEQUENCIA = V.NUM_SEQUENCIA " +
+                    "INNER JOIN TIPO_VINHO AS TV ON TV.NUM_SEQUENCIA = V.NUM_SEQUENCIA " +
+                    "WHERE (P.NUM_SEQUENCIA = ? OR ? IS NULL) " +
+                    "AND (TU.NUM_SEQUENCIA = ? OR ? IS NULL) " +
+                    "AND (TV.NUM_SEQUENCIA = ? OR ? IS NULL)";
 
             PreparedStatement statement = connection.prepareStatement(sql);
 
@@ -259,12 +263,14 @@ public class VinhoDao {
             ResultSet resultSet = statement.executeQuery();
 
             while (resultSet.next()) {
-                String idVinho = resultSet.getString("VINHOID");
-                String name = resultSet.getString("NOMEVINHO");
-                String description = resultSet.getString("DESCRICAO");
-                String image = resultSet.getString("IMAGE");
+                String vinhoId = resultSet.getString("NUM_SEQUENCIA");
+                String vinhoNome = resultSet.getString("DSC_NOME_VINHO");
+                String vinhoValor = resultSet.getString("VLR_VENDA");
+                String vinhoEstoque = resultSet.getString("QTD_ESTOQUE");
+                String vinhoDescricao = resultSet.getString("DESCRICAO");
+                String imagem = resultSet.getString("IMAGEM");
 
-                Vinho vinho = new Vinho(idVinho, name, description, image);
+                Vinho vinho = new Vinho(vinhoId, vinhoNome, vinhoValor, vinhoEstoque, vinhoDescricao, imagem);
 
                 Vinhos.add(vinho);
             }
@@ -286,10 +292,10 @@ public class VinhoDao {
 
 
     public static List<Vinho> obterCard(String HarmonizacaoID) {
-        List<Vinho> vinhos = new ArrayList<>();
+        List<Vinho> Vinhos = new ArrayList<>();
 
         try (Connection connection = ConnectionPoolConfig.getConnection()) {
-            String sql = "SELECT * FROM Vinho WHERE HarmonizacaoId = ?";
+            String sql = "SELECT * FROM Vinho WHERE FK_NUM_SEQ_HARMONIZACAO = ?";
 
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setObject(1, HarmonizacaoID);
@@ -297,21 +303,23 @@ public class VinhoDao {
             ResultSet resultSet = statement.executeQuery();
 
             while (resultSet.next()) {
-                String idVinho = resultSet.getString("VINHOID");
-                String name = resultSet.getString("NOMEVINHO");
-                String description = resultSet.getString("DESCRICAO");
-                String image = resultSet.getString("IMAGE");
+                String vinhoId = resultSet.getString("NUM_SEQUENCIA");
+                String vinhoNome = resultSet.getString("DSC_NOME_VINHO");
+                String vinhoValor = resultSet.getString("VLR_VENDA");
+                String vinhoEstoque = resultSet.getString("QTD_ESTOQUE");
+                String vinhoDescricao = resultSet.getString("DESCRICAO");
+                String imagem = resultSet.getString("IMAGEM");
 
-                Vinho vinho = new Vinho(idVinho, name, description, image);
+                Vinho vinho = new Vinho(vinhoId, vinhoNome, vinhoValor, vinhoEstoque, vinhoDescricao, imagem);
 
-                vinhos.add(vinho);
+                Vinhos.add(vinho);
             }
 
             System.out.println("success in select * Vinho");
 
             connection.close();
 
-            return vinhos;
+            return Vinhos;
 
         } catch (SQLException e) {
 
