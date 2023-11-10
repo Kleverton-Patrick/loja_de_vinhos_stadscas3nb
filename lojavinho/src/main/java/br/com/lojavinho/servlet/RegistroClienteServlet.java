@@ -12,15 +12,16 @@ import java.io.IOException;
 @WebServlet("/registroCliente")
 public class RegistroClienteServlet extends HttpServlet {
 
+    // Quando uma solicitação GET é feita, encaminha para a página de registro do cliente.
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        // Quando uma solicitação GET é feita, encaminha para a página de registro do cliente.
+
         req.getRequestDispatcher("registroCliente.jsp").forward(req, resp);
     }
 
+    // Quando um formulário é enviado via POST, este método é acionado para processar o registro do cliente.
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        // Quando um formulário é enviado via POST, este método é acionado para processar o registro do cliente.
 
         // Obtém os parâmetros do formulário
         String nomeCliente = req.getParameter("nomeCliente");

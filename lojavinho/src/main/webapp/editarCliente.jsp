@@ -48,13 +48,15 @@
                     <label for="senhaCliente">Senha:</label>
                     <input type="senhaCliente" id="senhaCliente" name="senhaCliente" required>
                 </div>
+
                 <div class="form-group">
-                    <label for="statusCliente">Status do Cliente:</label>
-                    <select id="statusCliente" name="statusCliente">
+                    <label for="statusCliente">Status:</label>
+                    <select id="statusCliente" name="statusCliente" required>
                         <option value="1">Ativo</option>
                         <option value="0">Inativo</option>
                     </select>
                 </div>
+
 
                 <button type="submit">Salvar Alterações</button>
             </form>

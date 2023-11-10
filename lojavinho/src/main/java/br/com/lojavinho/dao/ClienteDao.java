@@ -1,7 +1,6 @@
 package br.com.lojavinho.dao;
 
 import br.com.lojavinho.config.ConnectionPoolConfig;
-//import br.com.lojavinho.model.UsuarioAdmin;
 import br.com.lojavinho.model.UsuarioCliente;
 
 import java.sql.Connection;
@@ -12,7 +11,7 @@ public class ClienteDao {
     // Método para registrar um novo cliente no banco de dados
     public boolean registroUsuario(String nomeCliente, String cpfCliente, String emailCliente, String telefoneCliente, String senhaCliente) {
 
-        String SQL = "INSERT INTO CLIENTE (DSC_NOME_CLIENTE, NUM_CPF, DSC_EMAIL, NUM_TELEFONE, DSC_SENHA) VALUES (?, ?, ?, ?, ?)";
+        String SQL = "INSERT INTO CLIENTE (DSC_NOME_CLIENTE, NUM_CPF, DSC_EMAIL, NUM_TELEFONE, DSC_SENHA, STATUS) VALUES (?, ?, ?, ?, ?, 1)";
 
         try {
 
@@ -55,17 +54,15 @@ public class ClienteDao {
 
             System.out.println("success in select CPFCliente");
 
-            if (resultSet != null) {
-                while (resultSet.next()) {
+            if (resultSet != null && resultSet.next()) {
+                String senhaCliente = resultSet.getString("DSC_SENHA");
+                int statusCliente = resultSet.getInt("STATUS");
 
-                    String senhaCliente = resultSet.getString("DSC_SENHA");
-
-                    if (senhaCliente.equals(usuarioCliente.getSenhaCliente())) {
-
-                        return true;
-                    }
+                if (senhaCliente.equals(usuarioCliente.getSenhaCliente()) && statusCliente == 1) {
+                    return true; // Apenas permite o login se a senha estiver correta e o cliente estiver ativo (status igual a 1).
                 }
             }
+
 
             connection.close();
 
@@ -110,8 +107,8 @@ public class ClienteDao {
         return null;
     }
     // Método para atualizar o cadastro de um cliente
-    public boolean atualizarCadastroCliente(String nomeCliente, String cpfCliente, String emailCliente, String telefoneCliente, String senhaCliente) {
-        String SQL = "UPDATE CLIENTE SET DSC_NOME_CLIENTE = ?, DSC_EMAIL = ?, NUM_TELEFONE = ?, DSC_SENHA = ? WHERE NUM_CPF = ?";
+    public boolean atualizarCadastroCliente(String nomeCliente, String cpfCliente, String emailCliente, String telefoneCliente, String senhaCliente, int statusCliente) {
+        String SQL = "UPDATE CLIENTE SET DSC_NOME_CLIENTE = ?, DSC_EMAIL = ?, NUM_TELEFONE = ?, DSC_SENHA = ?, STATUS = ? WHERE NUM_CPF = ?";
 
         try {
             Connection connection = ConnectionPoolConfig.getConnection();
@@ -121,7 +118,8 @@ public class ClienteDao {
             preparedStatement.setString(2, emailCliente);
             preparedStatement.setString(3, telefoneCliente);
             preparedStatement.setString(4, senhaCliente);
-            preparedStatement.setString(5, cpfCliente);
+            preparedStatement.setInt(5, statusCliente);
+            preparedStatement.setString(6, cpfCliente);
 
             int rowsAffected = preparedStatement.executeUpdate();
 
@@ -156,5 +154,26 @@ public class ClienteDao {
         }
 
         return false;
+    }
+    public int obterStatusCliente(String cpfCliente) {
+        String SQL = "SELECT STATUS FROM CLIENTE WHERE NUM_CPF = ?";
+
+        try {
+            Connection connection = ConnectionPoolConfig.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+            preparedStatement.setString(1, cpfCliente);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (resultSet != null && resultSet.next()) {
+                return resultSet.getInt("STATUS");
+            }
+
+            connection.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return -1; // Valor padrão para cliente não encontrado.
     }
 }

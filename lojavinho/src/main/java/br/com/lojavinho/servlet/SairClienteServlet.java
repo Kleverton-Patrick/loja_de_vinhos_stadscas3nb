@@ -15,7 +15,7 @@ public class SairClienteServlet extends HttpServlet {
 
         req.getSession().invalidate();
 
-        req.setAttribute("message", "success on logout");
+        req.setAttribute("message", "sucesso ao sair");
 
         req.getRequestDispatcher("entrarCliente.jsp").forward(req,resp);
 
