@@ -29,7 +29,6 @@
             <h2>Área do Cliente</h2>
             <form action="/entrarcliente" method="post">
                 <span>${requestScope.message}</span>
-
                 <br>
                 <div class="form-group">
                     <label for="cpfCliente">CPF Cliente:</label>
@@ -41,7 +40,9 @@
                 </div>
                 <button type="submit">Entrar</button>
             </form>
-            <a href="/registroCliente" class="register-button">Registrar-se</a>
+            <a href="/registroCliente" class="register-button">Cadastrar</a>
+            <br>
+            <a href="/editarcliente" class="register-button">Atualizar</a>
         </div>
     </div>
 

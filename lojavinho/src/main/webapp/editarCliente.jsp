@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="estilo.css">
     <link rel="stylesheet" href="index.css">
-    <title>Editar Cliente</title>
+    <title>Atualizações Cliente</title>
 </head>
 
 <body>
@@ -26,8 +26,9 @@
 
     <div class="container">
         <div class="login-card">
-            <h2>Editar Cliente</h2>
+            <h2>Atualizações Cliente</h2>
             <form action="/editarcliente" method="post">
+                <span>${requestScope.message}</span>
                 <div class="form-group">
                     <label for="nomeCliente">Usuario:</label>
                     <input type="text" id="nomeCliente" name="nomeCliente" required>
@@ -48,7 +49,6 @@
                     <label for="senhaCliente">Senha:</label>
                     <input type="senhaCliente" id="senhaCliente" name="senhaCliente" required>
                 </div>
-
                 <div class="form-group">
                     <label for="statusCliente">Status:</label>
                     <select id="statusCliente" name="statusCliente" required>
@@ -56,12 +56,16 @@
                         <option value="0">Inativo</option>
                     </select>
                 </div>
-
-
                 <button type="submit">Salvar Alterações</button>
             </form>
         </div>
     </div>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+    <script src="main.js"></script>
 
     <!-- INICIO DO RODAPÉ -->
     <footer class="footer">
@@ -71,5 +75,5 @@
     </footer>
     <!-- FIM  -->
 </body>
-
+<script src="ScriptCPF.js"></script>
 </html>

@@ -12,18 +12,15 @@ import java.io.IOException;
 @WebServlet("/registroCliente")
 public class RegistroClienteServlet extends HttpServlet {
 
-    // Quando uma solicitação GET é feita, encaminha para a página de registro do cliente.
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         req.getRequestDispatcher("registroCliente.jsp").forward(req, resp);
     }
 
-    // Quando um formulário é enviado via POST, este método é acionado para processar o registro do cliente.
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        // Obtém os parâmetros do formulário
         String nomeCliente = req.getParameter("nomeCliente");
         String cpfCliente = req.getParameter("cpfCliente");
         String emailCliente = req.getParameter("emailCliente");
@@ -31,30 +28,25 @@ public class RegistroClienteServlet extends HttpServlet {
         String senhaCliente = req.getParameter("senhaCliente");
 
         ClienteDao clienteDao = new ClienteDao();
+
         boolean cpfJaCadastrado = clienteDao.verificarCpfExistente(cpfCliente);
 
         if (cpfJaCadastrado) {
 
-            // Se o CPF já está cadastrado, exibe uma mensagem de erro e redireciona de volta para a página registroCliente.jsp.
             req.setAttribute("cpfExistente", "CPF já cadastrado!");
             req.getRequestDispatcher("registroCliente.jsp").forward(req, resp);
-            System.out.println("Mensagem: " + req.getAttribute("cpfExistente"));
         } else {
 
-            // Se o CPF não está cadastrado, tenta registrar o cliente.
-            boolean isRegistered = clienteDao.registroUsuario(nomeCliente, cpfCliente, emailCliente, telefoneCliente, senhaCliente);
+            boolean isRegistered = clienteDao.registrarCliente(nomeCliente, cpfCliente, emailCliente, telefoneCliente, senhaCliente);
 
             if (isRegistered) {
 
-                // Registro bem sucedido, redirecione para a página escolhida.
                 req.getSession().setAttribute("logadoUsuarioCliente", nomeCliente);
                 resp.sendRedirect("/TelaDeProdutos");
             } else {
 
-                // Falha no registro, exiba uma mensagem de erro
                 req.setAttribute("message", "Falha ao registrar. Por favor, tente novamente.");
                 req.getRequestDispatcher("registroCliente.jsp").forward(req, resp);
-                System.out.println("Mensagem: " + req.getAttribute("message"));
             }
         }
     }

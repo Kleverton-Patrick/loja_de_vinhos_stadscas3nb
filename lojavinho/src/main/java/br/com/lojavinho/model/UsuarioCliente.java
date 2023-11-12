@@ -8,10 +8,6 @@ public class UsuarioCliente {
     private String emailCliente;
     private String telefoneCliente;
 
-    public UsuarioCliente(String nomeCliente) {
-        this.nomeCliente = nomeCliente;
-    }
-
     public UsuarioCliente(String cpfCliente, String senhaCliente) {
         this.cpfCliente = cpfCliente;
         this.senhaCliente = senhaCliente;

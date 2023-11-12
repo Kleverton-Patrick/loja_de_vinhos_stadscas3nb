@@ -13,29 +13,21 @@ import java.io.IOException;
 @WebServlet("/editarcliente")
 public class EditarClienteServlet extends HttpServlet {
 
-    // Quando uma solicitação GET é feita para /editarcliente, esta função é acionada.
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        // Obtém o nome do cliente a partir da sessão.
         String nomeCliente = (String) req.getSession().getAttribute("logadoUsuarioCliente");
 
-        // Obtém os detalhes do cliente com base no CPF.
         UsuarioCliente cliente = obterDetalhesClientePorCpf(nomeCliente);
 
-        // Define o objeto do cliente como atributo da requisição para exibição na página de edição.
         req.setAttribute("cliente", cliente);
 
-        // Encaminha a requisição para a página de edição de cliente editarCliente.jsp.
         req.getRequestDispatcher("editarCliente.jsp").forward(req, resp);
     }
 
-    // Quando um formulário é enviado via POST, esta função é acionada para atualizar os detalhes do cliente.
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-
-        // Obtém os parâmetros do formulário.
         String nomeCliente = req.getParameter("nomeCliente");
         String cpfCliente = req.getParameter("cpfCliente");
         String emailCliente = req.getParameter("emailCliente");
@@ -43,33 +35,25 @@ public class EditarClienteServlet extends HttpServlet {
         String senhaCliente = req.getParameter("senhaCliente");
         int statusCliente = Integer.parseInt(req.getParameter("statusCliente"));
 
-        // Tenta atualizar o cadastro do cliente no banco de dados.
+        ClienteDao clienteDao = new ClienteDao();
+
         boolean sucesso = atualizarCadastroCliente(nomeCliente, cpfCliente, emailCliente, telefoneCliente, senhaCliente, statusCliente);
 
         if (sucesso) {
-            // Se a atualização for bem-sucedida, exibe uma mensagem de sucesso e redireciona para a página de produtos.
             req.setAttribute("message", "Cadastro atualizado com sucesso");
-            //req.setAttribute("message", "Cadastro atualizado com sucesso");
             resp.sendRedirect("/TelaDeProdutos");
-            System.out.println("Mensagem: " + req.getAttribute("message"));
-
         } else {
-            // Se houver falha na atualização, exibe uma mensagem de erro e redireciona de volta para a página de editarCliente.jsp.
             req.setAttribute("message", "Falha ao atualizar o cadastro. Tente novamente.");
             req.getRequestDispatcher("editarCliente.jsp").forward(req, resp);
-            System.out.println("Mensagem: " + req.getAttribute("message"));
-
         }
     }
 
     private UsuarioCliente obterDetalhesClientePorCpf(String cpfCliente) {
-        // Função para obter os detalhes do cliente com base no CPF usando o ClienteDao.
         ClienteDao clienteDao = new ClienteDao();
         return clienteDao.obterDetalhesClientePorCpf(cpfCliente);
     }
 
     private boolean atualizarCadastroCliente(String nomeCliente, String cpfCliente, String emailCliente, String telefoneCliente, String senhaCliente, int statusCliente) {
-        // Função para atualizar o cadastro do cliente no banco de dados usando o ClienteDao.
         ClienteDao clienteDao = new ClienteDao();
         return clienteDao.atualizarCadastroCliente(nomeCliente, cpfCliente, emailCliente, telefoneCliente, senhaCliente, statusCliente);
     }

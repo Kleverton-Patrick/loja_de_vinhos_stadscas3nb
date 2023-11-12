@@ -8,15 +8,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class ClienteDao {
-    // Método para registrar um novo cliente no banco de dados
-    public boolean registroUsuario(String nomeCliente, String cpfCliente, String emailCliente, String telefoneCliente, String senhaCliente) {
+
+    public boolean registrarCliente(String nomeCliente, String cpfCliente, String emailCliente, String telefoneCliente, String senhaCliente) {
 
         String SQL = "INSERT INTO CLIENTE (DSC_NOME_CLIENTE, NUM_CPF, DSC_EMAIL, NUM_TELEFONE, DSC_SENHA, STATUS) VALUES (?, ?, ?, ?, ?, 1)";
 
         try {
-
             Connection connection = ConnectionPoolConfig.getConnection();
-
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
 
             preparedStatement.setString(1, nomeCliente);
@@ -33,49 +31,53 @@ public class ClienteDao {
 
         } catch (Exception e) {
             System.out.println("Erro no cadastro do Usuário Cliente: " + e.getMessage());
-            e.printStackTrace(); //Aqui acontece a depuração, imprime as informações de rastreamento de exceção.
+            e.printStackTrace(); // Aqui acontece a depuração, imprime as informações de rastreamento de exceção.
             return false;
         }
     }
-    // Método para verificar as credenciais de um cliente ao fazer login
-    public boolean verificarCredenciaisCliente(UsuarioCliente usuarioCliente) {
 
-        String SQL = "SELECT DSC_SENHA FROM CLIENTE WHERE NUM_CPF = ?";
+    // Constantes para mensagens de erro
+    public static final String CREDENCIAIS_INVALIDAS = "Credenciais inválidas";
+    public static final String CLIENTE_INATIVO = "Cliente inativo, Atualize seu Cadastro.";
+    public static final String USUARIO_NAO_CADASTRADO = "Usuário não cadastrado";
+
+    public String verificarCredenciaisEStatusCliente(UsuarioCliente usuarioCliente) {
+        String SQL = "SELECT DSC_SENHA, STATUS FROM CLIENTE WHERE NUM_CPF = ?";
 
         try {
-
             Connection connection = ConnectionPoolConfig.getConnection();
-
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
-
             preparedStatement.setString(1, usuarioCliente.getCpfCliente());
 
             ResultSet resultSet = preparedStatement.executeQuery();
 
-            System.out.println("success in select CPFCliente");
-
             if (resultSet != null && resultSet.next()) {
-                String senhaCliente = resultSet.getString("DSC_SENHA");
                 int statusCliente = resultSet.getInt("STATUS");
 
-                if (senhaCliente.equals(usuarioCliente.getSenhaCliente()) && statusCliente == 1) {
-                    return true; // Apenas permite o login se a senha estiver correta e o cliente estiver ativo (status igual a 1).
+                // Verifica se o status está ativo (1)
+                if (statusCliente == 1) {
+                    String senhaCliente = resultSet.getString("DSC_SENHA");
+
+                    // Verifica se a senha está correta
+                    if (senhaCliente.equals(usuarioCliente.getSenhaCliente())) {
+                        return null;
+                    } else {
+                        return CREDENCIAIS_INVALIDAS;
+                    }
+                } else {
+                    return CLIENTE_INATIVO;
                 }
             }
 
-
             connection.close();
 
-            return false;
-
+            return USUARIO_NAO_CADASTRADO;
         } catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
-            e.printStackTrace(); // Aqui acontece a depuração, imprime as informações de rastreamento de exceção.
-            return false;
+            e.printStackTrace();
+            return null;
         }
-
     }
-    // Método para obter detalhes de um cliente com base no CPF
+
     public UsuarioCliente obterDetalhesClientePorCpf(String cpfCliente) {
         String SQL = "SELECT * FROM CLIENTE WHERE NUM_CPF = ?";
 
@@ -88,51 +90,75 @@ public class ClienteDao {
 
             while (resultSet.next()) {
 
-                //String cpfCliente = resultSet.getString("NUM_CPF");
                 String nomeCliente = resultSet.getString("DSC_NOME_CLIENTE");
                 String emailCliente = resultSet.getString("DSC_EMAIL");
                 String telefoneCliente = resultSet.getString("NUM_TELEFONE");
                 String senhaCliente = resultSet.getString("DSC_SENHA");
-
 
                 return new UsuarioCliente(null, nomeCliente, telefoneCliente, emailCliente, telefoneCliente);
             }
 
             connection.close();
         } catch (Exception e) {
-            e.printStackTrace();// Aqui acontece a depuração, imprime as informações de rastreamento de exceção.
-
+            e.printStackTrace();
         }
 
         return null;
     }
-    // Método para atualizar o cadastro de um cliente
-    public boolean atualizarCadastroCliente(String nomeCliente, String cpfCliente, String emailCliente, String telefoneCliente, String senhaCliente, int statusCliente) {
-        String SQL = "UPDATE CLIENTE SET DSC_NOME_CLIENTE = ?, DSC_EMAIL = ?, NUM_TELEFONE = ?, DSC_SENHA = ?, STATUS = ? WHERE NUM_CPF = ?";
+
+    public boolean validarCredenciais(String cpfCliente, String senhaCliente) {
+        String SQL = "SELECT COUNT(*) FROM CLIENTE WHERE NUM_CPF = ? AND DSC_SENHA = ?";
 
         try {
             Connection connection = ConnectionPoolConfig.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+            preparedStatement.setString(1, cpfCliente);
+            preparedStatement.setString(2, senhaCliente);
 
-            preparedStatement.setString(1, nomeCliente);
-            preparedStatement.setString(2, emailCliente);
-            preparedStatement.setString(3, telefoneCliente);
-            preparedStatement.setString(4, senhaCliente);
-            preparedStatement.setInt(5, statusCliente);
-            preparedStatement.setString(6, cpfCliente);
+            ResultSet resultSet = preparedStatement.executeQuery();
 
-            int rowsAffected = preparedStatement.executeUpdate();
+            if (resultSet.next()) {
+                int count = resultSet.getInt(1);
+                return count > 0;
+            }
 
             connection.close();
-
-            return rowsAffected > 0;
-
         } catch (Exception e) {
-            e.printStackTrace();// Aqui acontece a depuração, imprime as informações de rastreamento de exceção.
-            return false;
+            e.printStackTrace();
         }
+
+        return false;
     }
-    // Método para verificar se um CPF já existe no banco de dados
+
+    public boolean atualizarCadastroCliente(String nomeCliente, String cpfCliente, String emailCliente, String telefoneCliente, String senhaCliente, int statusCliente) {
+
+        if (validarCredenciais(cpfCliente, senhaCliente)) {
+            String SQL = "UPDATE CLIENTE SET DSC_NOME_CLIENTE = ?, DSC_EMAIL = ?, NUM_TELEFONE = ?, DSC_SENHA = ?, STATUS = ? WHERE NUM_CPF = ?";
+
+            try {
+                Connection connection = ConnectionPoolConfig.getConnection();
+                PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+
+                preparedStatement.setString(1, nomeCliente);
+                preparedStatement.setString(2, emailCliente);
+                preparedStatement.setString(3, telefoneCliente);
+                preparedStatement.setString(4, senhaCliente);
+                preparedStatement.setInt(5, statusCliente);
+                preparedStatement.setString(6, cpfCliente);
+
+                int rowsAffected = preparedStatement.executeUpdate();
+
+                connection.close();
+
+                return rowsAffected > 0;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        return false;
+    }
+
     public boolean verificarCpfExistente(String cpfCliente) {
         String SQL = "SELECT COUNT(*) FROM CLIENTE WHERE NUM_CPF = ?";
 
@@ -145,28 +171,7 @@ public class ClienteDao {
 
             if (resultSet.next()) {
                 int count = resultSet.getInt(1);
-                return count > 0; // Retorna true se o CPF já existe na tabela
-            }
-
-            connection.close();
-        } catch (Exception e) {
-            e.printStackTrace();// Aqui acontece a depuração, imprime as informações de rastreamento de exceção.
-        }
-
-        return false;
-    }
-    public int obterStatusCliente(String cpfCliente) {
-        String SQL = "SELECT STATUS FROM CLIENTE WHERE NUM_CPF = ?";
-
-        try {
-            Connection connection = ConnectionPoolConfig.getConnection();
-            PreparedStatement preparedStatement = connection.prepareStatement(SQL);
-            preparedStatement.setString(1, cpfCliente);
-
-            ResultSet resultSet = preparedStatement.executeQuery();
-
-            if (resultSet != null && resultSet.next()) {
-                return resultSet.getInt("STATUS");
+                return count > 0;
             }
 
             connection.close();
@@ -174,6 +179,6 @@ public class ClienteDao {
             e.printStackTrace();
         }
 
-        return -1; // Valor padrão para cliente não encontrado.
+        return false;
     }
 }
