@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html lang="pt">
@@ -19,7 +20,15 @@
                 </a>
             </div>
             <div class="suggestion-button">
-                <a href="./entrarCliente.jsp" class="suggestion-link">Entrar</a>
+                <!-- Verifica se o usuário cliente está logado -->
+                <c:if test="${sessionScope.logadoUsuarioCliente == null}">
+                    <a href="./entrarCliente.jsp" class="suggestion-link">Entrar</a>
+                 </c:if>
+                <!-- Se logado, exibe as informações do cliente e o botão de logout -->
+                <c:if test="${sessionScope.logadoUsuarioCliente != null}">
+                    <span>Cliente: ${sessionScope.logadoUsuarioCliente}</span>
+                    <a href="/saircliente">Sair</a>
+                </c:if>
             </div>
         </div>
     </header>

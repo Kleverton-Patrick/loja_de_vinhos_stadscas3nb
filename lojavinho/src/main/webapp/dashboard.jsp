@@ -8,37 +8,42 @@
     <title>Painel</title>
 </head>
 <body>
-  <div class="container">
-   <c:if test="${sessionScope.loggedUser != null}">
-        <span>${sessionScope.loggedUser}</span>
-        <a href="/logout">Logout</a>
-   </c:if>
-   <h2>Vinhos</h2>
-   <table>
-       <tr>
-           <th>ID</th>
-           <td>Nome</td>
-           <c:if test="${sessionScope.loggedUser != null}">
-                <th>Actions</th>
-           </c:if>
-        </tr>
-        <c:forEach var="vinho" items="${vinhos}">
+
+    <!-- Verifica se o usuário admin está logado -->
+    <div class="admin">
+        <c:if test="${sessionScope.loggedUser != null}">
+            <span>Admin: ${sessionScope.loggedUser}</span>
+            <a href="/logout">Logout</a>
+        </c:if>
+    </div>
+
+    <div class="container">
+        <h2>Vinhos</h2>
+        <table>
             <tr>
-                <td>${vinho.id}</td>
-                <td>${vinho.name}</td>
+                <th>ID</th>
+                <td>Nome</td>
                 <c:if test="${sessionScope.loggedUser != null}">
-                    <td>
-                        <form action="/delete-vinho" method="post">
-                             <input type="hidden" id="id" name="id" value="${vinho.id}">
-                             <button type="submit">Delete</button>
-                             <span> | </span>
-                             <a href="index.jsp?id=${vinho.id}&name=${vinho.name}">Update</a>
-                        </form>
-                    </td>
+                    <th>Actions</th>
                 </c:if>
             </tr>
-        </c:forEach>
-    </table>
-  </div>
+            <c:forEach var="vinho" items="${vinhos}">
+                <tr>
+                    <td>${vinho.id}</td>
+                    <td>${vinho.name}</td>
+                    <c:if test="${sessionScope.loggedUser != null}">
+                        <td>
+                            <form action="/delete-vinho" method="post">
+                                <input type="hidden" id="id" name="id" value="${vinho.id}">
+                                <button type="submit">Delete</button>
+                                <span> | </span>
+                                <a href="index.jsp?id=${vinho.id}&name=${vinho.name}">Update</a>
+                            </form>
+                        </td>
+                    </c:if>
+                </tr>
+            </c:forEach>
+        </table>
+    </div>
 </body>
 </html>

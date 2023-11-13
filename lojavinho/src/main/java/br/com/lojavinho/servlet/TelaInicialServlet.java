@@ -5,14 +5,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-
-@WebServlet("/TelaInicial")
+@WebServlet({"/TelaInicial", "/entrarcliente/TelaInicial"})
+//@WebServlet("/TelaInicial")
 public class TelaInicialServlet  extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         req.getRequestDispatcher
-                ("TelaInicial.jsp").forward(req, resp);
+                ("/TelaInicial/TelaInicial.jsp").forward(req, resp);
 
     }
 }

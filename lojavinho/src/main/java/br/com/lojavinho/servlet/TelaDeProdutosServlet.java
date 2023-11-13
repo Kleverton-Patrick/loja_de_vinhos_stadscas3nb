@@ -15,8 +15,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.swing.text.DefaultEditorKit;
 import java.io.IOException;
 import java.util.List;
-
-@WebServlet("/TelaDeProdutos")
+@WebServlet({"/TelaDeProdutos", "/entrarcliente/TelaDeProdutos"})
+//@WebServlet("/TelaDeProdutos")
 public class TelaDeProdutosServlet extends HttpServlet {
 
     @Override

@@ -36,7 +36,8 @@ public class EntrarClienteServlet extends HttpServlet {
         if (mensagemErro == null) {
 
             req.getSession().setAttribute("logadoUsuarioCliente", cpfCliente);
-            resp.sendRedirect("/find-all-vinhos");
+            //resp.sendRedirect("/find-all-vinhos");
+            resp.sendRedirect("/TelaInicial");
         } else {
 
             req.setAttribute("message", mensagemErro);

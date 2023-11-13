@@ -7,7 +7,7 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página Inicial</title>
+    <title>Página Catalogo</title>
     <link rel="stylesheet" href="/TelaDeBusca/Home.css">
     <link rel="stylesheet" href="index.css">
 </head>
@@ -16,12 +16,20 @@
     <header class="header">
         <div class="container">
             <div class="logo">
-            <a href="http://localhost:8080/">
-                <h1 class="logo-text">WIN-E</h1>
-            </a>
-        </div>
+                <a href="http://localhost:8080/">
+                    <h1 class="logo-text">WIN-E</h1>
+                </a>
+            </div>
             <div class="suggestion-button">
-                <a href="./entrarCliente.jsp" class="suggestion-link">Entrar</a>
+                <!-- Verifica se o usuário cliente está logado -->
+                <c:if test="${sessionScope.logadoUsuarioCliente == null}">
+                    <a href="./entrarCliente.jsp" class="suggestion-link">Entrar</a>
+                 </c:if>
+                <!-- Se logado, exibe as informações do cliente e o botão de logout -->
+                <c:if test="${sessionScope.logadoUsuarioCliente != null}">
+                    <span>Cliente: ${sessionScope.logadoUsuarioCliente}</span>
+                    <a href="/saircliente">Sair</a>
+                </c:if>
             </div>
         </div>
     </header>
