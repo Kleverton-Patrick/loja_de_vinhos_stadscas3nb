@@ -5,11 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e38ee1df-dff2-431d-b30f-5b3f61edf900" name="Changes" comment="Atribuindo o retorno de resultados através dos cards de harmonização">
+      <change beforePath="$PROJECT_DIR$/../ScriptBD/Scripts_Create_Tabelas.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../ScriptBD/Scripts_Create_Tabelas.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/lojavinho/dao/VinhoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/lojavinho/dao/VinhoDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/lojavinho/model/Vinho.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/lojavinho/model/Vinho.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/CreateVinhoServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/CreateVinhoServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/TelaDeResultado/Resultados.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/TelaDeResultado/Resultados.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/TelaInicial/TelaInicial.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/TelaInicial/TelaInicial.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/TelaInicial/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/TelaInicial/main.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,8 +19,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="HTML File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -133,5 +133,45 @@
     <MESSAGE value="Criado a tela de produto, classe servlet e sua interação com o servidor." />
     <MESSAGE value="Atribuindo o retorno de resultados através dos cards de harmonização" />
     <option name="LAST_COMMIT_MESSAGE" value="Atribuindo o retorno de resultados através dos cards de harmonização" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/dao/CarrinhoDao.java</url>
+          <line>24</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/dao/CarrinhoDao.java</url>
+          <line>23</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/dao/CarrinhoDao.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/dao/CarrinhoDao.java</url>
+          <line>21</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/dao/CarrinhoDao.java</url>
+          <line>20</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/dao/CarrinhoDao.java</url>
+          <line>10</line>
+          <properties class="br.com.lojavinho.dao.CarrinhoDao" method="createCarrinho">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

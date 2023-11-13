@@ -11,6 +11,7 @@
         <title>Resultado da Busca</title>
         <link rel="stylesheet" href="/TelaDeResultado/Resultado.css">
         <link rel="stylesheet" href="index.css">
+
 </head>
 
 <body>
@@ -27,26 +28,30 @@
         <h1>Resultados da Busca</h1>
     </div>
 
-<main class="cards">
 
-
-    <c:forEach items="${resultados}" var="resultado">
-
-        <section class="card">
-              <div class="icon">
+ <c:forEach items="${resultados}" var="resultado" varStatus="loop">
+         <section class="card">
+             <div class="icon">
                  <img src="${resultado.imagem}" alt="...">
-              </div>
+             </div>
 
-                <h2 class="card-title">${resultado.nome}</h5>
-                <h5 class="card-info p"> ${resultado.descricao} </h1>
-                <h5 class="card-info p"> Valor: ${resultado.valor} </h1>
-                <h5 class="card-info p"> QTD em estoque: ${resultado.estoque} </h1>
-                <a href="#" class="btn btn-primary">ADICIONAR AO CARRINHO</a>
+             <h2 class="card-title">${resultado.nome}</h2>
+             <h5 class="card-info p"> ${resultado.descricao} </h5>
+             <h5 class="card-info p"> Valor: ${resultado.valor} </h5>
+             <h5 class="card-info p"> QTD em estoque: ${resultado.estoque} </h5>
 
-        </section>
-    </c:forEach>
 
-</main>
+             <form action="/AddCart" method="post">
+                 <input type="hidden" name="id" value="${resultado.id}">
+                 <input type="hidden" name="nome" value="${resultado.nome}">
+                 <input type="hidden" name="valor" value="${resultado.valor}">
+                  <input type="number" name="quantidade" id="quantidade_${loop.index}" class="quantidadeInput" value="1" min="1" max="${resultado.estoque}">
+
+                 <button type="submit" onclick="adicionarAoCarrinho()"> ADICIONAR AO CARRINHO </button>
+             </form>
+         </section>
+     </c:forEach>
+
 
         </div>
          <footer class="footer">
@@ -54,6 +59,7 @@
                 <p>&copy; 2023 WIN-E. Todos os direitos reservados.</p>
             </div>
         </footer>
+
     </body>
 
 </html>
