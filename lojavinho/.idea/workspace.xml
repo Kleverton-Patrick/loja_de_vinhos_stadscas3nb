@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e38ee1df-dff2-431d-b30f-5b3f61edf900" name="Changes" comment="Atribuindo o retorno de resultados através dos cards de harmonização">
-      <change beforePath="$PROJECT_DIR$/../ScriptBD/Scripts_Create_Tabelas.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../ScriptBD/Scripts_Create_Tabelas.txt" afterDir="false" />
+    <list default="true" id="e38ee1df-dff2-431d-b30f-5b3f61edf900" name="Changes" comment="Adicionando a inserção de itens na tabela carrinho de compras">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/TelaDeResultado/Resultados.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/TelaDeResultado/Resultados.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/TelaInicial/TelaInicial.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/TelaInicial/TelaInicial.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/TelaInicial/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/TelaInicial/main.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,7 +111,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699483115567</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Adicionando a inserção de itens na tabela carrinho de compras">
+      <option name="closed" value="true" />
+      <created>1699841978936</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1699841978936</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -132,7 +136,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Criado a tela de produto, classe servlet e sua interação com o servidor." />
     <MESSAGE value="Atribuindo o retorno de resultados através dos cards de harmonização" />
-    <option name="LAST_COMMIT_MESSAGE" value="Atribuindo o retorno de resultados através dos cards de harmonização" />
+    <MESSAGE value="Adicionando a inserção de itens na tabela carrinho de compras" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adicionando a inserção de itens na tabela carrinho de compras" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
