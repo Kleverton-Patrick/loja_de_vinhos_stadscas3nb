@@ -8,12 +8,12 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrinho</title>
-    <link rel="stylesheet" href="Carrinho.css">
+    <link rel="stylesheet" href="/Carrinho/Carrinho.css">
     <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
-<!-- Aqui fica o cabeçalho -->
+    <!-- Aqui fica o cabeçalho -->
     <header class="header">
         <div class="container">
             <div class="logo">
@@ -25,7 +25,7 @@
                 <!-- Verifica se o usuário cliente está logado -->
                 <c:if test="${sessionScope.logadoUsuarioCliente == null}">
                     <a href="./entrarCliente.jsp" class="suggestion-link">Entrar</a>
-                 </c:if>
+                </c:if>
                 <!-- Se logado, exibe as informações do cliente e o botão de logout -->
                 <c:if test="${sessionScope.logadoUsuarioCliente != null}">
                     <span>Olá, ${sessionScope.logadoUsuarioCliente}</span>
@@ -41,39 +41,35 @@
         <h1>Carrinho</h1>
     </div>
 
-<body>
-    <div class="container">
-        <div class="card">
-            <h2>Carrinho de Compras</h2>
-            <table>
-                <thead>
+    <body>
+        <table>
+            <thead>
+                <tr>
+                    <th>Foto do Produto</th>
+                    <th>Nome do Vinho</th>
+                    <th>Valor Unitário</th>
+                    <th>Quantidade</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <c:forEach var="item" items="${carrinho}">
                     <tr>
-                        <th>Foto do Produto</th>
-                        <th>Nome do Vinho</th>
-                        <th>Valor Unitário</th>
-                        <th>Quantidade</th>
-                        <th>Total</th>
+                        <td><img src="${item.imagem}" alt="Imagem do Produto" width="100"></td>
+                        <td>${item.nome}</td>
+                        <td>R$ ${item.valor}</td>
+                        <td>${item.quantidade}</td>
+                        <td>R$ ${item.valor * item.quantidade}</td>
                     </tr>
-                </thead>
-                <tbody>
-                    <c:forEach var="item" items="${carrinho}">
-                        <tr>
-                            <td><img src="${item.imagem}" alt="Imagem do Produto" width="100"></td>
-                            <td>${item.nome}</td>
-                            <td>R$ ${item.valor}</td>
-                            <td>${item.quantidade}</td>
-                            <td>R$ ${item.valor * item.quantidade}</td>
-                        </tr>
-                    </c:forEach>
-                </tbody>
-            </table>
+                </c:forEach>
+            </tbody>
+        </table>
 
-            <p class="total-text">Total do Carrinho: R$ ${totalCarrinho}</p>
+        <p class="total-text">Total do Carrinho: R$ ${totalCarrinho}</p>
 
-            <button type="button" class="finalizar-button">Finalizar Pedido</button>
-        </div>
+        <button type="button" class="finalizar-button">Finalizar Pedido</button>
     </div>
-</body>
+    </body>
 
     <!-- INÍCIO DO RODAPÉ -->
     <footer class="footer">

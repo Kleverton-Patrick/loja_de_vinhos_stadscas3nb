@@ -7,32 +7,6 @@ body{
     overflow: hidden;
     padding-bottom: 60px;
 }
-header.header {
-    background-color: #950000;
-    padding: 20px 0;
-    color: #ffffff;
-}
-
-header.header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-header .logo {
-    display: flex;
-    align-items: center;
-}
-
-h2{
-color:#950000;
-text-align: center;
-}
-
-header .logo .logo-text {
-    font-size: 24px;
-    font-weight: bold;
-}
 
 table {
     width: 100%;
@@ -68,15 +42,4 @@ table th {
 .card button:hover {
     background-color: #770000;
 }
-
-footer.footer{
-    background-color: #950000;
-        color: #ffffff;
-        text-align: center;
-        padding: 10px 0;
-        padding: 20px 0;
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-    }
 
