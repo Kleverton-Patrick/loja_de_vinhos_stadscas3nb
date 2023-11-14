@@ -1,0 +1,22 @@
+Roteiro para registro do Carrinho.
+
+
+1. Antes de inserir o Item do Carrinho
+1.1. Verificar se já existe um Carrinho para o CPF => public boolean lerCarrinho(String numCPF)
+1.1.1. Se não existe, criar um Carrinho para o CPF => public void inserirCarrinho(Carrinho carrinho)
+1.2 Verificar se já existe o Item no Carrinho para o CPF e o produto (Vinho) => lerVinhoItemCarrinho(String numCPF, int numSeqVinho)
+1.2.1. Se não existe, criar o Item no Carrinho para o CPF => public void inserirItemCarrinho(ItemCarrinho itemCarrinho)
+1.2.2. Se existe, alterar informações do Item no Carrinho para o CPF => public void alterarItemCarrinho(ItemCarrinho itemCarrinho)
+1.2.3. Após inserir/alterar o Item no Carrinho, contar as quantidades Total de Itens => public int somarQtdItemCarrinho(String numCPF)
+1.2.4. Após inserir/alterar o Item no Carrinho, somar os valores Total de Itens => public Double somarVlrItemCarrinho(String numCPF)
+1.2.5. Após inserir/alterar o Item no Carrinho, alterar a quantidade e valor Total do carrinho => public void alterarCarrinho(Carrinho carrinho)
+
+2. Se um Item for excluído do Carrinho
+2.1. Obter a Sequência do Item no Carrinho pelo produto (Vinho) => public int lerVinhoItemCarrinho(String numCPF, int numSeqVinho)
+2.2. Excluir o Item do Carrinho => public void excluirVinhoItemCarrinho(int seqItem)
+
+3. Para Listar os Itens do Carrinho => public List<ItemCarrinho> lerItemCarrinho(String numCPF)
+
+4. Após fechar a compra
+4.1. Excluir os Itens do Carrinho => public void excluirItemCarrinho(String numCPF)
+4.2. Excluir o Carrinho => public void excluirCarrinho(String numCPF)
