@@ -2,47 +2,40 @@ package br.com.lojavinho.model;
 
 public class Carrinho {
 
-    private String id;
-    private String nome;
-    private String valor;
-    private String quantidade;
+    private String numCPF;
+    private int qtdTotal;
+    private double vlrTotal;
 
-    public Carrinho(String id, String nome, String valor, String quantidade) {
-        this.id = id;
-        this.nome = nome;
-        this.valor = valor;
-        this.quantidade = quantidade;
+    public Carrinho() {
     }
 
-    public String getId() {
-        return id;
+    public Carrinho(String numCPF, int qtdTotal, double vlrTotal) {
+        this.numCPF = numCPF;
+        this.qtdTotal = qtdTotal;
+        this.vlrTotal = vlrTotal;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public String getNumCPF() {
+        return numCPF;
     }
 
-    public String getNome() {
-        return nome;
+    public int getQtdTotal() {
+        return qtdTotal;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public double getVlrTotal() {
+        return vlrTotal;
     }
 
-    public String getValor() {
-        return valor;
+    public void setNumCPF(String numCPF) {
+        this.numCPF = numCPF;
     }
 
-    public void setValor(String valor) {
-        this.valor = valor;
+    public void setQtdTotal(int qtdTotal) {
+        this.qtdTotal = qtdTotal;
     }
 
-    public String getQuantidade() {
-        return quantidade;
-    }
-
-    public void setQuantidade(String quantidade) {
-        this.quantidade = quantidade;
+    public void setVlrTotal(double vlrTotal) {
+        this.vlrTotal = vlrTotal;
     }
 }
