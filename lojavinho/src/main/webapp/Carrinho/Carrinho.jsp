@@ -1,26 +1,45 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page import="java.util.List" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
+
 <head>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho</title>
     <link rel="stylesheet" href="Carrinho.css">
-    <title>Tela de login</title>
+    <link rel="stylesheet" href="index.css">
 </head>
 
-<header>
- <!-- Aqui fica o cabeçalho -->
- <header class="header">
-    <div class="container">
-        <div class="logo">
-            <!-- <img src="IMG_0297.PNG" alt="Logo" class="logo-image"> -->
-            <h1 class="logo-text">WIN-E</h1>
+<body>
+<!-- Aqui fica o cabeçalho -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="http://localhost:8080/">
+                    <h1 class="logo-text">WIN-E</h1>
+                </a>
+            </div>
+            <div class="suggestion-button">
+                <!-- Verifica se o usuário cliente está logado -->
+                <c:if test="${sessionScope.logadoUsuarioCliente == null}">
+                    <a href="./entrarCliente.jsp" class="suggestion-link">Entrar</a>
+                 </c:if>
+                <!-- Se logado, exibe as informações do cliente e o botão de logout -->
+                <c:if test="${sessionScope.logadoUsuarioCliente != null}">
+                    <span>Olá, ${sessionScope.logadoUsuarioCliente}</span>
+                    <a href="/saircliente">Sair</a>
+                </c:if>
+            </div>
         </div>
+    </header>
 
+    <!-- Estrutura -->
+    <!-- INÍCIO -->
+    <div class="txt text-center">
+        <h1>Carrinho</h1>
     </div>
-</header>
-
-<title>Carrinho de Compras</title>
-</head>
 
 <body>
     <div class="container">
@@ -56,10 +75,13 @@
     </div>
 </body>
 
- <!-- INÍCIO DO RODAPÉ -->
+    <!-- INÍCIO DO RODAPÉ -->
     <footer class="footer">
-        <div class="container">
+        <div>
             <p>&copy; 2023 WIN-E. Todos os direitos reservados.</p>
         </div>
     </footer>
     <!-- FIM -->
+</body>
+
+</html>

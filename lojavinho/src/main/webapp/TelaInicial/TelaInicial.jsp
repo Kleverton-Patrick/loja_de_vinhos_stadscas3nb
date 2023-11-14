@@ -26,7 +26,7 @@
                  </c:if>
                 <!-- Se logado, exibe as informações do cliente e o botão de logout -->
                 <c:if test="${sessionScope.logadoUsuarioCliente != null}">
-                    <span>Cliente: ${sessionScope.logadoUsuarioCliente}</span>
+                    <span>Olá, ${sessionScope.logadoUsuarioCliente}</span>
                     <a href="/saircliente">Sair</a>
                 </c:if>
             </div>
@@ -51,4 +51,5 @@
     </footer>
     <!-- FIM  -->
 </body>
+
 </html>

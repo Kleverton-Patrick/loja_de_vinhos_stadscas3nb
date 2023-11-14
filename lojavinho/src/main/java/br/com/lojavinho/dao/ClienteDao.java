@@ -181,4 +181,27 @@ public class ClienteDao {
 
         return false;
     }
+    public String obterNomeClientePorCpf(String cpfCliente) {
+        String SQL = "SELECT DSC_NOME_CLIENTE FROM CLIENTE WHERE NUM_CPF = ?";
+
+        try {
+            Connection connection = ConnectionPoolConfig.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+            preparedStatement.setString(1, cpfCliente);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (resultSet != null && resultSet.next()) {
+                String nomeCliente = resultSet.getString("DSC_NOME_CLIENTE");
+                connection.close();
+                return nomeCliente;
+            }
+
+            connection.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
 }

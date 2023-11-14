@@ -1,30 +1,42 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="java.util.List" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html lang="pt">
 
-<html>
-        <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
 <head>
-        <title>Resultado da Busca</title>
-        <link rel="stylesheet" href="/TelaDeResultado/Resultado.css">
-        <link rel="stylesheet" href="index.css">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado da Busca</title>
+    <link rel="stylesheet" href="/TelaDeResultado/Resultado.css">
+    <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
-
-  <header class="header">
+    <header class="header">
         <div class="container">
             <div class="logo">
-                <h1 class="logo-text">WIN-E</h1>
-        </div>
+                <a href="http://localhost:8080/">
+                    <h1 class="logo-text">WIN-E</h1>
+                </a>
+            </div>
+            <div class="suggestion-button">
+                <!-- Verifica se o usuário cliente está logado -->
+                <c:if test="${sessionScope.logadoUsuarioCliente == null}">
+                    <a href="./entrarCliente.jsp" class="suggestion-link">Entrar</a>
+                 </c:if>
+                <!-- Se logado, exibe as informações do cliente e o botão de logout -->
+                <c:if test="${sessionScope.logadoUsuarioCliente != null}">
+                    <span>Olá, ${sessionScope.logadoUsuarioCliente}</span>
+                    <a href="/saircliente">Sair</a>
+                </c:if>
+            </div>
         </div>
     </header>
 
-    <div>
+    <!-- Estrutura -->
+    <!-- INÍCIO -->
+    <div class="txt text-center">
         <h1>Resultados da Busca</h1>
     </div>
 
@@ -51,15 +63,16 @@
              </form>
          </section>
      </c:forEach>
+    </div>
 
 
+    <!-- INÍCIO DO RODAPÉ -->
+    <footer class="footer">
+        <div>
+            <p>&copy; 2023 WIN-E. Todos os direitos reservados.</p>
         </div>
-         <footer class="footer">
-            <div class="container">
-                <p>&copy; 2023 WIN-E. Todos os direitos reservados.</p>
-            </div>
-        </footer>
-
-    </body>
+    </footer>
+    <!-- FIM -->
+</body>
 
 </html>
