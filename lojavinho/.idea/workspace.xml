@@ -5,7 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e38ee1df-dff2-431d-b30f-5b3f61edf900" name="Changes" comment="Adicionando a inserção de itens na tabela carrinho de compras">
+      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ScriptBD/Scripts_Create_Tabelas.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../ScriptBD/Scripts_Create_Tabelas.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/lojavinho/dao/CarrinhoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/lojavinho/dao/CarrinhoDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/lojavinho/model/ItemCarrinho.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/lojavinho/model/ItemCarrinho.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/AddCartServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/AdicionarItemServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/EntrarClienteServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/EntrarClienteServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/RegistroClienteServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/RegistroClienteServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Carrinho/Carrinho.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Carrinho/Carrinho.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/TelaDeResultado/Resultados.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/TelaDeResultado/Resultados.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +53,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/Talles/Desktop/loja_de_vinhos_stadscas3nb/lojavinho&quot;
   }
 }</component>
@@ -143,38 +153,104 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/dao/CarrinhoDao.java</url>
-          <line>24</line>
-          <option name="timeStamp" value="5" />
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/AdicionarItemServlet.java</url>
+          <line>25</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/AdicionarItemServlet.java</url>
+          <line>26</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/AdicionarItemServlet.java</url>
+          <line>27</line>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/AdicionarItemServlet.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/AdicionarItemServlet.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/AdicionarItemServlet.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="28" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/AdicionarItemServlet.java</url>
+          <line>32</line>
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/AdicionarItemServlet.java</url>
+          <line>35</line>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/AdicionarItemServlet.java</url>
+          <line>37</line>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/AdicionarItemServlet.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/AdicionarItemServlet.java</url>
+          <line>42</line>
+          <option name="timeStamp" value="33" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/dao/CarrinhoDao.java</url>
-          <line>23</line>
-          <option name="timeStamp" value="6" />
+          <line>238</line>
+          <option name="timeStamp" value="34" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/dao/CarrinhoDao.java</url>
-          <line>22</line>
-          <option name="timeStamp" value="7" />
+          <line>242</line>
+          <option name="timeStamp" value="44" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/dao/CarrinhoDao.java</url>
-          <line>21</line>
-          <option name="timeStamp" value="8" />
+          <line>243</line>
+          <option name="timeStamp" value="45" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/dao/CarrinhoDao.java</url>
-          <line>20</line>
-          <option name="timeStamp" value="10" />
+          <line>244</line>
+          <option name="timeStamp" value="46" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
+        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/dao/CarrinhoDao.java</url>
-          <line>10</line>
-          <properties class="br.com.lojavinho.dao.CarrinhoDao" method="createCarrinho">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="4" />
+          <line>245</line>
+          <option name="timeStamp" value="47" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/dao/CarrinhoDao.java</url>
+          <line>246</line>
+          <option name="timeStamp" value="48" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/dao/CarrinhoDao.java</url>
+          <line>248</line>
+          <option name="timeStamp" value="49" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/dao/CarrinhoDao.java</url>
+          <line>247</line>
+          <option name="timeStamp" value="50" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/dao/CarrinhoDao.java</url>
+          <line>250</line>
+          <option name="timeStamp" value="51" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -2,6 +2,7 @@ package br.com.lojavinho.servlet;
 
 import br.com.lojavinho.dao.ClienteDao;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -40,6 +41,8 @@ public class RegistroClienteServlet extends HttpServlet {
             boolean isRegistered = clienteDao.registrarCliente(nomeCliente, cpfCliente, emailCliente, telefoneCliente, senhaCliente);
 
             if (isRegistered) {
+
+                req.getSession().setAttribute("CPFCliente", cpfCliente);
 
                 req.getSession().setAttribute("logadoUsuarioCliente", nomeCliente);
                 resp.sendRedirect("/TelaDeProdutos");

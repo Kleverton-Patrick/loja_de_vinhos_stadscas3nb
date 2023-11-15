@@ -56,16 +56,16 @@
                 <c:forEach var="item" items="${carrinho}">
                     <tr>
                         <td><img src="${item.imagem}" alt="Imagem do Produto" width="100"></td>
-                        <td>${item.nome}</td>
-                        <td>R$ ${item.valor}</td>
-                        <td>${item.quantidade}</td>
-                        <td>R$ ${item.valor * item.quantidade}</td>
+                        <td>${item.descNomeVinho}</td>
+                        <td>R$ ${item.vlrProduto}</td>
+                        <td>${item.qtdProduto}</td>
+                        <td>R$ ${item.vlrProduto * item.qtdProduto}</td>
                     </tr>
                 </c:forEach>
             </tbody>
         </table>
 
-        <p class="total-text">Total do Carrinho: R$ ${totalCarrinho}</p>
+  < !--      <p class="total-text">Total do Carrinho: R$ ${totalCarrinho}</p>  -->
 
         <button type="button" class="finalizar-button">Finalizar Pedido</button>
     </div>

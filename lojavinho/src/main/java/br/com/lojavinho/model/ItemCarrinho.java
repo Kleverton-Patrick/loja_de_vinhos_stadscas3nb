@@ -2,67 +2,90 @@ package br.com.lojavinho.model;
 
 public class ItemCarrinho {
 
-    private int seqItem;
-    private int numSeqVinho;
-    private int qtdProduto;
-    private double vlrProduto;
+    private String seqItem;
+    private String numSeqVinho;
+    private String descNomeVinho;
+    private String qtdProduto;
+    private String vlrProduto;
     private String numCPF;
+    private String imagem;
 
     public ItemCarrinho() {
     }
 
-    public ItemCarrinho(int numSeqVinho, int qtdProduto, double vlrProduto, String numCPF) {
+
+    public ItemCarrinho(String numSeqVinho, String descNomeVinho, String qtdProduto, String vlrProduto, String numCPF, String imagem) {
         this.numSeqVinho = numSeqVinho;
+        this.descNomeVinho = descNomeVinho;
         this.qtdProduto = qtdProduto;
         this.vlrProduto = vlrProduto;
         this.numCPF = numCPF;
+        this.imagem = imagem;
     }
 
-    public ItemCarrinho(int seqItem, int numSeqVinho, int qtdProduto, double vlrProduto, String numCPF) {
+    public ItemCarrinho(String seqItem, String numSeqVinho, String descNomeVinho, String qtdProduto, String vlrProduto, String numCPF, String imagem) {
         this.seqItem = seqItem;
         this.numSeqVinho = numSeqVinho;
+        this.descNomeVinho = descNomeVinho;
         this.qtdProduto = qtdProduto;
         this.vlrProduto = vlrProduto;
         this.numCPF = numCPF;
+        this.imagem = imagem;
     }
 
-    public int getSeqItem() {
+    public String getSeqItem() {
         return seqItem;
     }
 
-    public int getNumSeqVinho() {
+    public void setSeqItem(String seqItem) {
+        this.seqItem = seqItem;
+    }
+
+    public String getNumSeqVinho() {
         return numSeqVinho;
     }
 
-    public int getQtdProduto() {
+    public void setNumSeqVinho(String numSeqVinho) {
+        this.numSeqVinho = numSeqVinho;
+    }
+
+    public String getDescNomeVinho() {
+        return descNomeVinho;
+    }
+
+    public void setDescNomeVinho(String descNomeVinho) {
+        this.descNomeVinho = descNomeVinho;
+    }
+
+    public String getQtdProduto() {
         return qtdProduto;
     }
 
-    public double getVlrProduto() {
+    public void setQtdProduto(String qtdProduto) {
+        this.qtdProduto = qtdProduto;
+    }
+
+    public String getVlrProduto() {
         return vlrProduto;
+    }
+
+    public void setVlrProduto(String vlrProduto) {
+        this.vlrProduto = vlrProduto;
     }
 
     public String getNumCPF() {
         return numCPF;
     }
 
-    public void setSeqItem(int seqItem) {
-        this.seqItem = seqItem;
-    }
-
-    public void setNumSeqVinho(int numSeqVinho) {
-        this.numSeqVinho = numSeqVinho;
-    }
-
-    public void setQtdProduto(int qtdProduto) {
-        this.qtdProduto = qtdProduto;
-    }
-
-    public void setVlrProduto(double vlrProduto) {
-        this.vlrProduto = vlrProduto;
-    }
-
     public void setNumCPF(String numCPF) {
         this.numCPF = numCPF;
+    }
+
+    public String getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(String imagem) {
+        this.imagem = imagem;
     }
 }

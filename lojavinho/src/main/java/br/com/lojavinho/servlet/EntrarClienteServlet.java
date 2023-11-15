@@ -3,6 +3,7 @@ package br.com.lojavinho.servlet;
 import br.com.lojavinho.dao.ClienteDao;
 import br.com.lojavinho.model.UsuarioCliente;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -36,6 +37,9 @@ public class EntrarClienteServlet extends HttpServlet {
         if (mensagemErro == null) {
 
             String nomeCliente = clienteDao.obterNomeClientePorCpf(cpfCliente);
+
+            req.getSession().setAttribute("CPFCliente", cpfCliente);
+
             req.getSession().setAttribute("logadoUsuarioCliente", nomeCliente);
             resp.sendRedirect("/TelaInicial");
         } else {

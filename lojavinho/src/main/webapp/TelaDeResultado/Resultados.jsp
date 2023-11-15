@@ -2,6 +2,12 @@
 <%@ page import="java.util.List" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+
+<%
+    // Obter CPFCliente da sessão
+    String cpfCliente = (String) request.getSession().getAttribute("CPFCliente");
+%>
+
 <!DOCTYPE html>
 <html lang="pt">
 
@@ -53,11 +59,14 @@
              <h5 class="card-info p"> QTD em estoque: ${resultado.estoque} </h5>
 
 
-             <form action="/AddCart" method="post">
-                 <input type="hidden" name="id" value="${resultado.id}">
-                 <input type="hidden" name="nome" value="${resultado.nome}">
-                 <input type="hidden" name="valor" value="${resultado.valor}">
-                  <input type="number" name="quantidade" id="quantidade_${loop.index}" class="quantidadeInput" value="1" min="1" max="${resultado.estoque}">
+             <form action="/AdicionarItem" method="post">
+
+                 <input type="hidden" name="numCPF" value= <%= cpfCliente %>>
+                 <input type="hidden" name="numSeqVinho" value="${resultado.id}">
+                 <input type="hidden" name="descNomeVinho" value="${resultado.nome}">
+                 <input type="hidden" name="vlrProduto" value="${resultado.valor}">
+                 <input type="hidden" name="imagem" value="${resultado.imagem}">
+                 <input type="number" name="qtdProduto" id="quantidade_${loop.index}" class="quantidadeInput" value="1" min="1" max="${resultado.estoque}">
 
                  <button type="submit" onclick="adicionarAoCarrinho()"> ADICIONAR AO CARRINHO </button>
              </form>

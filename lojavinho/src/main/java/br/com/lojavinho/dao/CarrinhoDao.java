@@ -185,7 +185,7 @@ public class CarrinhoDao {
 
     public void inserirItemCarrinho(ItemCarrinho itemCarrinho) {
 
-        String SQL = "INSERT INTO ITEM_CARRINHO (NUM_SEQ_ItemCarrinho, QTD_PRODUTO, VLR_PRODUTO, FK_NUM_CPF) VALUES (?, ?, ?, ?)";
+        String SQL = "INSERT INTO ITEM_CARRINHO (NUM_SEQ_VINHO, DSC_NOME_VINHO, QTD_PRODUTO, VLR_PRODUTO, NUM_CPF, IMAGEM) VALUES (?, ?, ?, ?, ?, ?)";
 
         try {
 
@@ -195,10 +195,13 @@ public class CarrinhoDao {
 
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
 
-            preparedStatement.setInt(1, itemCarrinho.getNumSeqVinho());
-            preparedStatement.setInt(2, itemCarrinho.getQtdProduto());
-            preparedStatement.setDouble(3, itemCarrinho.getVlrProduto());
-            preparedStatement.setString(4, itemCarrinho.getNumCPF());
+            preparedStatement.setString(1, itemCarrinho.getNumSeqVinho());
+            preparedStatement.setString(2, itemCarrinho.getDescNomeVinho());
+            preparedStatement.setString(3, itemCarrinho.getQtdProduto());
+            preparedStatement.setString(4, itemCarrinho.getVlrProduto());
+            preparedStatement.setString(5, itemCarrinho.getNumCPF());
+            preparedStatement.setString(6, itemCarrinho.getImagem());
+            preparedStatement.execute();
 
             System.out.println("Success in insert ITEM_CARRINHO");
 
@@ -212,9 +215,9 @@ public class CarrinhoDao {
         }
     }
 
-    public List<ItemCarrinho> lerItemCarrinho(String numCPF) {
+    public static List<ItemCarrinho> lerItemCarrinho(String numCPF) {
 
-        String SQL = "SELECT * FROM ITEM_CARRINHO WHERE FK_NUM_CPF = ?";
+        String SQL = "SELECT * FROM ITEM_CARRINHO WHERE NUM_CPF = ?";
 
         try {
             Connection connection = ConnectionPoolConfig.getConnection();
@@ -237,13 +240,15 @@ public class CarrinhoDao {
 
             while (resultSet.next()) {
 
-                int itemCarrinhoSeqItem = resultSet.getInt("NUM_SEQUENCIA");
-                int itemCarrinhoNumSeqVinho = resultSet.getInt("NUM_SEQ_VINHO");
-                int itemCarrinhoQtdProduto = resultSet.getInt("QTD_PRODUTO");
-                Double itemCarrinhoVlrProduto = resultSet.getDouble("VLR_PRODUTO");
-                String itemCarrinhoNumCPF = resultSet.getString("FK_NUM_CPF");
+                String itemCarrinhoSeqItem = resultSet.getString("NUM_SEQUENCIA");
+                String itemCarrinhoNumSeqVinho = resultSet.getString("NUM_SEQ_VINHO");
+                String itemCarrinhoDescNomeVinho = resultSet.getString("DSC_NOME_VINHO");
+                String itemCarrinhoQtdProduto = resultSet.getString("QTD_PRODUTO");
+                String itemCarrinhoVlrProduto = resultSet.getString("VLR_PRODUTO");
+                String itemCarrinhoNumCPF = resultSet.getString("NUM_CPF");
+                String itemCarrinhoImagem = resultSet.getString("IMAGEM");
 
-                ItemCarrinho itemCarrinho = new ItemCarrinho(itemCarrinhoSeqItem, itemCarrinhoNumSeqVinho, itemCarrinhoQtdProduto, itemCarrinhoVlrProduto, itemCarrinhoNumCPF);
+                ItemCarrinho itemCarrinho = new ItemCarrinho(itemCarrinhoSeqItem, itemCarrinhoNumSeqVinho, itemCarrinhoDescNomeVinho, itemCarrinhoQtdProduto, itemCarrinhoVlrProduto, itemCarrinhoNumCPF, itemCarrinhoImagem);
 
                 ItemCarrinho.add(itemCarrinho);
             }
@@ -276,9 +281,9 @@ public class CarrinhoDao {
 
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
 
-            preparedStatement.setInt(1, itemCarrinho.getQtdProduto());
-            preparedStatement.setDouble(2, itemCarrinho.getVlrProduto());
-            preparedStatement.setInt(3, itemCarrinho.getSeqItem());
+            preparedStatement.setString(1, itemCarrinho.getQtdProduto());
+            preparedStatement.setString(2, itemCarrinho.getVlrProduto());
+            preparedStatement.setString(3, itemCarrinho.getSeqItem());
 
             preparedStatement.execute();
 
