@@ -2,6 +2,7 @@
 <%@ page import="java.util.List" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+
 <!DOCTYPE html>
 <html lang="pt">
 
@@ -54,18 +55,23 @@
             </thead>
             <tbody>
                 <c:forEach var="item" items="${carrinho}">
-                    <tr>
-                        <td><img src="${item.imagem}" alt="Imagem do Produto" width="100"></td>
-                        <td>${item.descNomeVinho}</td>
-                        <td>R$ ${item.vlrProduto}</td>
-                        <td>${item.qtdProduto}</td>
-                        <td>R$ ${item.vlrProduto * item.qtdProduto}</td>
-                    </tr>
-                </c:forEach>
-            </tbody>
-        </table>
+                                <tr>
+                                    <td><img src="${item.imagem}" alt="Imagem do Produto" width="100"></td>
+                                    <td>${item.descNomeVinho}</td>
+                                    <td>R$ ${item.vlrProduto}</td>
+                                    <td>${item.qtdProduto}</td>
+                                    <td>R$ ${item.vlrProduto * item.qtdProduto}</td>
+                                </tr>
+                            </c:forEach>
+                        </tbody>
+                    </table>
 
-  < !--      <p class="total-text">Total do Carrinho: R$ ${totalCarrinho}</p>  -->
+                    <c:set var="totalCarrinho" value="0" />
+                    <c:forEach var="item" items="${carrinho}">
+                        <c:set var="totalCarrinho" value="${totalCarrinho + item.vlrProduto * item.qtdProduto}" />
+                    </c:forEach>
+
+        <p class="total-text">Total do Carrinho: R$ ${totalCarrinho}</p>
 
         <button type="button" class="finalizar-button">Finalizar Pedido</button>
     </div>
@@ -79,5 +85,23 @@
     </footer>
     <!-- FIM -->
 </body>
+
+ <script>
+        // Script para calcular o total do carrinho
+        document.addEventListener('DOMContentLoaded', function () {
+            calcularTotalCarrinho();
+        });
+
+        function calcularTotalCarrinho() {
+            var subtotals = document.getElementsByClassName('subtotal');
+            var total = 0;
+
+            for (var i = 0; i < subtotals.length; i++) {
+                total += parseFloat(subtotals[i].innerText.replace('R$ ', ''));
+            }
+
+            document.getElementById('totalCarrinho').innerText = total.toFixed(2);
+        }
+    </script>
 
 </html>

@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
+import java.util.Objects;
 
 
 @WebServlet("/AdicionarItem")
@@ -30,18 +31,46 @@ public class AdicionarItemServlet extends HttpServlet {
         String numCPF = request.getParameter("numCPF");
         String imagem = request.getParameter("imagem");
 
-        ItemCarrinho Itemcarrinho = new ItemCarrinho(numSeqVinho, descNomeVinho, qtdProduto, vlrProduto, numCPF, imagem);
-
         CarrinhoDao carrinhoDao = new CarrinhoDao();
-        carrinhoDao.inserirItemCarrinho(Itemcarrinho);
 
-        List<ItemCarrinho> carrinho = CarrinhoDao.lerItemCarrinho(numCPF);
+        String estoque = carrinhoDao.obterEstoque(qtdProduto);
 
-        request.setAttribute("carrinho", carrinho);
+        if(!Objects.equals(estoque, "0")){
+
+            carrinhoDao.decrementarEstoque(numSeqVinho, qtdProduto);
+
+            ItemCarrinho Itemcarrinho = new ItemCarrinho(numSeqVinho, descNomeVinho, qtdProduto, vlrProduto, numCPF, imagem);
+
+            carrinhoDao.inserirItemCarrinho(Itemcarrinho);
+
+            List<ItemCarrinho> carrinho = CarrinhoDao.lerItemCarrinho(numCPF);
+
+            request.setAttribute("carrinho", carrinho);
+
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/Carrinho/Carrinho.jsp");
+            dispatcher.forward(request, response);
+
+        }
+
+        else{
+
+            String semEstoque = "Sem estoque do produto";
+
+            ItemCarrinho Itemcarrinho = new ItemCarrinho(numSeqVinho, descNomeVinho, semEstoque, vlrProduto, numCPF, imagem);
+
+            carrinhoDao.inserirItemCarrinho(Itemcarrinho);
+
+            List<ItemCarrinho> carrinho = CarrinhoDao.lerItemCarrinho(numCPF);
+
+            request.setAttribute("carrinho", carrinho);
+
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/Carrinho/Carrinho.jsp");
+            dispatcher.forward(request, response);
 
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/Carrinho/Carrinho.jsp");
-        dispatcher.forward(request, response);
+        }
+
+
 
 
     }

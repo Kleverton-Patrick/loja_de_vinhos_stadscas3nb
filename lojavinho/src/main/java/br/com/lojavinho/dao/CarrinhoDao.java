@@ -3,6 +3,7 @@ package br.com.lojavinho.dao;
 import br.com.lojavinho.config.ConnectionPoolConfig;
 import br.com.lojavinho.model.Carrinho;
 import br.com.lojavinho.model.ItemCarrinho;
+import br.com.lojavinho.model.Vinho;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -67,8 +68,8 @@ public class CarrinhoDao {
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
 
             preparedStatement.setString(1, carrinho.getNumCPF());
-            preparedStatement.setInt(2, carrinho.getQtdTotal());
-            preparedStatement.setDouble(3, carrinho.getVlrTotal());
+            preparedStatement.setString(2, carrinho.getQtdTotal());
+            preparedStatement.setString(3, carrinho.getVlrTotal());
 
             System.out.println("Success in insert CARRINHO!");
 
@@ -94,8 +95,8 @@ public class CarrinhoDao {
 
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
 
-            preparedStatement.setInt(1, carrinho.getQtdTotal());
-            preparedStatement.setDouble(2, carrinho.getVlrTotal());
+            preparedStatement.setString(1, carrinho.getQtdTotal());
+            preparedStatement.setString(2, carrinho.getVlrTotal());
             preparedStatement.setString(3, carrinho.getNumCPF());
 
             preparedStatement.execute();
@@ -438,4 +439,62 @@ public class CarrinhoDao {
 
         }
     }
+
+    public static String obterEstoque (String numSeqVinho) {
+
+        try (Connection connection = ConnectionPoolConfig.getConnection()) {
+            String sql = "SELECT QTD_ESTOQUE FROM VINHO WHERE = ?";
+
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setObject(1, numSeqVinho);
+
+            ResultSet resultSet = statement.executeQuery();
+
+            String quantidade = resultSet.getString("QTD_ESTOQUE");
+
+            System.out.println("success in select * Vinho");
+
+            connection.close();
+
+            return quantidade;
+
+        } catch (SQLException e) {
+
+            System.out.println("fail in database connection");
+            System.out.println("Error" + e.getMessage());
+
+            return null;
+        }
+    }
+
+
+        public void decrementarEstoque(String numSeqVinho, String qtdProduto) {
+
+            String SQL =  "UPDATE VINHO SET QTD_ESTOQUE = QTD_ESTOQUE - ? WHERE NUM_SEQUENCIA = ?";
+
+            try {
+
+                Connection connection = ConnectionPoolConfig.getConnection();
+
+                System.out.println("Success in database connection!");
+
+                PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+
+                preparedStatement.setString(1, qtdProduto);
+                preparedStatement.setString(2, numSeqVinho);
+
+                preparedStatement.execute();
+
+                System.out.println("Successo  ao decrementar do banco!");
+
+                connection.close();
+
+            } catch (Exception e) {
+
+                System.out.println("Fail in database connection!");
+                System.out.println("Error: " + e.getMessage());
+
+            }
+        }
+
 }

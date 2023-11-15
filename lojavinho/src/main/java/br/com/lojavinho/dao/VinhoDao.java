@@ -216,9 +216,13 @@ public class VinhoDao {
                 String vinhoDescricao = resultSet.getString("DESCRICAO");
                 String imagem = resultSet.getString("IMAGEM");
 
+                if(!vinhoEstoque.equals("0")){
+
                 Vinho vinho = new Vinho(vinhoId, vinhoNome, vinhoValor, vinhoEstoque, vinhoDescricao, imagem);
 
                 Vinhos.add(vinho);
+                }
+
             }
 
             System.out.println("success in select * Vinho");
@@ -270,9 +274,12 @@ public class VinhoDao {
                 String vinhoDescricao = resultSet.getString("DESCRICAO");
                 String imagem = resultSet.getString("IMAGEM");
 
-                Vinho vinho = new Vinho(vinhoId, vinhoNome, vinhoValor, vinhoEstoque, vinhoDescricao, imagem);
+                if(!vinhoEstoque.equals("0")){
 
-                Vinhos.add(vinho);
+                    Vinho vinho = new Vinho(vinhoId, vinhoNome, vinhoValor, vinhoEstoque, vinhoDescricao, imagem);
+
+                    Vinhos.add(vinho);
+                }
             }
 
             System.out.println("success in select * Vinho");
@@ -310,9 +317,12 @@ public class VinhoDao {
                 String vinhoDescricao = resultSet.getString("DESCRICAO");
                 String imagem = resultSet.getString("IMAGEM");
 
-                Vinho vinho = new Vinho(vinhoId, vinhoNome, vinhoValor, vinhoEstoque, vinhoDescricao, imagem);
+                if(!vinhoEstoque.equals("0")){
 
-                Vinhos.add(vinho);
+                    Vinho vinho = new Vinho(vinhoId, vinhoNome, vinhoValor, vinhoEstoque, vinhoDescricao, imagem);
+
+                    Vinhos.add(vinho);
+                }
             }
 
             System.out.println("success in select * Vinho");

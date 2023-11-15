@@ -3,13 +3,11 @@ package br.com.lojavinho.model;
 public class Carrinho {
 
     private String numCPF;
-    private int qtdTotal;
-    private double vlrTotal;
+    private String qtdTotal;
+    private String vlrTotal;
 
-    public Carrinho() {
-    }
 
-    public Carrinho(String numCPF, int qtdTotal, double vlrTotal) {
+    public Carrinho(String numCPF, String qtdTotal, String vlrTotal) {
         this.numCPF = numCPF;
         this.qtdTotal = qtdTotal;
         this.vlrTotal = vlrTotal;
@@ -19,23 +17,23 @@ public class Carrinho {
         return numCPF;
     }
 
-    public int getQtdTotal() {
-        return qtdTotal;
-    }
-
-    public double getVlrTotal() {
-        return vlrTotal;
-    }
-
     public void setNumCPF(String numCPF) {
         this.numCPF = numCPF;
     }
 
-    public void setQtdTotal(int qtdTotal) {
+    public String getQtdTotal() {
+        return qtdTotal;
+    }
+
+    public void setQtdTotal(String qtdTotal) {
         this.qtdTotal = qtdTotal;
     }
 
-    public void setVlrTotal(double vlrTotal) {
+    public String getVlrTotal() {
+        return vlrTotal;
+    }
+
+    public void setVlrTotal(String vlrTotal) {
         this.vlrTotal = vlrTotal;
     }
 }
