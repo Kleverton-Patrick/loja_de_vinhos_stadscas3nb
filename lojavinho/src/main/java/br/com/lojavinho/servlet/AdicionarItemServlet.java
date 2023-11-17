@@ -12,6 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 import java.util.Objects;
@@ -35,7 +36,7 @@ public class AdicionarItemServlet extends HttpServlet {
 
         String estoque = carrinhoDao.obterEstoque(qtdProduto);
 
-        if(!Objects.equals(estoque, "0")){
+        if (!Objects.equals(estoque, "0")) {
 
             carrinhoDao.decrementarEstoque(numSeqVinho, qtdProduto);
 
@@ -50,9 +51,7 @@ public class AdicionarItemServlet extends HttpServlet {
             RequestDispatcher dispatcher = request.getRequestDispatcher("/Carrinho/Carrinho.jsp");
             dispatcher.forward(request, response);
 
-        }
-
-        else{
+        } else {
 
             String semEstoque = "Sem estoque do produto";
 
@@ -69,9 +68,24 @@ public class AdicionarItemServlet extends HttpServlet {
 
 
         }
+    }
 
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
 
+        if (session.getAttribute("logadoUsuarioCliente") != null) {
+            String cliente = (String) session.getAttribute("logadoUsuarioCliente");
 
+            if (cliente != null) {
+                List<ItemCarrinho> carrinho = CarrinhoDao.lerItemCarrinho(cliente);
+                request.setAttribute("carrinho", carrinho);
 
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/Carrinho/Carrinho.jsp");
+                dispatcher.forward(request, response);
+            } else {
+                // Trate a ausência do parâmetro numCPF conforme necessário
+                response.sendRedirect("/TelaDeBusca/Produtos.jsp");
+            }
+        }
     }
 }

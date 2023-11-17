@@ -93,7 +93,7 @@ public class TelaDeProdutosServlet extends HttpServlet {
 
             request.setAttribute("resultados", resultados);
 
-            RequestDispatcher dispatcher = request.getRequestDispatcher("//TelaDeResultado/Resultados.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/TelaDeResultado/Resultados.jsp");
             dispatcher.forward(request, response);
 
             return;

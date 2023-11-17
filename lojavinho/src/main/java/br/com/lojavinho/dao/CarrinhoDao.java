@@ -330,7 +330,7 @@ public class CarrinhoDao {
 
     public void excluirItemCarrinho(String numCPF) {
 
-        String SQL = "DELETE FROM ITEM_CARRINHO WHERE FK_NUM_CPF = ?";
+        String SQL = "DELETE * FROM ITEM_CARRINHO WHERE FK_NUM_CPF = ?";
 
         try {
 

@@ -73,7 +73,9 @@
 
         <p class="total-text">Total do Carrinho: R$ ${totalCarrinho}</p>
 
-        <button type="button" class="finalizar-button">Finalizar Pedido</button>
+    <form action='/FinalizarCompraServlet' method="GET">
+        <button type="submit" class="finalizar-button">Finalizar Pedido</button>
+    </form>
     </div>
     </body>
 

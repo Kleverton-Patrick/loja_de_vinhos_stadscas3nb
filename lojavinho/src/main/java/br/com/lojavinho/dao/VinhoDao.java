@@ -248,9 +248,9 @@ public class VinhoDao {
         try (Connection connection = ConnectionPoolConfig.getConnection()) {
             String sql = "SELECT * " +
                     "FROM VINHO AS V " +
-                    "INNER JOIN PAIS AS P ON P.NUM_SEQUENCIA = V.NUM_SEQUENCIA " +
-                    "INNER JOIN TIPO_UVA AS TU ON TU.NUM_SEQUENCIA = V.NUM_SEQUENCIA " +
-                    "INNER JOIN TIPO_VINHO AS TV ON TV.NUM_SEQUENCIA = V.NUM_SEQUENCIA " +
+                    "INNER JOIN PAIS AS P ON P.NUM_SEQUENCIA = V.FK_NUM_SEQ_PAIS " +
+                    "INNER JOIN TIPO_UVA AS TU ON TU.NUM_SEQUENCIA = V.FK_NUM_SEQ_TIPO_UVA " +
+                    "INNER JOIN TIPO_VINHO AS TV ON TV.NUM_SEQUENCIA = V.FK_NUM_SEQ_TIPO_VINHO " +
                     "WHERE (P.NUM_SEQUENCIA = ? OR ? IS NULL) " +
                     "AND (TU.NUM_SEQUENCIA = ? OR ? IS NULL) " +
                     "AND (TV.NUM_SEQUENCIA = ? OR ? IS NULL)";
