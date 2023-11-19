@@ -20,50 +20,52 @@ import javax.servlet.http.HttpSession;
 
 @WebServlet("/FinalizarCompraServlet")
 public class FinalizarCompraServlet extends HttpServlet {
-
-
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-
-        String numCPF = request.getParameter("numCPF");
-        String totalQtd = request.getParameter("totalQtd");
-        String totalVlr = request.getParameter("totalVlr");
-
-        ComprasDao comprasdao = new ComprasDao();
-
-        Carrinho carrinho = new Carrinho(numCPF, totalQtd, totalVlr);
-
-        boolean possuiEndereço = comprasdao.CPFpossuiEndereco(numCPF);
-
-        if(possuiEndereço == true) {
-
-            DadosEntrega dadosEntrega = ComprasDao.obterUltimaCompraPorCPF(numCPF);
-
-            request.setAttribute("CEP", dadosEntrega.getCEP());
-            request.setAttribute("endereco", dadosEntrega.getEndereco());
-            request.setAttribute("numEndereco", dadosEntrega.getNumEndereco());
-            request.setAttribute("complEndereco", dadosEntrega.getComplEndereco());
-            request.setAttribute("bairro", dadosEntrega.getBairro());
-            request.setAttribute("cidade", dadosEntrega.getCidade());
-            request.setAttribute("estado", dadosEntrega.getEstado());
+        try {
+            String numCPF = request.getParameter("numCPF");
+            String totalQtd = request.getParameter("totalQtd");
+            String totalVlr = request.getParameter("totalVlr");
 
 
+            if (CarrinhoDao.lerItemCarrinho(numCPF).isEmpty()) {
+                request.setAttribute("mensagem", "Seu carrinho está vazio. Selecione pelo menos um produto para compra.");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/Carrinho/Carrinho.jsp");
+                dispatcher.forward(request, response);
+                return;
+            }
 
-            request.setAttribute("carrinho", carrinho);
+            ComprasDao comprasdao = new ComprasDao();
+            Carrinho carrinho = new Carrinho(numCPF, totalQtd, totalVlr);
+            boolean possuiEndereco = comprasdao.CPFpossuiEndereco(numCPF);
 
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/TelaFinalizarCompra/FinalizarCompra.jsp");
-            dispatcher.forward(request, response);
+            if (possuiEndereco) {
+                DadosEntrega dadosEntrega = ComprasDao.obterUltimaCompraPorCPF(numCPF);
 
+                request.setAttribute("CEP", dadosEntrega.getCEP());
+                request.setAttribute("endereco", dadosEntrega.getEndereco());
+                request.setAttribute("numEndereco", dadosEntrega.getNumEndereco());
+                request.setAttribute("complEndereco", dadosEntrega.getComplEndereco());
+                request.setAttribute("bairro", dadosEntrega.getBairro());
+                request.setAttribute("cidade", dadosEntrega.getCidade());
+                request.setAttribute("estado", dadosEntrega.getEstado());
 
+                request.setAttribute("carrinho", carrinho);
+
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/TelaFinalizarCompra/FinalizarCompra.jsp");
+                dispatcher.forward(request, response);
+            } else {
+                response.sendRedirect("/TelaFinalizarCompra/RegistrarEndereco.jsp");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Erro ao processar a finalização da compra");
         }
-
-        else{
-
-            response.sendRedirect("/TelaFinalizarCompra/RegistrarEndereco.jsp");
-
-        }
-
     }
 }
+
+
+
+
 
 
 

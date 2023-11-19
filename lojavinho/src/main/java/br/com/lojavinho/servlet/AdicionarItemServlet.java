@@ -62,10 +62,12 @@ public class AdicionarItemServlet extends HttpServlet {
         HttpSession session = request.getSession();
 
         if (session.getAttribute("logadoUsuarioCliente") != null) {
-            String cliente = (String) session.getAttribute("logadoUsuarioCliente");
+            String numCPF = (String) session.getAttribute("CPFCliente");
 
-            if (cliente != null) {
-                List<ItemCarrinho> carrinho = CarrinhoDao.lerItemCarrinho(cliente);
+
+            if (numCPF != null) {
+
+                List<ItemCarrinho> carrinho = CarrinhoDao.lerItemCarrinho(numCPF);
                 request.setAttribute("carrinho", carrinho);
 
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/Carrinho/Carrinho.jsp");
@@ -76,4 +78,6 @@ public class AdicionarItemServlet extends HttpServlet {
             }
         }
     }
+
+
 }

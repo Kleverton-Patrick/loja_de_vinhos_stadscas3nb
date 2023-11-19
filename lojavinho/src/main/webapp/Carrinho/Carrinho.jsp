@@ -4,7 +4,7 @@
 
 
 <%
-    // Obter CPFCliente da sessão
+
     String cpfCliente = (String) request.getSession().getAttribute("CPFCliente");
 %>
 
@@ -46,54 +46,63 @@
     </div>
 
     <div class="table-container">
-        <table>
-            <thead>
-                <tr>
-                    <th>Foto do Produto</th>
-                    <th>Nome do Vinho</th>
-                    <th>Valor Unitário</th>
-                    <th>Quantidade</th>
-                    <th>Total</th>
-                </tr>
-            </thead>
-            <tbody>
-                <c:forEach var="item" items="${carrinho}">
-                                <tr>
-                                    <td><img src="${item.imagem}" alt="Imagem do Produto" width="100"></td>
-                                    <td>${item.descNomeVinho}</td>
-                                    <td>R$ ${item.vlrProduto}</td>
-                                    <td>${item.qtdProduto}</td>
-                                    <td>R$ ${item.vlrProduto * item.qtdProduto}</td>
-                                </tr>
-                            </c:forEach>
-                        </tbody>
-                    </table>
+        <c:choose>
+            <c:when test="${empty carrinho}">
+                <p class="mensagem-carrinho-vazio">Seu carrinho está vazio. Selecione pelo menos um produto para compra.</p>
+            </c:when>
+            <c:otherwise>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Foto do Produto</th>
+                            <th>Nome do Vinho</th>
+                            <th>Valor Unitário</th>
+                            <th>Quantidade</th>
+                            <th>Total</th>
+                            <th>Ação</th> <!-- Adicionado coluna para o botão de remoção -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <c:forEach var="item" items="${carrinho}">
+                            <tr>
+                                <td><img src="${item.imagem}" alt="Imagem do Produto" width="100"></td>
+                                <td>${item.descNomeVinho}</td>
+                                <td>R$ ${item.vlrProduto}</td>
+                                <td>${item.qtdProduto}</td>
+                                <td>R$ ${item.vlrProduto * item.qtdProduto}</td>
+                                <td>
+                                    <form action="/RemoverItemCarrinhoServlet" method="post">
+                                        <input type="hidden" name="numSeqVinho" value="${item.numSeqVinho}">
+                                        <input type="hidden" name="numCPF" value="<%= cpfCliente %>">
+                                        <button type="submit">Remover</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        </c:forEach>
+                    </tbody>
+                </table>
+            </c:otherwise>
+        </c:choose>
 
+        <c:set var="totalCarrinho" value="0" />
+        <c:forEach var="item" items="${carrinho}">
+            <c:set var="totalCarrinho" value="${totalCarrinho + item.vlrProduto * item.qtdProduto}" />
+        </c:forEach>
 
-    </div>
-
-                    <c:set var="totalCarrinho" value="0" />
-                    <c:forEach var="item" items="${carrinho}">
-                        <c:set var="totalCarrinho" value="${totalCarrinho + item.vlrProduto * item.qtdProduto}" />
-                    </c:forEach>
-
-                    <c:set var="totalQuantidade" value="0" />
-                    <c:forEach var="item" items="${carrinho}">
-                           <c:set var="totalQuantidade" value="${totalQuantidade +item.qtdProduto}" />
-                    </c:forEach>
+        <c:set var="totalQuantidade" value="0" />
+        <c:forEach var="item" items="${carrinho}">
+            <c:set var="totalQuantidade" value="${totalQuantidade +item.qtdProduto}" />
+        </c:forEach>
 
         <p class="total-text">Valor total do Carrinho: ${totalCarrinho} R$</p>
         <p class="total-text">Quantidade de itens do Carrinho: ${totalQuantidade}</p>
 
-    <form action='/FinalizarCompraServlet' method="post">
-
-                     <input type="hidden" name="numCPF" value= <%= cpfCliente %>>
-                     <input type="hidden" name="totalVlr" value="${totalCarrinho}">
-                     <input type="hidden" name="totalQtd" value="${totalQuantidade}">
-
-        <button type="submit" class="finalizar-button">Finalizar Pedido</button>
-    </form>
-
+        <form action='/FinalizarCompraServlet' method="post">
+            <input type="hidden" name="numCPF" value="<%= cpfCliente %>">
+            <input type="hidden" name="totalVlr" value="${totalCarrinho}">
+            <input type="hidden" name="totalQtd" value="${totalQuantidade}">
+            <button type="submit" class="finalizar-button">Finalizar Pedido</button>
+        </form>
     </div>
 
     </body>
