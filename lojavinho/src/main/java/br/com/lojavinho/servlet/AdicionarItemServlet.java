@@ -32,11 +32,9 @@ public class AdicionarItemServlet extends HttpServlet {
         String numCPF = request.getParameter("numCPF");
         String imagem = request.getParameter("imagem");
 
-        CarrinhoDao carrinhoDao = new CarrinhoDao();
+        if(!numCPF.equals("null")) {
 
-        String estoque = carrinhoDao.obterEstoque(qtdProduto);
-
-        if (!Objects.equals(estoque, "0")) {
+            CarrinhoDao carrinhoDao = new CarrinhoDao();
 
             carrinhoDao.decrementarEstoque(numSeqVinho, qtdProduto);
 
@@ -50,24 +48,14 @@ public class AdicionarItemServlet extends HttpServlet {
 
             RequestDispatcher dispatcher = request.getRequestDispatcher("/Carrinho/Carrinho.jsp");
             dispatcher.forward(request, response);
+        }
 
-        } else {
+        else{
 
-            String semEstoque = "Sem estoque do produto";
-
-            ItemCarrinho Itemcarrinho = new ItemCarrinho(numSeqVinho, descNomeVinho, semEstoque, vlrProduto, numCPF, imagem);
-
-            carrinhoDao.inserirItemCarrinho(Itemcarrinho);
-
-            List<ItemCarrinho> carrinho = CarrinhoDao.lerItemCarrinho(numCPF);
-
-            request.setAttribute("carrinho", carrinho);
-
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/Carrinho/Carrinho.jsp");
-            dispatcher.forward(request, response);
-
+            response.sendRedirect("/entrarCliente.jsp");
 
         }
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

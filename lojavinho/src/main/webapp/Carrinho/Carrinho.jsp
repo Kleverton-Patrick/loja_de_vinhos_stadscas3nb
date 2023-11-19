@@ -3,6 +3,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 
+<%
+    // Obter CPFCliente da sessão
+    String cpfCliente = (String) request.getSession().getAttribute("CPFCliente");
+%>
+
 <!DOCTYPE html>
 <html lang="pt">
 
@@ -38,11 +43,18 @@
 
     <!-- Estrutura -->
     <!-- INÍCIO -->
+
     <div class="txt text-center">
         <h1>Carrinho</h1>
     </div>
 
     <body>
+
+           <form action='/TelaDeProdutos' method="GET">
+                  <button type="submit" class="continuarComprando-button">Continuar comprando</button>
+           </form>
+
+    <div class="table-container">
         <table>
             <thead>
                 <tr>
@@ -66,17 +78,33 @@
                         </tbody>
                     </table>
 
+
+    </div>
+
                     <c:set var="totalCarrinho" value="0" />
                     <c:forEach var="item" items="${carrinho}">
                         <c:set var="totalCarrinho" value="${totalCarrinho + item.vlrProduto * item.qtdProduto}" />
                     </c:forEach>
 
-        <p class="total-text">Total do Carrinho: R$ ${totalCarrinho}</p>
+                    <c:set var="totalQuantidade" value="0" />
+                    <c:forEach var="item" items="${carrinho}">
+                           <c:set var="totalQuantidade" value="${totalQuantidade +item.qtdProduto}" />
+                    </c:forEach>
 
-    <form action='/FinalizarCompraServlet' method="GET">
+        <p class="total-text">Valor total do Carrinho: ${totalCarrinho} R$</p>
+        <p class="total-text">Quantidade de itens do Carrinho: ${totalQuantidade}</p>
+
+    <form action='/FinalizarCompraServlet' method="post">
+
+                     <input type="hidden" name="numCPF" value= <%= cpfCliente %>>
+                     <input type="hidden" name="totalVlr" value="${totalCarrinho}">
+                     <input type="hidden" name="totalQtd" value="${totalQuantidade}">
+
         <button type="submit" class="finalizar-button">Finalizar Pedido</button>
     </form>
+
     </div>
+
     </body>
 
     <!-- INÍCIO DO RODAPÉ -->
@@ -87,23 +115,5 @@
     </footer>
     <!-- FIM -->
 </body>
-
- <script>
-        // Script para calcular o total do carrinho
-        document.addEventListener('DOMContentLoaded', function () {
-            calcularTotalCarrinho();
-        });
-
-        function calcularTotalCarrinho() {
-            var subtotals = document.getElementsByClassName('subtotal');
-            var total = 0;
-
-            for (var i = 0; i < subtotals.length; i++) {
-                total += parseFloat(subtotals[i].innerText.replace('R$ ', ''));
-            }
-
-            document.getElementById('totalCarrinho').innerText = total.toFixed(2);
-        }
-    </script>
 
 </html>

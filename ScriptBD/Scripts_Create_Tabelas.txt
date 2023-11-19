@@ -141,6 +141,28 @@ CREATE TABLE DADOS_ENTREGA(NUM_SEQUENCIA INT PRIMARY KEY AUTO_INCREMENT,
 );
 
 
+CREATE TABLE ITEM_CARRINHO(NUM_SEQUENCIA INT PRIMARY KEY AUTO_INCREMENT,
+                           NUM_SEQ_VINHO INT,
+			   DSC_NOME_VINHO VARCHAR(40),
+                           QTD_PRODUTO SMALLINT,
+                           VLR_PRODUTO DECIMAL(9,2),
+                           NUM_CPF VARCHAR(14),  
+			   IMAGEM VARCHAR(255)                  
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 CREATE TABLE CARRINHO(ID CHAR(10),
 		      DSC_NOME_VINHO VARCHAR(40) 
       		      VLR_VENDA DECIMAL(9,2),
@@ -155,18 +177,26 @@ CREATE TABLE CARRINHO(NUM_CPF VARCHAR(14) PRIMARY KEY,
 INSERT INTO CARRINHO(NUM_CPF, QTD_TOTAL, VLR_TOTAL)
      VALUES ('111.111.111-11',5,280.00),
 
-CREATE TABLE ITEM_CARRINHO(NUM_SEQUENCIA INT PRIMARY KEY AUTO_INCREMENT,
-                           NUM_SEQ_VINHO INT,
-			   DSC_NOME_VINHO VARCHAR(40),
-                           QTD_PRODUTO SMALLINT,
-                           VLR_PRODUTO DECIMAL(9,2),
-                           NUM_CPF VARCHAR(14),  
-			   IMAGEM VARCHAR(255)                  
-);
+________________________________________________________________
+
+CREATE TABLE DADOS_ENTREGA(NUM_CPF VARCHAR(14) PRIMARY KEY, 
+                           COD_CEP VARCHAR(9), 
+                           DSC_ENDERECO VARCHAR(100), 
+                           NUM_ENDERECO VARCHAR(10), 
+                           DSC_COMPL_ENDERECO VARCHAR(80), 
+                           DSC_BAIRRO VARCHAR(40), 
+                           DSC_CIDADE VARCHAR(40), 
+                           DSC_ESTADO VARCHAR(40), 
+ );
+
+INSERT INTO DADOS_ENTREGA (NUM_CPF, COD_CEP, DSC_ENDERECO, NUM_ENDERECO, DSC_COMPL_ENDERECO, DSC_BAIRRO, DSC_CIDADE, DSC_ESTADO) VALUES
+('123.456.789-10', '09230-510' , 'Rua legal', '21', 'Casa', 'Vila Bela', 'São Paulo','SP');
 
 
 
-       
+
+
+
 
 
 

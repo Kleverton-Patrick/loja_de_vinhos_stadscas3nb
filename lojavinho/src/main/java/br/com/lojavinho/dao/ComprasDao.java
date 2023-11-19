@@ -11,13 +11,35 @@ import java.sql.SQLException;
 
 public class ComprasDao {
 
+    public boolean CPFpossuiEndereco(String CPF) {
+
+        boolean existe = false;
+
+        try (Connection connection = ConnectionPoolConfig.getConnection()) {
+
+            String sql = "SELECT * FROM DADOS_ENTREGA  WHERE NUM_CPF = ?";
+
+            PreparedStatement statement = connection.prepareStatement(sql);
+
+            statement.setString(1, CPF);
+
+            try (ResultSet rs = statement.executeQuery()) {
+                existe = rs.next();
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Fail in database connection");
+            System.out.println("Error: " + e.getMessage());
+        }
+
+        return existe;
+    }
+
         public static DadosEntrega obterUltimaCompraPorCPF(String cpf) {
 
             try (Connection connection = ConnectionPoolConfig.getConnection()) {
-                String sql = "SELECT * FROM DADOS_ENTREGA " +
-                        "WHERE CPF_CLIENTE = ? " +
-                        "ORDER BY DATA_ENTREGA DESC " +
-                        "LIMIT 1";
+                String sql = "SELECT * FROM DADOS_ENTREGA  WHERE NUM_CPF = ? ";
+
 
                 PreparedStatement statement = connection.prepareStatement(sql);
                 statement.setString(1, cpf);
@@ -25,23 +47,24 @@ public class ComprasDao {
                 ResultSet resultSet = statement.executeQuery();
 
                 if (resultSet.next()) {
-                    String codCep = resultSet.getString("COD_CEP");
-                    String endereco = resultSet.getString("DESC_ENDERECO");
-                    String enderecoComplemento = resultSet.getString("DESC_COMPL_ENDERECO");
-                    String bairro = resultSet.getString("DESC_BAIRRO");
-                    String cidade = resultSet.getString("DESC_CIDADE");
-                    String estado = resultSet.getString("DESC_ESTADO");
+                    String CEP = resultSet.getString("COD_CEP");
+                    String endereco = resultSet.getString("DSC_ENDERECO");
+                    String numEndereco = resultSet.getString("NUM_ENDERECO");
+                    String complEndereco = resultSet.getString("DSC_COMPL_ENDERECO");
+                    String bairro = resultSet.getString("DSC_BAIRRO");
+                    String cidade = resultSet.getString("DSC_CIDADE");
+                    String estado = resultSet.getString("DSC_ESTADO");
 
 
 
-                    DadosEntrega dadosEntrega = new DadosEntrega(codCep, endereco,enderecoComplemento, bairro, cidade, estado);
+                    DadosEntrega dadosEntrega = new DadosEntrega(CEP, endereco, numEndereco, complEndereco, bairro, cidade, estado );
 
-                    System.out.println("Success in selecting last purchase by CPF");
+                    System.out.println("Encontrada compra registrada anteriormente para o CPF");
                     connection.close();
 
                     return dadosEntrega;
                 } else {
-                    System.out.println("No purchase found for the given CPF");
+                    System.out.println("Nenhuma compra registrada anteriormente para o CPF");
                     connection.close();
                     return null;
                 }

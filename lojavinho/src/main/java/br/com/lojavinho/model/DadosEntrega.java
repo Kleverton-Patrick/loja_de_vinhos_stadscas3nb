@@ -2,77 +2,40 @@ package br.com.lojavinho.model;
 
 public class DadosEntrega {
 
-    private int numSequencia;
-    private String nomeCliente;
-    private String numCartaoCredito;
-    private String codCEP;
+
+    private String numCPF;
+    private String CEP;
     private String endereco;
-    private int numEndereco;
+    private String numEndereco;
     private String complEndereco;
     private String bairro;
     private String cidade;
     private String estado;
-    private int fkNumSeqCompra;
 
-
-    public DadosEntrega(int numSequencia, String nomeCliente, String numCartaoCredito, String codCEP,
-                        String endereco, int numEndereco, String complEndereco, String bairro, String cidade,
-                        String estado, int fkNumSeqCompra) {
-        this.numSequencia = numSequencia;
-        this.nomeCliente = nomeCliente;
-        this.numCartaoCredito = numCartaoCredito;
-        this.codCEP = codCEP;
+    public DadosEntrega(String CEP, String endereco, String numEndereco, String complEndereco, String bairro, String cidade, String estado) {
+        this.CEP = CEP;
         this.endereco = endereco;
         this.numEndereco = numEndereco;
         this.complEndereco = complEndereco;
         this.bairro = bairro;
         this.cidade = cidade;
         this.estado = estado;
-        this.fkNumSeqCompra = fkNumSeqCompra;
     }
 
-    public DadosEntrega(String codCep, String endereco, String enderecoComplemento,
-                        String bairro, String cidade, String estado) {
-        this.codCEP = codCep;
-        this.endereco = endereco;
-        this.complEndereco = enderecoComplemento;
-        this.bairro = bairro;
-        this.cidade = cidade;
-        this.estado = estado;
+    public String getNumCPF() {
+        return numCPF;
     }
 
-
-
-    public int getNumSequencia() {
-        return numSequencia;
+    public void setNumCPF(String numCPF) {
+        this.numCPF = numCPF;
     }
 
-    public void setNumSequencia(int numSequencia) {
-        this.numSequencia = numSequencia;
+    public String getCEP() {
+        return CEP;
     }
 
-    public String getNomeCliente() {
-        return nomeCliente;
-    }
-
-    public void setNomeCliente(String nomeCliente) {
-        this.nomeCliente = nomeCliente;
-    }
-
-    public String getNumCartaoCredito() {
-        return numCartaoCredito;
-    }
-
-    public void setNumCartaoCredito(String numCartaoCredito) {
-        this.numCartaoCredito = numCartaoCredito;
-    }
-
-    public String getCodCEP() {
-        return codCEP;
-    }
-
-    public void setCodCEP(String codCEP) {
-        this.codCEP = codCEP;
+    public void setCEP(String CEP) {
+        this.CEP = CEP;
     }
 
     public String getEndereco() {
@@ -83,11 +46,11 @@ public class DadosEntrega {
         this.endereco = endereco;
     }
 
-    public int getNumEndereco() {
+    public String getNumEndereco() {
         return numEndereco;
     }
 
-    public void setNumEndereco(int numEndereco) {
+    public void setNumEndereco(String numEndereco) {
         this.numEndereco = numEndereco;
     }
 
@@ -122,14 +85,5 @@ public class DadosEntrega {
     public void setEstado(String estado) {
         this.estado = estado;
     }
-
-    public int getFkNumSeqCompra() {
-        return fkNumSeqCompra;
-    }
-
-    public void setFkNumSeqCompra(int fkNumSeqCompra) {
-        this.fkNumSeqCompra = fkNumSeqCompra;
-    }
-
 }
 

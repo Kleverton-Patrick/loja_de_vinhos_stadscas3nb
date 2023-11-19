@@ -1,10 +1,14 @@
 package br.com.lojavinho.servlet;
 
+import br.com.lojavinho.dao.CarrinhoDao;
 import br.com.lojavinho.dao.ComprasDao;
+import br.com.lojavinho.model.Carrinho;
 import br.com.lojavinho.model.DadosEntrega;
+import br.com.lojavinho.model.ItemCarrinho;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -18,10 +22,53 @@ import javax.servlet.http.HttpSession;
 public class FinalizarCompraServlet extends HttpServlet {
 
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
-        HttpSession session = request.getSession();
+        String numCPF = request.getParameter("numCPF");
+        String totalQtd = request.getParameter("totalQtd");
+        String totalVlr = request.getParameter("totalVlr");
 
+        ComprasDao comprasdao = new ComprasDao();
+
+        Carrinho carrinho = new Carrinho(numCPF, totalQtd, totalVlr);
+
+        boolean possuiEndereço = comprasdao.CPFpossuiEndereco(numCPF);
+
+        if(possuiEndereço == true) {
+
+            DadosEntrega dadosEntrega = ComprasDao.obterUltimaCompraPorCPF(numCPF);
+
+            request.setAttribute("CEP", dadosEntrega.getCEP());
+            request.setAttribute("endereco", dadosEntrega.getEndereco());
+            request.setAttribute("numEndereco", dadosEntrega.getNumEndereco());
+            request.setAttribute("complEndereco", dadosEntrega.getComplEndereco());
+            request.setAttribute("bairro", dadosEntrega.getBairro());
+            request.setAttribute("cidade", dadosEntrega.getCidade());
+            request.setAttribute("estado", dadosEntrega.getEstado());
+
+
+
+            request.setAttribute("carrinho", carrinho);
+
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/TelaFinalizarCompra/FinalizarCompra.jsp");
+            dispatcher.forward(request, response);
+
+
+        }
+
+        else{
+
+            response.sendRedirect("/TelaFinalizarCompra/RegistrarEndereco.jsp");
+
+        }
+
+    }
+}
+
+
+
+
+/*
         if (session.getAttribute("logadoUsuarioCliente") != null) {
             String cliente = (String) session.getAttribute("logadoUsuarioCliente");
 
@@ -40,6 +87,9 @@ public class FinalizarCompraServlet extends HttpServlet {
         } else {
             // O cliente não está logado, redirecione para a página de login
             response.sendRedirect("entrarCliente.jsp");
-        }
-    }
-}
+
+
+ */
+
+
+
