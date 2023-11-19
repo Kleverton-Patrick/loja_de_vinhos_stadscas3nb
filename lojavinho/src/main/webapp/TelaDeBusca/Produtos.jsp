@@ -7,43 +7,38 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página Catalogo</title>
     <link rel="stylesheet" href="/TelaDeBusca/Home.css">
     <link rel="stylesheet" href="index.css">
+    <title>Página Catalogo</title>
 </head>
 
 <body>
-<!-- Aqui fica o cabeçalho -->
-        <header class="header">
-            <div class="container">
-                <div class="logo">
-                    <a href="http://localhost:8080/">
-                        <h1 class="logo-text">WIN-E</h1>
-                    </a>
-                </div>
-                <div class="suggestion-button">
-                    <!-- Verifica se o usuário cliente está logado -->
-                    <c:if test="${sessionScope.logadoUsuarioCliente == null}">
-                        <a href="./entrarCliente.jsp" class="suggestion-link">Entrar</a>
-                    </c:if>
-
-                    <!-- Se logado, exibe as informações do cliente e o botão de logout -->
-                    <c:if test="${sessionScope.logadoUsuarioCliente != null}">
-                        <span>Olá, ${sessionScope.logadoUsuarioCliente}</span>
-                        <a href="/saircliente">Sair</a>
-
-                        <!-- Adiciona o botão "Carrinho" -->
-                        <form action="/AdicionarItem" method="GET">
-                            <button type="submit" class="carrinho-button">Carrinho</button>
-                        </form>
-                    </c:if>
-                </div>
+    <!-- Aqui fica o cabeçalho -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="http://localhost:8080/">
+                    <h1 class="logo-text">WIN-E</h1>
+                </a>
             </div>
-        </header>
+            <div class="suggestion-button">
+                <!-- Verifica se o usuário cliente está logado -->
+                <c:if test="${sessionScope.logadoUsuarioCliente == null}">
+                    <a href="./entrarCliente.jsp" class="suggestion-link">Entrar</a>
+                 </c:if>
+                <!-- Se logado, exibe as informações do cliente e o botão de logout -->
+                <c:if test="${sessionScope.logadoUsuarioCliente != null}">
+                    <span>Olá, ${sessionScope.logadoUsuarioCliente}</span>
+                    <a href="/saircliente">Sair</a>
+                <form action="/AdicionarItem" method="GET">
+                    <button type="submit" class="carrinho-button">Carrinho</button>
+                </form>
+                </c:if>
+            </div>
+        </div>
+    </header>
 
-
-    <!-- Estrutura dos dropdowns -->
-    <!-- INÍCIO -->
+    <!-- Conteúdo -->
     <div class="txt text-center">
         <h1>Escolha o seu vinho</h1>
     </div>

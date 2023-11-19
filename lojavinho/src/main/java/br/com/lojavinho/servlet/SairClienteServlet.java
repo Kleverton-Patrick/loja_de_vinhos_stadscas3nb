@@ -17,7 +17,7 @@ public class SairClienteServlet extends HttpServlet {
 
         req.setAttribute("message", "sucesso ao sair");
 
-        req.getRequestDispatcher("entrarCliente.jsp").forward(req,resp);
+        req.getRequestDispatcher("TelaInicial/TelaInicial.jsp").forward(req,resp);
 
     }
 }

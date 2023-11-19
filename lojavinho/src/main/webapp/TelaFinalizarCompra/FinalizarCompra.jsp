@@ -1,17 +1,37 @@
-<!-- finalizarCompra.jsp -->
-
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page import="java.util.List" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Finalizar Compra</title>
-    <!-- Adicione aqui seus estilos CSS ou links para folhas de estilo externas -->
-</head>
-<body>
 
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="TelaFinalizarCompra/FinalizarCompra.css">
+    <link rel="stylesheet" href="index.css">
+    <title>Finalizar Compra</title>
+</head>
+
+<body>
+    <!-- Aqui fica o cabeçalho -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="http://localhost:8080/">
+                    <h1 class="logo-text">WIN-E</h1>
+                </a>
+            </div>
+            <div class="suggestion-button">
+                <!-- Se logado, exibe as informações do cliente e o botão de logout -->
+                <c:if test="${sessionScope.logadoUsuarioCliente != null}">
+                    <span>Olá, ${sessionScope.logadoUsuarioCliente}</span>
+                    <a href="/saircliente">Sair</a>
+                </c:if>
+            </div>
+        </div>
+    </header>
+
+    <!-- Conteúdo -->
 <div>
 
 <div>

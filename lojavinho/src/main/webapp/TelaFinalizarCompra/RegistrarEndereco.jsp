@@ -1,16 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page import="java.util.List" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html lang="pt">
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="/TelaFinalizarCompra/RegistrarEndereco.css">
     <link rel="stylesheet" href="index.css">
     <title>Registrar Endereço</title>
 </head>
 
 <body>
+    <!-- Aqui fica o cabeçalho -->
     <header class="header">
         <div class="container">
             <div class="logo">
@@ -19,14 +22,22 @@
                 </a>
             </div>
             <div class="suggestion-button">
-                <a href="#" class="suggestion-link" onclick="goBack()">Voltar</a>
+                <!-- Se logado, exibe as informações do cliente e o botão de logout -->
+                <c:if test="${sessionScope.logadoUsuarioCliente != null}">
+                    <span>Olá, ${sessionScope.logadoUsuarioCliente}</span>
+                    <a href="/saircliente">Sair</a>
+                </c:if>
+                            <div class="suggestion-button">
+                                <a href="#" class="suggestion-link" onclick="goBack()">Voltar</a>
+                            </div>
             </div>
         </div>
     </header>
 
-    <div class="container">
-        <div class="login-card">
-            <h2>Cadastro de Endereço</h2>
+    <!-- Conteúdo -->
+        <div class="txt text-center">
+            <h1>Cadastro de Endereço</h1>
+        </div>
 
             <form action="/registroEndereco" method="post">
 
@@ -75,9 +86,6 @@
 
             </form>
 
-
-        </div>
-    </div>
     <!-- Script para voltar à página anterior -->
     <script>
         function goBack() {

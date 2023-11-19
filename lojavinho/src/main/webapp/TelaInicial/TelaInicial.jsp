@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page import="java.util.List" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
@@ -6,12 +7,13 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bem Vindo</title>
     <link rel="stylesheet" href="/TelaInicial/TelaInicial.css">
     <link rel="stylesheet" href="index.css">
+    <title>Bem Vindo</title>
 </head>
 
 <body>
+    <!-- Aqui fica o cabeçalho -->
     <header class="header">
         <div class="container">
             <div class="logo">
