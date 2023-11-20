@@ -98,7 +98,7 @@
             <c:set var="totalQuantidade" value="${totalQuantidade +item.qtdProduto}" />
         </c:forEach>
 
-        <p class="total-text">Valor total do Carrinho: ${totalCarrinho} R$</p>
+        <p class="total-text">Valor total do Carrinho: R$ ${totalCarrinho}</p>
         <p class="total-text">Quantidade de itens do Carrinho: ${totalQuantidade}</p>
 
         <form action='/FinalizarCompraServlet' method="post">
