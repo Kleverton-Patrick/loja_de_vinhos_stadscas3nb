@@ -17,11 +17,11 @@ public class RemoverItemCarrinhoServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            String numSeqVinho = request.getParameter("numSeqVinho");
+            String seqItem = request.getParameter("seqItem");
             String numCPF = request.getParameter("numCPF");
 
 
-            CarrinhoDao.excluirItemCarrinho(numSeqVinho, numCPF);
+            CarrinhoDao.excluirItemCarrinho(seqItem, numCPF);
 
             List<ItemCarrinho> carrinho = CarrinhoDao.lerItemCarrinho(numCPF);
             request.setAttribute("carrinho", carrinho);

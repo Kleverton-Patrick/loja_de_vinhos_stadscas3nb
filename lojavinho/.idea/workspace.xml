@@ -5,15 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e38ee1df-dff2-431d-b30f-5b3f61edf900" name="Changes" comment="Implementação da lógica de estoque dos produtos">
-      <change beforePath="$PROJECT_DIR$/../ScriptBD/Scripts_Create_Tabelas.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../ScriptBD/Scripts_Create_Tabelas.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/lojavinho/dao/ComprasDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/lojavinho/dao/ComprasDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/lojavinho/model/DadosEntrega.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/lojavinho/model/DadosEntrega.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/AdicionarItemServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/AdicionarItemServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/FinalizarCompraServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/FinalizarCompraServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Carrinho/Carrinho.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Carrinho/Carrinho.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/lojavinho/dao/CarrinhoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/lojavinho/dao/CarrinhoDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/RemoverItemCarrinhoServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/RemoverItemCarrinhoServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/Carrinho/Carrinho.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Carrinho/Carrinho.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/TelaFinalizarCompra/FinalizarCompra.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/TelaFinalizarCompra/FinalizarCompra.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/dvCatena.webp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/img/dvCatena.jpg" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -230,26 +226,6 @@
           <option name="timeStamp" value="12" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/FinalizarCompraServlet.java</url>
-          <line>26</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/FinalizarCompraServlet.java</url>
-          <line>27</line>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/FinalizarCompraServlet.java</url>
-          <line>28</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/FinalizarCompraServlet.java</url>
-          <line>34</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/dao/ComprasDao.java</url>
           <line>25</line>
           <option name="timeStamp" value="18" />
@@ -263,51 +239,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/dao/ComprasDao.java</url>
           <line>34</line>
           <option name="timeStamp" value="20" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/FinalizarCompraServlet.java</url>
-          <line>36</line>
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/FinalizarCompraServlet.java</url>
-          <line>38</line>
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/FinalizarCompraServlet.java</url>
-          <line>40</line>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/FinalizarCompraServlet.java</url>
-          <line>41</line>
-          <option name="timeStamp" value="24" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/FinalizarCompraServlet.java</url>
-          <line>42</line>
-          <option name="timeStamp" value="25" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/FinalizarCompraServlet.java</url>
-          <line>43</line>
-          <option name="timeStamp" value="26" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/FinalizarCompraServlet.java</url>
-          <line>44</line>
-          <option name="timeStamp" value="27" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/FinalizarCompraServlet.java</url>
-          <line>45</line>
-          <option name="timeStamp" value="28" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/FinalizarCompraServlet.java</url>
-          <line>46</line>
-          <option name="timeStamp" value="29" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/dao/ComprasDao.java</url>
