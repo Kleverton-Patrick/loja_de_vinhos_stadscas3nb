@@ -8,6 +8,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="TelaFinalizarCompra/FinalizarCompra.css">
+    <link rel="stylesheet" href="index.css">
     <title>Finalizar Compra</title>
 </head>
 
@@ -31,7 +32,6 @@
     </header>
 
     <!-- Conteúdo -->
-    <div class="Card-dados">
     <div class="detalhes-pedido">
         <h1>Detalhes do Pedido:</h1>
 
@@ -61,10 +61,7 @@
                   <button type="submit">Escolher outro endereço para entrega</button>
             </form>
 
-            </div> <!-- card-dados -->
-
     <!-- Lista de Produtos do Carrinho -->
-
     <div class="lista-carrinho">
         <h1>Itens do Carrinho:</h1>
         <table>
