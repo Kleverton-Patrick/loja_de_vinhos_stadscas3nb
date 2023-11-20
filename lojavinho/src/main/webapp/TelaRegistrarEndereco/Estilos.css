@@ -71,6 +71,47 @@ padding: 0;
     width: 100%;
 }
 
+
+.Card-endereco{
+    width: 400px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.Card-endereco input{
+width: 400px;
+ height: 20px;
+ border-radius: 8px;
+
+}
+
+.Card-endereco h1{
+font-size: 30px;
+ color:#950000;
+
+}
+
+.Card-endereco button{
+background-color: #950000;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.continuarComprando-button:hover {
+    background-color: #770000;
+}
+
 .footer p {
     margin: 0;
 }
