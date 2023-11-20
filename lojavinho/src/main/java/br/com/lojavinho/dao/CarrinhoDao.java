@@ -2,6 +2,7 @@ package br.com.lojavinho.dao;
 
 import br.com.lojavinho.config.ConnectionPoolConfig;
 import br.com.lojavinho.model.Carrinho;
+import br.com.lojavinho.model.Compras;
 import br.com.lojavinho.model.ItemCarrinho;
 import br.com.lojavinho.model.Vinho;
 
@@ -113,15 +114,13 @@ public class CarrinhoDao {
         }
     }
 
-    public void excluirCarrinho(String numCPF) {
+    public static void excluirCarrinho(String numCPF) {
 
-        String SQL = "DELETE FROM CARRINHO WHERE NUM_CPF = ?";
+        String SQL = "DELETE FROM ITEM_CARRINHO WHERE NUM_CPF = ?";
 
         try {
 
             Connection connection = ConnectionPoolConfig.getConnection();
-
-            System.out.println("Success in database connection!");
 
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
 
@@ -333,14 +332,11 @@ public class CarrinhoDao {
 
         try {
             Connection connection = ConnectionPoolConfig.getConnection();
-            System.out.println("Success in database connection!");
 
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
             preparedStatement.setString(1, numCPF);
             preparedStatement.setString(2, seqItem);
-            preparedStatement.executeUpdate(); // Usar executeUpdate para instruções de atualização
-
-            System.out.println("Success on delete ITEM_CARRINHO!");
+            preparedStatement.executeUpdate();
 
             connection.close();
         } catch (Exception e) {
@@ -519,5 +515,4 @@ public class CarrinhoDao {
 
         }
     }
-
 }

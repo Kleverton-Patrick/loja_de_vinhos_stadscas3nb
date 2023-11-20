@@ -73,7 +73,7 @@ public class AdicionarItemServlet extends HttpServlet {
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/Carrinho/Carrinho.jsp");
                 dispatcher.forward(request, response);
             } else {
-                // Trate a ausência do parâmetro numCPF conforme necessário
+
                 response.sendRedirect("/TelaDeBusca/Produtos.jsp");
             }
         }

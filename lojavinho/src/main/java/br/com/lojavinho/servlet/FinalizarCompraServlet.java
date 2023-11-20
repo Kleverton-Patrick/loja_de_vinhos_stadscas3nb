@@ -39,6 +39,8 @@ public class FinalizarCompraServlet extends HttpServlet {
             boolean possuiEndereco = comprasdao.CPFpossuiEndereco(numCPF);
 
             if (possuiEndereco) {
+                List<ItemCarrinho> listaCarrinho = CarrinhoDao.lerItemCarrinho(numCPF);
+
                 DadosEntrega dadosEntrega = ComprasDao.obterUltimaCompraPorCPF(numCPF);
 
                 request.setAttribute("CEP", dadosEntrega.getCEP());
@@ -51,13 +53,15 @@ public class FinalizarCompraServlet extends HttpServlet {
 
                 request.setAttribute("carrinho", carrinho);
 
+                request.setAttribute("listaCarrinho", listaCarrinho);
+
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/TelaFinalizarCompra/FinalizarCompra.jsp");
                 dispatcher.forward(request, response);
             } else {
 
                 request.setAttribute("carrinho", carrinho);
 
-              //  response.sendRedirect("/TelaRegistrarEndereco/RegistrarEndereco.jsp");
+
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/TelaRegistrarEndereco/RegistrarEndereco.jsp");
                 dispatcher.forward(request, response);
             }

@@ -32,19 +32,15 @@
     </header>
 
     <!-- Conteúdo -->
-<div>
-
-<div>
-    <h1>Detalhes do Pedido:</h1>
+    <div class="detalhes-pedido">
+        <h1>Detalhes do Pedido:</h1>
 
         <p><strong>CPF Cliente</strong> ${carrinho.numCPF}</p>
         <p><strong>Quantidade de itens do pedido:</strong> ${carrinho.qtdTotal}</p>
         <p><strong>Valor total do pedido:</strong> ${carrinho.vlrTotal}</p>
+    </div>
 
-</div>
-
-<div>
-
+    <div class="endereco-entrega">
         <h1>Endereço de entrega:</h1>
 
         <p><strong>CEP:</strong> ${CEP}</p>
@@ -54,20 +50,45 @@
         <p><strong>Bairro:</strong> ${bairro}</p>
         <p><strong>Cidade:</strong> ${cidade}</p>
         <p><strong>Estado:</strong> ${estado}</p>
+    </div>
 
-
-</div>
-
-     <form action="/atualizarEndereco" method="post">
-
-              <input type="hidden" name="numCPF" value="${carrinho.numCPF}">
-              <input type="hidden" name="qtdTotal" value="${carrinho.qtdTotal}">
-              <input type="hidden" name="vlrTotal" value="${carrinho.vlrTotal}">
-
-              <button type="submit">Escolher outro endereço para entrega</button>
+    <!-- Lista de Produtos do Carrinho -->
+    <div class="lista-carrinho">
+        <h1>Itens do Carrinho:</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Foto do Produto</th>
+                    <th>Nome do Vinho</th>
+                    <th>Valor Unitário</th>
+                    <th>Quantidade</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <c:forEach var="item" items="${listaCarrinho}">
+                    <tr>
+                        <td><img src="${item.imagem}" alt="Imagem do Produto" width="100"></td>
+                        <td>${item.descNomeVinho}</td>
+                        <td>R$ ${item.vlrProduto}</td>
+                        <td>${item.qtdProduto}</td>
+                        <td>R$ ${item.vlrProduto * item.qtdProduto}</td>
+                    </tr>
+                </c:forEach>
+            </tbody>
+        </table>
+        <form action="/EncerrarCompra" method="post">
+            <input type="hidden" name="numCPF" value="${carrinho.numCPF}">
+            <button type="submit" class="finalizar-compra-button">Finalizar Compra</button>
         </form>
 
+    </div>
 
-</div>
+    <!-- Rodapé -->
+    <footer class="footer">
+        <div>
+            <p>&copy; 2023 WIN-E. Todos os direitos reservados.</p>
+        </div>
+    </footer>
 </body>
 </html>

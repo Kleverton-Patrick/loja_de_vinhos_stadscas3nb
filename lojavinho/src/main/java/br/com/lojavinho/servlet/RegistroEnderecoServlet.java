@@ -33,10 +33,10 @@ public class RegistroEnderecoServlet extends HttpServlet {
         ClienteDao clienteDao = new ClienteDao();
 
 
-        //chama a DAO para inserir no banco de dados os dados do formulário
+
         clienteDao.registrarEndereco(CPF, CEP, endereco, numero, complemento, bairro, cidade, estado);
 
-        //Busca do front duas entradas do tipo hidden com o valor e quantidade total da compra
+
         String qtdTotal = request.getParameter("qtdTotal");
         String vlrTotal = request.getParameter("vlrTotal");
 

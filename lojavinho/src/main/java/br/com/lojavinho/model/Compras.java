@@ -9,13 +9,16 @@ import java.time.LocalDateTime;
         private BigDecimal valorTotalVenda;
         private String cpfCliente;
 
-        public Compras(int numSequencia, LocalDateTime dataOperacao, BigDecimal valorTotalVenda, String cpfCliente) {
-            this.numSequencia = numSequencia;
+        public Compras(LocalDateTime dataOperacao, BigDecimal valorTotalVenda, String cpfCliente) {
+
             this.dataOperacao = dataOperacao;
             this.valorTotalVenda = valorTotalVenda;
             this.cpfCliente = cpfCliente;
         }
 
+        public Compras() {
+
+        }
 
 
         public int getNumSequencia() {

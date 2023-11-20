@@ -3,11 +3,11 @@ package br.com.lojavinho.dao;
 import br.com.lojavinho.config.ConnectionPoolConfig;
 import br.com.lojavinho.model.Compras;
 import br.com.lojavinho.model.DadosEntrega;
+import br.com.lojavinho.model.ItemCarrinho;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.math.BigDecimal;
+import java.sql.*;
+import java.util.List;
 
 public class ComprasDao {
 
@@ -35,46 +35,107 @@ public class ComprasDao {
         return existe;
     }
 
-        public static DadosEntrega obterUltimaCompraPorCPF(String cpf) {
+    public static DadosEntrega obterUltimaCompraPorCPF(String cpf) {
 
-            try (Connection connection = ConnectionPoolConfig.getConnection()) {
-                String sql = "SELECT * FROM DADOS_ENTREGA  WHERE NUM_CPF = ? ";
-
-
-                PreparedStatement statement = connection.prepareStatement(sql);
-                statement.setString(1, cpf);
-
-                ResultSet resultSet = statement.executeQuery();
-
-                if (resultSet.next()) {
-                    String CEP = resultSet.getString("COD_CEP");
-                    String endereco = resultSet.getString("DSC_ENDERECO");
-                    String numEndereco = resultSet.getString("NUM_ENDERECO");
-                    String complEndereco = resultSet.getString("DSC_COMPL_ENDERECO");
-                    String bairro = resultSet.getString("DSC_BAIRRO");
-                    String cidade = resultSet.getString("DSC_CIDADE");
-                    String estado = resultSet.getString("DSC_ESTADO");
+        try (Connection connection = ConnectionPoolConfig.getConnection()) {
+            String sql = "SELECT * FROM DADOS_ENTREGA  WHERE NUM_CPF = ? ";
 
 
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, cpf);
 
-                    DadosEntrega dadosEntrega = new DadosEntrega(CEP, endereco, numEndereco, complEndereco, bairro, cidade, estado );
+            ResultSet resultSet = statement.executeQuery();
 
-                    System.out.println("Encontrada compra registrada anteriormente para o CPF");
-                    connection.close();
+            if (resultSet.next()) {
+                String CEP = resultSet.getString("COD_CEP");
+                String endereco = resultSet.getString("DSC_ENDERECO");
+                String numEndereco = resultSet.getString("NUM_ENDERECO");
+                String complEndereco = resultSet.getString("DSC_COMPL_ENDERECO");
+                String bairro = resultSet.getString("DSC_BAIRRO");
+                String cidade = resultSet.getString("DSC_CIDADE");
+                String estado = resultSet.getString("DSC_ESTADO");
 
-                    return dadosEntrega;
-                } else {
-                    System.out.println("Nenhuma compra registrada anteriormente para o CPF");
-                    connection.close();
-                    return null;
-                }
 
-            } catch (SQLException e) {
-                System.out.println("Fail in database connection");
-                System.out.println("Error: " + e.getMessage());
+                DadosEntrega dadosEntrega = new DadosEntrega(CEP, endereco, numEndereco, complEndereco, bairro, cidade, estado);
+
+                System.out.println("Encontrada compra registrada anteriormente para o CPF");
+                connection.close();
+
+                return dadosEntrega;
+            } else {
+                System.out.println("Nenhuma compra registrada anteriormente para o CPF");
+                connection.close();
                 return null;
             }
+
+        } catch (SQLException e) {
+            System.out.println("Fail in database connection");
+            System.out.println("Error: " + e.getMessage());
+            return null;
         }
     }
+
+    public static int registrarCompra(Compras compra, List<ItemCarrinho> listaCarrinho) {
+        try (Connection connection = ConnectionPoolConfig.getConnection()) {
+
+            String sqlCompra = "INSERT INTO COMPRA (DTA_OPERACAO, VLR_TOTAL_VENDA, FK_NUM_CPF) VALUES (?, ?, ?)";
+            try (PreparedStatement preparedStatementCompra = connection.prepareStatement(sqlCompra, Statement.RETURN_GENERATED_KEYS)) {
+                preparedStatementCompra.setObject(1, compra.getDataOperacao());
+                preparedStatementCompra.setBigDecimal(2, compra.getValorTotalVenda());
+                preparedStatementCompra.setString(3, compra.getCpfCliente());
+                preparedStatementCompra.executeUpdate();
+
+                try (ResultSet generatedKeys = preparedStatementCompra.getGeneratedKeys()) {
+                    int compraId = -1;
+                    if (generatedKeys.next()) {
+                        compraId = generatedKeys.getInt(1);
+                    }
+
+                    String sqlItemCompra = "INSERT INTO ITEM_COMPRA (DSC_NOME_VINHO, QTD_VENDIDA_PRODUTO, VLR_VENDIDO_PRODUTO, FK_NUM_SEQ_VINHO, FK_NUM_SEQ_COMPRA) VALUES (?, ?, ?, ?, ?)";
+                    try (PreparedStatement preparedStatementItemCompra = connection.prepareStatement(sqlItemCompra)) {
+                        for (ItemCarrinho item : listaCarrinho) {
+                            preparedStatementItemCompra.setString(1, item.getDescNomeVinho());
+                            preparedStatementItemCompra.setInt(2, Integer.parseInt(item.getQtdProduto()));
+                            preparedStatementItemCompra.setBigDecimal(3, new BigDecimal(item.getVlrProduto()));
+                            preparedStatementItemCompra.setInt(4, Integer.parseInt(item.getNumSeqVinho()));
+                            preparedStatementItemCompra.setInt(5, compraId);
+                            preparedStatementItemCompra.addBatch();
+                        }
+                        preparedStatementItemCompra.executeBatch();
+
+                        return compraId;
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println("Fail in database connection or SQL query!");
+            System.out.println("Error: " + e.getMessage());
+            return -1;
+        }
+    }
+
+
+    public static Integer obterNumeroSequenciaPorCPF(String numCPF) {
+        String SQL = "SELECT NUM_SEQUENCIA FROM COMPRAS WHERE CPF_CLIENTE = ?";
+
+        try (Connection connection = ConnectionPoolConfig.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(SQL)) {
+
+            preparedStatement.setString(1, numCPF);
+
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                if (resultSet.next()) {
+                    return resultSet.getInt("NUM_SEQUENCIA");
+                }
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
+
+        return null;
+    }
+}
 
 
