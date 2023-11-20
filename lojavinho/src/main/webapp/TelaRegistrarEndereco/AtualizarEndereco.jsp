@@ -39,7 +39,7 @@
 
 
         <div>
-
+         <div class="Card-endereco">
          <div class="txt text-center">
                     <h1>Atualizar endereço de entrega</h1>
                 </div>

@@ -8,6 +8,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="TelaFinalizarCompra/FinalizarCompra.css">
+    <link rel="stylesheet" href="index.css">
     <title>Finalizar Compra</title>
 </head>
 
@@ -31,7 +32,6 @@
     </header>
 
     <!-- Conteúdo -->
-    <div class="Card-dados">
     <div class="detalhes-pedido">
         <h1>Detalhes do Pedido:</h1>
 
@@ -39,6 +39,36 @@
         <p><strong>Quantidade de itens do pedido:</strong> ${carrinho.qtdTotal}</p>
         <p><strong>Valor total do pedido:</strong> ${carrinho.vlrTotal}</p>
     </div>
+
+     <div>
+            <h1>Informações de pagamento:</h1>
+
+             <form action="/EncerrarCompra" method="post">
+
+
+                        <div>
+                            <label for="numCartao">Número do cartão:</label>
+                            <input type="text" id="numCartao" name="numCartao" required>
+                        </div>
+
+                        <div>
+                            <label for="dataValidade">Data de validade:</label>
+                            <input type="text" id="dataValidade" name="dataValidade" required>
+                        </div>
+
+                        <div>
+                            <label for="CVV">CVV(Código de segurança):</label>
+                            <input type="text" id="CVV" name="CVV" required>
+                        </div>
+
+                        <div>
+                            <label for="titularCartao">Nome do titular do cartão:</label>
+                            <input type="text" id="titularCartao" name="titularCartao" required>
+                        </div>
+
+             </form>
+
+        </div>
 
     <div class="endereco-entrega">
         <h1>Endereço de entrega:</h1>
@@ -61,10 +91,7 @@
                   <button type="submit">Escolher outro endereço para entrega</button>
             </form>
 
-            </div> <!-- card-dados -->
-
     <!-- Lista de Produtos do Carrinho -->
-
     <div class="lista-carrinho">
         <h1>Itens do Carrinho:</h1>
         <table>
