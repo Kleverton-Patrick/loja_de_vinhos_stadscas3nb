@@ -19,9 +19,14 @@ public class RemoverItemCarrinhoServlet extends HttpServlet {
         try {
             String seqItem = request.getParameter("seqItem");
             String numCPF = request.getParameter("numCPF");
+            String numSeqVinho= request.getParameter("numSeqVinho");
+            String qtdDevolucao = request.getParameter("qtdDevolucao");
 
+            CarrinhoDao carrinhoDao = new CarrinhoDao();
 
             CarrinhoDao.excluirItemCarrinho(seqItem, numCPF);
+
+            carrinhoDao.devolverEstoque(numSeqVinho, qtdDevolucao);
 
             List<ItemCarrinho> carrinho = CarrinhoDao.lerItemCarrinho(numCPF);
             request.setAttribute("carrinho", carrinho);

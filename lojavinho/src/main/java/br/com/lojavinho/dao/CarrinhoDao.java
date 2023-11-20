@@ -491,4 +491,33 @@ public class CarrinhoDao {
             }
         }
 
+    public void devolverEstoque(String numSeqVinho, String qtdProduto) {
+
+        String SQL =  "UPDATE VINHO SET QTD_ESTOQUE = QTD_ESTOQUE + ? WHERE NUM_SEQUENCIA = ?";
+
+        try {
+
+            Connection connection = ConnectionPoolConfig.getConnection();
+
+            System.out.println("Success in database connection!");
+
+            PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+
+            preparedStatement.setString(1, qtdProduto);
+            preparedStatement.setString(2, numSeqVinho);
+
+            preparedStatement.execute();
+
+            System.out.println("Successo  ao decrementar do banco!");
+
+            connection.close();
+
+        } catch (Exception e) {
+
+            System.out.println("Fail in database connection!");
+            System.out.println("Error: " + e.getMessage());
+
+        }
+    }
+
 }

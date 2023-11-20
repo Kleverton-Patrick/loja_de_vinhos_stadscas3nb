@@ -1,6 +1,7 @@
 package br.com.lojavinho.dao;
 
 import br.com.lojavinho.config.ConnectionPoolConfig;
+import br.com.lojavinho.model.ItemCarrinho;
 import br.com.lojavinho.model.UsuarioCliente;
 
 import java.sql.Connection;
@@ -204,4 +205,43 @@ public class ClienteDao {
 
         return null;
     }
+
+    public void registrarEndereco (String numCPF, String CEP, String endereco, String numero, String complemento, String bairro, String cidade, String estado) {
+
+        String SQL = "INSERT INTO DADOS_ENTREGA (NUM_CPF, COD_CEP, DSC_ENDERECO, NUM_ENDERECO, DSC_COMPL_ENDERECO, DSC_BAIRRO, DSC_CIDADE, DSC_ESTADO) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+
+        try {
+
+            Connection connection = ConnectionPoolConfig.getConnection();
+
+            System.out.println("Success in database connection!");
+
+            PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+
+            preparedStatement.setString(1, numCPF);
+            preparedStatement.setString(2, CEP);
+            preparedStatement.setString(3, endereco);
+            preparedStatement.setString(4, numero);
+            preparedStatement.setString(5, complemento);
+            preparedStatement.setString(6, bairro);
+            preparedStatement.setString(7, cidade);
+            preparedStatement.setString(8, estado);
+            preparedStatement.execute();
+
+            System.out.println("Successo ao inserir endereco em DADOS_ENTREGA");
+
+            connection.close();
+
+        } catch (Exception e) {
+
+            System.out.println("Fail in database connection!");
+            System.out.println("Error: " + e.getMessage());
+
+        }
+    }
+
+
+
+
+
 }

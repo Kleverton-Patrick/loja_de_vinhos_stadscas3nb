@@ -74,7 +74,9 @@
                                 <td>
                                     <form action="/RemoverItemCarrinhoServlet" method="post">
                                         <input type="hidden" name="seqItem" value="${item.seqItem}">
+                                         <input type="hidden" name="numSeqVinho" value="${item.numSeqVinho}">
                                         <input type="hidden" name="numCPF" value="<%= cpfCliente %>">
+                                        <input type="hidden" name="qtdDevolucao" value="${item.qtdProduto}">
                                         <button type="submit">Remover</button>
                                     </form>
                                 </td>
