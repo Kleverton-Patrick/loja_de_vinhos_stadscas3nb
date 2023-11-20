@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e38ee1df-dff2-431d-b30f-5b3f61edf900" name="Changes" comment="Implementado botão de alterar endereço de entrega">
-      <change beforePath="$PROJECT_DIR$/../ScriptBD/Scripts_Create_Tabelas.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../ScriptBD/Scripts_Create_Tabelas.txt" afterDir="false" />
+    <list default="true" id="e38ee1df-dff2-431d-b30f-5b3f61edf900" name="Changes" comment="inserção campos de pagamento">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/TelaFinalizarCompra/FinalizarCompra.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/TelaFinalizarCompra/FinalizarCompra.jsp" afterDir="false" />
     </list>
@@ -202,7 +201,23 @@
       <option name="project" value="LOCAL" />
       <updated>1700492985897</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="inserção campos de pagamento">
+      <option name="closed" value="true" />
+      <created>1700503557466</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1700503557466</updated>
+    </task>
+    <task id="LOCAL-00015" summary="inserção campos de pagamento">
+      <option name="closed" value="true" />
+      <created>1700503666164</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1700503666164</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -225,7 +240,8 @@
     <MESSAGE value="Corrigindo bug de exclusão de item no carrinho de compras" />
     <MESSAGE value="Incluido redirecionamento de pagina após preenchimento de formulário de registro de endereço" />
     <MESSAGE value="Implementado botão de alterar endereço de entrega" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implementado botão de alterar endereço de entrega" />
+    <MESSAGE value="inserção campos de pagamento" />
+    <option name="LAST_COMMIT_MESSAGE" value="inserção campos de pagamento" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

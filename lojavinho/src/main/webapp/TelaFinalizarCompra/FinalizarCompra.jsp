@@ -40,6 +40,36 @@
         <p><strong>Valor total do pedido:</strong> ${carrinho.vlrTotal}</p>
     </div>
 
+     <div>
+            <h1>Informações de pagamento:</h1>
+
+             <form action="/EncerrarCompra" method="post">
+
+
+                        <div>
+                            <label for="numCartao">Número do cartão:</label>
+                            <input type="text" id="numCartao" name="numCartao" required>
+                        </div>
+
+                        <div>
+                            <label for="dataValidade">Data de validade:</label>
+                            <input type="text" id="dataValidade" name="dataValidade" required>
+                        </div>
+
+                        <div>
+                            <label for="CVV">CVV(Código de segurança):</label>
+                            <input type="text" id="CVV" name="CVV" required>
+                        </div>
+
+                        <div>
+                            <label for="titularCartao">Nome do titular do cartão:</label>
+                            <input type="text" id="titularCartao" name="titularCartao" required>
+                        </div>
+
+             </form>
+
+        </div>
+
     <div class="endereco-entrega">
         <h1>Endereço de entrega:</h1>
 
