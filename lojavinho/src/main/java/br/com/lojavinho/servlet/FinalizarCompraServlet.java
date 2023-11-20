@@ -55,7 +55,7 @@ public class FinalizarCompraServlet extends HttpServlet {
                 dispatcher.forward(request, response);
             } else {
 
-                request.setAttribute("valores", carrinho);
+                request.setAttribute("carrinho", carrinho);
 
               //  response.sendRedirect("/TelaRegistrarEndereco/RegistrarEndereco.jsp");
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/TelaRegistrarEndereco/RegistrarEndereco.jsp");

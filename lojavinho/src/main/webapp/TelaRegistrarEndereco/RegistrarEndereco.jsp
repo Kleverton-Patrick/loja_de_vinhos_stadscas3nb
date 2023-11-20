@@ -14,7 +14,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="/Carrinho/Carrinho.css">
         <link rel="stylesheet" href="index.css">
-        <title>Carrinho</title>
+        <title>Registrar Endereco</title>
     </head>
 
     <body>
@@ -47,8 +47,8 @@
                     <form action="/registroEndereco" method="post">
 
 
-                    <input type="hidden" name="qtdTotal" value="${valores.qtdTotal}">
-                    <input type="hidden" name="vlrTotal" value="${valores.vlrTotal}">
+                    <input type="hidden" name="qtdTotal" value="${carrinho.qtdTotal}">
+                    <input type="hidden" name="vlrTotal" value="${carrinho.vlrTotal}">
 
 
                        <input type="hidden" name="numCPF" value="<%= cpfCliente %>">

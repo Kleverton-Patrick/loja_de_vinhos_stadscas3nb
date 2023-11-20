@@ -241,7 +241,38 @@ public class ClienteDao {
     }
 
 
+    public void atualizarEndereco(String cpf, String cep, String endereco, String numero, String complemento, String bairro, String cidade, String estado) {
 
+        String SQL = "UPDATE DADOS_ENTREGA SET COD_CEP = ?, DSC_ENDERECO = ?, NUM_ENDERECO =?, DSC_COMPL_ENDERECO =?, DSC_BAIRRO =?, DSC_CIDADE =?, DSC_ESTADO =? WHERE NUM_CPF = ?";
 
+        try {
 
+            Connection connection = ConnectionPoolConfig.getConnection();
+
+            System.out.println("Success in database connection!");
+
+            PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+
+            preparedStatement.setString(1, cep);
+            preparedStatement.setString(2, endereco);
+            preparedStatement.setString(3, numero);
+            preparedStatement.setString(4, complemento);
+            preparedStatement.setString(5, bairro);
+            preparedStatement.setString(6, cidade);
+            preparedStatement.setString(7, estado);
+            preparedStatement.setString(8, cpf);
+            preparedStatement.execute();
+
+            System.out.println("Successo ao atualizar endereco em DADOS_ENTREGA");
+
+            connection.close();
+
+        } catch (Exception e) {
+
+            System.out.println("Fail in database connection!");
+            System.out.println("Error: " + e.getMessage());
+
+        }
+
+    }
 }

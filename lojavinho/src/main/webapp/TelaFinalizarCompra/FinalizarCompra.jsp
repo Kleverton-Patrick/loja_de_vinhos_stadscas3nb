@@ -55,7 +55,18 @@
         <p><strong>Cidade:</strong> ${cidade}</p>
         <p><strong>Estado:</strong> ${estado}</p>
 
+
 </div>
+
+     <form action="/atualizarEndereco" method="post">
+
+              <input type="hidden" name="numCPF" value="${carrinho.numCPF}">
+              <input type="hidden" name="qtdTotal" value="${carrinho.qtdTotal}">
+              <input type="hidden" name="vlrTotal" value="${carrinho.vlrTotal}">
+
+              <button type="submit">Escolher outro endereço para entrega</button>
+        </form>
+
 
 </div>
 </body>

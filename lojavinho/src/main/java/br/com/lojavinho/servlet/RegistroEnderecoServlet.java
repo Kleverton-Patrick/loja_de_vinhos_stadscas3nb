@@ -58,7 +58,7 @@ public class RegistroEnderecoServlet extends HttpServlet {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/TelaFinalizarCompra/FinalizarCompra.jsp");
         dispatcher.forward(request, response);
 
-        //Comentario teste commit
+
 
 
     }
