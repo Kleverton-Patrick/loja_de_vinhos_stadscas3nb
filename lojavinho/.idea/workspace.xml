@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e38ee1df-dff2-431d-b30f-5b3f61edf900" name="Changes" comment="inserção campos de pagamento">
+    <list default="true" id="e38ee1df-dff2-431d-b30f-5b3f61edf900" name="Changes" comment="Correção de bug de listagem de itens na tela FinalizarCompra.jsp">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/AtualizarEndereco2Servlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/AtualizarEndereco2Servlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/RegistroEnderecoServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/RegistroEnderecoServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Carrinho/Carrinho.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Carrinho/Carrinho.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/TelaFinalizarCompra/FinalizarCompra.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/TelaFinalizarCompra/FinalizarCompra.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/TelaRegistrarEndereco/AtualizarEndereco.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/TelaRegistrarEndereco/AtualizarEndereco.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/TelaRegistrarEndereco/RegistrarEndereco.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/TelaRegistrarEndereco/RegistrarEndereco.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -228,7 +226,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700504362699</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Correção de bug de listagem de itens na tela FinalizarCompra.jsp">
+      <option name="closed" value="true" />
+      <created>1700515509525</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1700515509525</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -252,7 +258,8 @@
     <MESSAGE value="Incluido redirecionamento de pagina após preenchimento de formulário de registro de endereço" />
     <MESSAGE value="Implementado botão de alterar endereço de entrega" />
     <MESSAGE value="inserção campos de pagamento" />
-    <option name="LAST_COMMIT_MESSAGE" value="inserção campos de pagamento" />
+    <MESSAGE value="Correção de bug de listagem de itens na tela FinalizarCompra.jsp" />
+    <option name="LAST_COMMIT_MESSAGE" value="Correção de bug de listagem de itens na tela FinalizarCompra.jsp" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

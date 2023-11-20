@@ -12,9 +12,10 @@
 
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
         <link rel="stylesheet" href="TelaRegistrarEndereco/Estilos.css">
         <title>Atualizar Endereco</title>
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     </head>
 
     <body>
@@ -82,10 +83,41 @@
                              <input type="text" id="cidade" name="cidade" required>
                          </div>
 
-                         <div class="form-group">
-                              <label for="estado">Estado:</label>
-                              <input type="text" id="estado" name="estado" required>
+
+<div>
+                             <label for="estado">Estado:</label>
+                             <select id="estado" name="estado" required>
+                                 <option value="" disabled selected>Selecione um estado</option>
+                                 <option value="AC">AC</option>
+                                 <option value="AL">AL</option>
+                                 <option value="AP">AP</option>
+                                 <option value="AM">AM</option>
+                                 <option value="BA">BA</option>
+                                 <option value="CE">CE</option>
+                                 <option value="DF">DF</option>
+                                 <option value="ES">ES</option>
+                                 <option value="GO">GO</option>
+                                 <option value="MA">MA</option>
+                                 <option value="MT">MT</option>
+                                 <option value="MS">MS</option>
+                                 <option value="MG">MG</option>
+                                 <option value="PA">PA</option>
+                                 <option value="PB">PB</option>
+                                 <option value="PR">PR</option>
+                                 <option value="PE">PE</option>
+                                 <option value="PI">PI</option>
+                                 <option value="RJ">RJ</option>
+                                 <option value="RN">RN</option>
+                                 <option value="RS">RS</option>
+                                 <option value="RO">RO</option>
+                                 <option value="RR">RR</option>
+                                 <option value="SC">SC</option>
+                                 <option value="SP">SP</option>
+                                 <option value="SE">SE</option>
+                                 <option value="TO">TO</option>
+                             </select>
                          </div>
+
 
                         <!-- Botão de submissão do formulário -->
                         <button type="submit">Atualizar Endereço</button>
@@ -103,6 +135,18 @@
             </div>
         </footer>
         <!-- FIM -->
-    </body>
 
+            <script>
+                $(document).ready(function(){
+                    $('#CEP').mask('00000-000');
+                });
+            </script>
+
+            <script>
+                $(document).ready(function(){
+                    $('#numero').mask('0#');
+                });
+            </script>
+
+    </body>
     </html>
