@@ -83,8 +83,11 @@
                 </table>
             </c:otherwise>
         </c:choose>
+</div>
 
-        <c:set var="totalCarrinho" value="0" />
+
+<div class="finalizar-compra">
+<c:set var="totalCarrinho" value="0" />
         <c:forEach var="item" items="${carrinho}">
             <c:set var="totalCarrinho" value="${totalCarrinho + item.vlrProduto * item.qtdProduto}" />
         </c:forEach>
@@ -103,7 +106,7 @@
             <input type="hidden" name="totalQtd" value="${totalQuantidade}">
             <button type="submit" class="finalizar-button">Finalizar Pedido</button>
         </form>
-    </div>
+</div>
 
     </body>
 
