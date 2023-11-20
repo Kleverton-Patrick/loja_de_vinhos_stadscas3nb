@@ -189,3 +189,21 @@ body{
     background-color: #770000;
 }
 
+
+
+
+.carrinho-button{
+background-color: #950000;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.carrinho-button:hover {
+    background-color: #770000;
+}
+
+

@@ -41,7 +41,8 @@
     </header>
 
     <!-- Conteúdo -->
-    <div class="txt text-center">
+    <div class="txt-text-center">
+    <img src="./Carrinho/icons8-carrinho-50.png" alt="Imagem Centralizada" class="txt-text-center">
         <h1>Carrinho</h1>
     </div>
 

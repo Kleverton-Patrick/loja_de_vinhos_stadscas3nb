@@ -88,3 +88,10 @@ table th {
 .finalizar-compra:hover {
     background-color: #770000;
 }
+
+
+.txt-text-center{
+color:#770000;
+align-items:center;
+text-align:center;
+}
