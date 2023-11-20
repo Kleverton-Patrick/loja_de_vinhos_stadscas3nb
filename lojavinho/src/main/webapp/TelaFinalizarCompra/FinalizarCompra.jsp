@@ -88,6 +88,10 @@
                   <input type="hidden" name="qtdTotal" value="${carrinho.qtdTotal}">
                   <input type="hidden" name="vlrTotal" value="${carrinho.vlrTotal}">
 
+                  <input type="hidden" name="vlrTotal" value="${carrinho.vlrTotal}">
+                  <input type="hidden" name="vlrTotal" value="${carrinho.vlrTotal}">
+
+
                   <button type="submit">Escolher outro endereço para entrega</button>
             </form>
 

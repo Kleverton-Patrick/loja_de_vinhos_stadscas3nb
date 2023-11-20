@@ -108,6 +108,7 @@
         <p class="total-text">Quantidade de itens do Carrinho: ${totalQuantidade}</p>
 
         <form action='/FinalizarCompraServlet' method="post">
+            <input type="hidden" name="ItensCarrinho" value="${carrinho}">
             <input type="hidden" name="numCPF" value="<%= cpfCliente %>">
             <input type="hidden" name="totalVlr" value="${totalCarrinho}">
             <input type="hidden" name="totalQtd" value="${totalQuantidade}">

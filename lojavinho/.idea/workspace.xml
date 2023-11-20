@@ -6,6 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="e38ee1df-dff2-431d-b30f-5b3f61edf900" name="Changes" comment="inserção campos de pagamento">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/AtualizarEndereco2Servlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/AtualizarEndereco2Servlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/RegistroEnderecoServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/RegistroEnderecoServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Carrinho/Carrinho.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Carrinho/Carrinho.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/TelaFinalizarCompra/FinalizarCompra.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/TelaFinalizarCompra/FinalizarCompra.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -217,7 +220,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700503666164</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="inserção campos de pagamento">
+      <option name="closed" value="true" />
+      <created>1700504362699</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1700504362699</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -285,11 +296,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/RegistroEnderecoServle.java</url>
           <line>28</line>
           <option name="timeStamp" value="55" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/FinalizarCompraServlet.java</url>
-          <line>63</line>
-          <option name="timeStamp" value="57" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

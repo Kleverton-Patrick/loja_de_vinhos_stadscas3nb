@@ -1,9 +1,11 @@
 package br.com.lojavinho.servlet;
 
+import br.com.lojavinho.dao.CarrinhoDao;
 import br.com.lojavinho.dao.ClienteDao;
 import br.com.lojavinho.dao.ComprasDao;
 import br.com.lojavinho.model.Carrinho;
 import br.com.lojavinho.model.DadosEntrega;
+import br.com.lojavinho.model.ItemCarrinho;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,6 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet("/registroEndereco")
 
@@ -43,6 +46,8 @@ public class RegistroEnderecoServlet extends HttpServlet {
 
         Carrinho carrinho = new Carrinho(CPF, qtdTotal, vlrTotal);
 
+        List<ItemCarrinho> listaCarrinho = CarrinhoDao.lerItemCarrinho(CPF);
+
         DadosEntrega dadosEntrega = ComprasDao.obterUltimaCompraPorCPF(CPF);
 
         request.setAttribute("CEP", dadosEntrega.getCEP());
@@ -54,6 +59,8 @@ public class RegistroEnderecoServlet extends HttpServlet {
         request.setAttribute("estado", dadosEntrega.getEstado());
 
         request.setAttribute("carrinho", carrinho);
+
+        request.setAttribute("listaCarrinho", listaCarrinho);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/TelaFinalizarCompra/FinalizarCompra.jsp");
         dispatcher.forward(request, response);

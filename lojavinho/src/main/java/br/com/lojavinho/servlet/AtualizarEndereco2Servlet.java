@@ -1,9 +1,11 @@
 package br.com.lojavinho.servlet;
 
+import br.com.lojavinho.dao.CarrinhoDao;
 import br.com.lojavinho.dao.ClienteDao;
 import br.com.lojavinho.dao.ComprasDao;
 import br.com.lojavinho.model.Carrinho;
 import br.com.lojavinho.model.DadosEntrega;
+import br.com.lojavinho.model.ItemCarrinho;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,6 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet("/AtualizarEndereco2")
 public class AtualizarEndereco2Servlet extends HttpServlet  {
@@ -40,6 +43,8 @@ public class AtualizarEndereco2Servlet extends HttpServlet  {
         String vlrTotal = request.getParameter("vlrTotal");
 
 
+        List<ItemCarrinho> listaCarrinho = CarrinhoDao.lerItemCarrinho(CPF);
+
         Carrinho carrinho = new Carrinho(CPF, qtdTotal, vlrTotal);
 
         DadosEntrega dadosEntrega = ComprasDao.obterUltimaCompraPorCPF(CPF);
@@ -51,6 +56,8 @@ public class AtualizarEndereco2Servlet extends HttpServlet  {
         request.setAttribute("bairro", dadosEntrega.getBairro());
         request.setAttribute("cidade", dadosEntrega.getCidade());
         request.setAttribute("estado", dadosEntrega.getEstado());
+
+        request.setAttribute("listaCarrinho", listaCarrinho);
 
         request.setAttribute("carrinho", carrinho);
 
