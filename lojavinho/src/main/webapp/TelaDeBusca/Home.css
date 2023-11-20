@@ -1,3 +1,8 @@
+*{
+margin: 0;
+padding: 0;
+}
+
 body{
     background-color: #ffffff;
     overflow: hidden;
@@ -189,11 +194,8 @@ body{
     background-color: #770000;
 }
 
-
-
-
 .carrinho-button{
-background-color: #950000;
+    background-color: #950000;
     color: #ffffff;
     border: none;
     padding: 10px 20px;
@@ -205,5 +207,3 @@ background-color: #950000;
 .carrinho-button:hover {
     background-color: #770000;
 }
-
-

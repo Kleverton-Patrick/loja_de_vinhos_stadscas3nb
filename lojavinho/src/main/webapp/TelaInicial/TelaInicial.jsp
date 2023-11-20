@@ -30,6 +30,9 @@
                 <c:if test="${sessionScope.logadoUsuarioCliente != null}">
                     <span>Olá, ${sessionScope.logadoUsuarioCliente}</span>
                     <a href="/saircliente">Sair</a>
+                    <form action="/AdicionarItem" method="GET">
+                          <button type="submit" class="carrinho-button">Carrinho</button>
+                    </form>
                 </c:if>
             </div>
         </div>

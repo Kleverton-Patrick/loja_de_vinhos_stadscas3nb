@@ -27,10 +27,17 @@
                     </a>
                 </div>
                 <div class="suggestion-button">
+                <!-- Verifica se o usuário cliente está logado -->
+                    <c:if test="${sessionScope.logadoUsuarioCliente == null}">
+                        <a href="./entrarCliente.jsp" class="suggestion-link">Entrar</a>
+                    </c:if>
                     <!-- Se logado, exibe as informações do cliente e o botão de logout -->
                     <c:if test="${sessionScope.logadoUsuarioCliente != null}">
                         <span>Olá, ${sessionScope.logadoUsuarioCliente}</span>
                         <a href="/saircliente">Sair</a>
+                        <form action='/TelaDeProdutos' method="GET">
+                              <button type="submit" class="continuarComprando-button">Continuar comprando</button>
+                        </form>
                     </c:if>
                 </div>
             </div>

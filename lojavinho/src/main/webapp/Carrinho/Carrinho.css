@@ -1,17 +1,11 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-     overflow: hidden;
+*{
+margin: 0;
+padding: 0;
 }
 
-body {
+body{
     background-color: #ffffff;
-    padding-bottom: 60px;
-    font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+    overflow: hidden;
 }
 
 table {
@@ -34,14 +28,7 @@ table th {
     color: #ffffff;
 }
 
-.suggestion-button {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 20px; /* Adiciona espaço entre o botão e o conteúdo acima */
-}
-
-.continuarComprando-button {
+.continuarComprando-button{
     background-color: #950000;
     color: #ffffff;
     border: none;
@@ -49,7 +36,6 @@ table th {
     cursor: pointer;
     font-size: 16px;
     border-radius: 5px;
-    margin-top: 20px;
 }
 
 .continuarComprando-button:hover {
@@ -63,13 +49,7 @@ table th {
 
 }
 
-.footer {
-    padding-top: 20px; /* Adiciona espaço acima do rodapé para separá-lo do conteúdo acima */
-    margin-top: absolute; /* Empurra o rodapé para o final da página */
-    background-color: #ffffff;
-    text-align: center;
 
-}
 
 /* Adicione essas regras ao seu CSS */
 

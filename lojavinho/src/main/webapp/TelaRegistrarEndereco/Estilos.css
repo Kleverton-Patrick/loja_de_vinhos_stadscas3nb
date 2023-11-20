@@ -3,40 +3,9 @@ margin: 0;
 padding: 0;
 }
 
-.header {
-    background-color: #950000;
-    padding: 13px 0;
-    color: #ffffff;
-}
-
-.header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-}
-
-.logo a:not(.logo-text) {
-    text-decoration: none;
-}
-
-
-.logo-image {
-    width: 30px;
-    height: 30px;
-    margin-right: 10px;
-}
-
-
-.logo-text {
-    color: white;
-    margin-left: 30px;
-    font-size: 40px;
-    font-weight: bold;
+body{
+    background-color: #ffffff;
+    overflow: hidden;
 }
 
 .suggestion-button {
@@ -60,17 +29,16 @@ padding: 0;
     background-color: #770000;
     border-radius:90px;
 }
-
-.footer {
+.continuarComprando-button{
     background-color: #950000;
     color: #ffffff;
-    text-align: center;
-    padding: 13px 0;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
 }
 
-.footer p {
-    margin: 0;
+.continuarComprando-button:hover {
+    background-color: #770000;
 }
