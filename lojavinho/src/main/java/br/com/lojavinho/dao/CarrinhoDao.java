@@ -328,8 +328,8 @@ public class CarrinhoDao {
         }
     }
 
-    public static void excluirItemCarrinho(String numSeqVinho, String numCPF) {
-        String SQL = "DELETE FROM ITEM_CARRINHO WHERE NUM_CPF = ? AND NUM_SEQ_VINHO = ?";
+    public static void excluirItemCarrinho(String seqItem, String numCPF) {
+        String SQL = "DELETE FROM ITEM_CARRINHO WHERE NUM_CPF = ? AND NUM_SEQUENCIA = ?";
 
         try {
             Connection connection = ConnectionPoolConfig.getConnection();
@@ -337,7 +337,7 @@ public class CarrinhoDao {
 
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
             preparedStatement.setString(1, numCPF);
-            preparedStatement.setString(2, numSeqVinho);
+            preparedStatement.setString(2, seqItem);
             preparedStatement.executeUpdate(); // Usar executeUpdate para instruções de atualização
 
             System.out.println("Success on delete ITEM_CARRINHO!");
