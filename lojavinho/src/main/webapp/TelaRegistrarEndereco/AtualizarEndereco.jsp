@@ -12,8 +12,8 @@
 
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="/Carrinho/Carrinho.css">
-        <link rel="stylesheet" href="index.css">
+
+        <link rel="stylesheet" href="TelaRegistrarEndereco/Estilos.css">
         <title>Atualizar Endereco</title>
     </head>
 

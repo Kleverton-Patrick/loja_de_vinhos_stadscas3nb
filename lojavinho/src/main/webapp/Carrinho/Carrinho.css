@@ -49,6 +49,7 @@ table th {
     cursor: pointer;
     font-size: 16px;
     border-radius: 5px;
+    margin-top: 20px;
 }
 
 .continuarComprando-button:hover {
@@ -74,8 +75,8 @@ table th {
 
 .finalizar-compra{
     position: absolute;
-    top: 88px; /* Ajuste conforme necessário para a posição vertical desejada */
-    right: 10px; /* Ajuste conforme necessário para a posição horizontal desejada */
+    top: 120px;
+    right: 5px;
     background-color: #950000;
     color: #ffffff;
     border: none;
@@ -88,7 +89,6 @@ table th {
 .finalizar-compra:hover {
     background-color: #770000;
 }
-
 
 .txt-text-center{
 color:#770002;

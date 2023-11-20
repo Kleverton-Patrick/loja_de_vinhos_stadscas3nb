@@ -1,50 +1,139 @@
-/* Adicione este bloco ao seu CSS existente */
-
-/* Fonte Cinzel para o corpo do texto */
-body {
-    font-family: 'Cinzel', serif;
+*{
+margin: 0;
+padding: 0;
 }
 
-/* Estilo para os botões de login e registro */
-.login-button,
-.register-button {
-    background-color: #ff0000;
+.header {
+    background-color: #950000;
+    padding: 13px 0;
     color: #ffffff;
-    transition: background-color 0.3s ease;
 }
 
-.login-button:hover,
-.register-button:hover {
-    background-color: #770000;
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-/* Estilo para o link de sugestão */
-.suggestion-link {
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo a:not(.logo-text) {
     text-decoration: none;
-    color: #000000;
+}
+
+
+.logo-image {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+
+.logo-text {
+    color: white;
+    margin-left: 30px;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.suggestion-button {
+    margin-left: 8px; /* Espaço entre o botão e a área de pesquisa */
+}
+
+.suggestion-link {
+    background-color: #950000;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 24px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-right: 30px;
+    transition: background-color 0.4s ease, border-radius 0.4s ease;
 }
 
 .suggestion-link:hover {
+    background-color: #770000;
+    border-radius:90px;
+}
+.Card-dados{
+  width: 300px; /* Ajuste a largura conforme necessário */
+  padding: 18px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.Card-dados button{
+   background-color: #950000;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+
+}
+
+.lista-carrinho {
+    width: 600px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+
+    /* Center the element */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    /* Make it responsive */
+    max-width: 90%;
+    max-height: 80vh; /* 90% of the viewport height */
+    overflow-y: auto; /* Add vertical scrollbar if needed */
+}
+
+.finalizar-compra-button{
+ background-color: #950000;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Optional: Add media queries for smaller screens */
+@media only screen and (max-width: 600px) {
+    .lista-carrinho {
+        width: 90%;
+        max-width: none;
+    }
+}
+
+
+
+.footer {
+    background-color: #950000;
     color: #ffffff;
+    text-align: center;
+    padding: 13px 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
 
-/* Estilo para o bloco de conteúdo */
-.content {
-    background-color: #dcdcdc;
+.footer p {
+    margin: 0;
 }
-
-/* Estilo para a seção de catálogo */
-.catalogo {
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
-}
-
-/* Estilo para o texto do catálogo */
-.texto-catalogo {
-    color: #950000;
-    font-size: 25px;
-}
-
-/* Adicione outros estilos conforme necessário */
