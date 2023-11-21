@@ -65,6 +65,7 @@
     <div class="endereco-entrega">
         <h1>Endereço de entrega:</h1>
 
+        <input type="hidden" name="numSeqEntrega" value="${numSeqEntrega}">
         <p><strong>CEP:</strong> ${CEP}</p>
         <p><strong>Endereço:</strong> ${endereco}</p>
         <p><strong>Numero do endereço:</strong> ${numEndereco}</p>
@@ -78,9 +79,6 @@
 
                   <input type="hidden" name="numCPF" value="${carrinho.numCPF}">
                   <input type="hidden" name="qtdTotal" value="${carrinho.qtdTotal}">
-                  <input type="hidden" name="vlrTotal" value="${carrinho.vlrTotal}">
-
-                  <input type="hidden" name="vlrTotal" value="${carrinho.vlrTotal}">
                   <input type="hidden" name="vlrTotal" value="${carrinho.vlrTotal}">
 
 

@@ -56,6 +56,9 @@
     <footer class="footer">
         <!-- Seu rodapé aqui -->
     </footer>
+
+<script src="script.js"></script>
+
 </body>
 
 </html>

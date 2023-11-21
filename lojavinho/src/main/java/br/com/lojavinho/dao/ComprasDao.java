@@ -8,8 +8,6 @@ import br.com.lojavinho.model.ItemCarrinho;
 
 import java.math.BigDecimal;
 import java.sql.*;
-import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
 
 public class ComprasDao {
@@ -50,7 +48,7 @@ public class ComprasDao {
             ResultSet resultSet = statement.executeQuery();
 
             if (resultSet.next()) {
-                String numCPF = resultSet.getString("NUM_CPF");
+                String numSeqEntrega = resultSet.getString("NUM_SEQ_ENTREGA");
                 String CEP = resultSet.getString("COD_CEP");
                 String endereco = resultSet.getString("DSC_ENDERECO");
                 String numEndereco = resultSet.getString("NUM_ENDERECO");
@@ -60,7 +58,7 @@ public class ComprasDao {
                 String estado = resultSet.getString("DSC_ESTADO");
 
 
-                DadosEntrega dadosEntrega = new DadosEntrega(numCPF, CEP, endereco, numEndereco, complEndereco, bairro, cidade, estado);
+                DadosEntrega dadosEntrega = new DadosEntrega(numSeqEntrega, CEP, endereco, numEndereco, complEndereco, bairro, cidade, estado);
 
                 System.out.println("Encontrada compra registrada anteriormente para o CPF");
                 connection.close();

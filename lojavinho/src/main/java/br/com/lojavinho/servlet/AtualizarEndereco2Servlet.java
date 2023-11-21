@@ -49,6 +49,7 @@ public class AtualizarEndereco2Servlet extends HttpServlet  {
 
         DadosEntrega dadosEntrega = ComprasDao.obterUltimaCompraPorCPF(CPF);
 
+        request.setAttribute("numSeqEntrega", dadosEntrega.getNumSeqEntrega());
         request.setAttribute("CEP", dadosEntrega.getCEP());
         request.setAttribute("endereco", dadosEntrega.getEndereco());
         request.setAttribute("numEndereco", dadosEntrega.getNumEndereco());

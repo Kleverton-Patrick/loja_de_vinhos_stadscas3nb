@@ -4,10 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e38ee1df-dff2-431d-b30f-5b3f61edf900" name="Changes" comment="Correção de bug de listagem de itens na tela FinalizarCompra.jsp">
+    <list default="true" id="e38ee1df-dff2-431d-b30f-5b3f61edf900" name="Changes" comment="Melhorias nas telas de RegistrarEndereco.jsp e AtualizarEndereco.jsp">
+      <change beforePath="$PROJECT_DIR$/../ScriptBD/Scripts_Create_Tabelas.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../ScriptBD/Scripts_Create_Tabelas.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/TelaRegistrarEndereco/AtualizarEndereco.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/TelaRegistrarEndereco/AtualizarEndereco.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/TelaRegistrarEndereco/RegistrarEndereco.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/TelaRegistrarEndereco/RegistrarEndereco.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/lojavinho/dao/ComprasDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/lojavinho/dao/ComprasDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/lojavinho/model/DadosEntrega.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/lojavinho/model/DadosEntrega.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/AtualizarEndereco2Servlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/AtualizarEndereco2Servlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/FinalizarCompraServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/FinalizarCompraServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/RegistroEnderecoServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/RegistroEnderecoServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/TelaCadastroPagamento/CadastroPagamento.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/TelaCadastroPagamento/CadastroPagamento.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/TelaFinalizarCompra/FinalizarCompra.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/TelaFinalizarCompra/FinalizarCompra.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -234,7 +240,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700515509525</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Melhorias nas telas de RegistrarEndereco.jsp e AtualizarEndereco.jsp">
+      <option name="closed" value="true" />
+      <created>1700519136131</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1700519136131</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -259,7 +273,8 @@
     <MESSAGE value="Implementado botão de alterar endereço de entrega" />
     <MESSAGE value="inserção campos de pagamento" />
     <MESSAGE value="Correção de bug de listagem de itens na tela FinalizarCompra.jsp" />
-    <option name="LAST_COMMIT_MESSAGE" value="Correção de bug de listagem de itens na tela FinalizarCompra.jsp" />
+    <MESSAGE value="Melhorias nas telas de RegistrarEndereco.jsp e AtualizarEndereco.jsp" />
+    <option name="LAST_COMMIT_MESSAGE" value="Melhorias nas telas de RegistrarEndereco.jsp e AtualizarEndereco.jsp" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -303,6 +318,106 @@
           <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/RegistroEnderecoServle.java</url>
           <line>28</line>
           <option name="timeStamp" value="55" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/ProcessarPagamentoServlet.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="81" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/ProcessarPagamentoServlet.java</url>
+          <line>37</line>
+          <option name="timeStamp" value="82" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/ProcessarPagamentoServlet.java</url>
+          <line>38</line>
+          <option name="timeStamp" value="83" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/ProcessarPagamentoServlet.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="84" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/ProcessarPagamentoServlet.java</url>
+          <line>40</line>
+          <option name="timeStamp" value="85" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/ProcessarPagamentoServlet.java</url>
+          <line>50</line>
+          <option name="timeStamp" value="86" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/ProcessarPagamentoServlet.java</url>
+          <line>43</line>
+          <option name="timeStamp" value="87" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/dao/PagamentoDao.java</url>
+          <line>15</line>
+          <option name="timeStamp" value="94" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/dao/PagamentoDao.java</url>
+          <line>16</line>
+          <option name="timeStamp" value="95" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/dao/PagamentoDao.java</url>
+          <line>17</line>
+          <option name="timeStamp" value="96" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/dao/PagamentoDao.java</url>
+          <line>18</line>
+          <option name="timeStamp" value="97" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/dao/PagamentoDao.java</url>
+          <line>19</line>
+          <option name="timeStamp" value="98" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/dao/PagamentoDao.java</url>
+          <line>24</line>
+          <option name="timeStamp" value="99" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/dao/PagamentoDao.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="100" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/dao/PagamentoDao.java</url>
+          <line>26</line>
+          <option name="timeStamp" value="101" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/dao/PagamentoDao.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="102" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/dao/PagamentoDao.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="103" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/dao/PagamentoDao.java</url>
+          <line>9</line>
+          <option name="timeStamp" value="104" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/dao/PagamentoDao.java</url>
+          <line>11</line>
+          <option name="timeStamp" value="105" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/dao/PagamentoDao.java</url>
+          <line>12</line>
+          <option name="timeStamp" value="106" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

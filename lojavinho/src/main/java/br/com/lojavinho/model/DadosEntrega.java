@@ -3,6 +3,7 @@ package br.com.lojavinho.model;
 public class DadosEntrega {
 
 
+    private String numSeqEntrega;
     private String numCPF;
     private String CEP;
     private String endereco;
@@ -12,8 +13,8 @@ public class DadosEntrega {
     private String cidade;
     private String estado;
 
-    public DadosEntrega(String numCPF, String CEP, String endereco, String numEndereco, String complEndereco, String bairro, String cidade, String estado) {
-        this.numCPF = numCPF;
+    public DadosEntrega(String numSeqEntrega, String CEP, String endereco, String numEndereco, String complEndereco, String bairro, String cidade, String estado) {
+        this.numSeqEntrega = numSeqEntrega;
         this.CEP = CEP;
         this.endereco = endereco;
         this.numEndereco = numEndereco;
@@ -29,6 +30,14 @@ public class DadosEntrega {
 
     public void setNumCPF(String numCPF) {
         this.numCPF = numCPF;
+    }
+
+    public String getNumSeqEntrega() {
+        return numSeqEntrega;
+    }
+
+    public void setNumSeqEntrega(String numSeqEntrega) {
+        this.numSeqEntrega = numSeqEntrega;
     }
 
     public String getCEP() {

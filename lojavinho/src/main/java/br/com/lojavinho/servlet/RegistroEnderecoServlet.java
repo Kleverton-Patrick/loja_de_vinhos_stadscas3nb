@@ -5,6 +5,7 @@ import br.com.lojavinho.dao.ClienteDao;
 import br.com.lojavinho.dao.ComprasDao;
 import br.com.lojavinho.model.Carrinho;
 import br.com.lojavinho.model.DadosEntrega;
+import br.com.lojavinho.model.DadosPagamento;
 import br.com.lojavinho.model.ItemCarrinho;
 
 import javax.servlet.RequestDispatcher;
@@ -50,6 +51,7 @@ public class RegistroEnderecoServlet extends HttpServlet {
 
         DadosEntrega dadosEntrega = ComprasDao.obterUltimaCompraPorCPF(CPF);
 
+        request.setAttribute("numSeqEntrega", dadosEntrega.getNumSeqEntrega());
         request.setAttribute("CEP", dadosEntrega.getCEP());
         request.setAttribute("endereco", dadosEntrega.getEndereco());
         request.setAttribute("numEndereco", dadosEntrega.getNumEndereco());
@@ -62,10 +64,18 @@ public class RegistroEnderecoServlet extends HttpServlet {
 
         request.setAttribute("listaCarrinho", listaCarrinho);
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/TelaFinalizarCompra/FinalizarCompra.jsp");
-        dispatcher.forward(request, response);
+        DadosPagamento dadosPagamento = ComprasDao.obterDadosPagamentoPorCPF(CPF);
 
+        if (dadosPagamento == null) {
+            response.sendRedirect("/TelaCadastroPagamento/CadastroPagamento.jsp");
+            return;
+        }
 
+        else {
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/TelaFinalizarCompra/FinalizarCompra.jsp");
+            dispatcher.forward(request, response);
+
+        }
 
 
     }

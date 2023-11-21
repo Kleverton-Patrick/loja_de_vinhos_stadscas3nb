@@ -46,11 +46,14 @@ public class FinalizarCompraServlet extends HttpServlet {
                 DadosEntrega dadosEntrega = ComprasDao.obterUltimaCompraPorCPF(numCPF);
                 DadosPagamento dadosPagamento = ComprasDao.obterDadosPagamentoPorCPF(numCPF);
 
+
                 if (dadosPagamento == null) {
                     response.sendRedirect("/TelaCadastroPagamento/CadastroPagamento.jsp");
                     return;
                 }
 
+
+                request.setAttribute("numSeqEntrega", dadosEntrega.getNumSeqEntrega());
                 request.setAttribute("numCPF", dadosEntrega.getNumCPF());
                 request.setAttribute("CEP", dadosEntrega.getCEP());
                 request.setAttribute("endereco", dadosEntrega.getEndereco());
@@ -60,13 +63,9 @@ public class FinalizarCompraServlet extends HttpServlet {
                 request.setAttribute("cidade", dadosEntrega.getCidade());
                 request.setAttribute("estado", dadosEntrega.getEstado());
 
-
-                request.setAttribute("titularCartao", dadosPagamento.getNomeCartao());
-                request.setAttribute("dataValidade", dadosPagamento.getDataValidade());
-                request.setAttribute("numCartao", dadosPagamento.getNumCartao());
-                request.setAttribute("cvc", dadosPagamento.getCvc());
-
                 request.setAttribute("carrinho", carrinho);
+
+                request.setAttribute("listaCarrinho", listaCarrinho);
 
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/TelaFinalizarCompra/FinalizarCompra.jsp");
                 dispatcher.forward(request, response);
@@ -84,38 +83,8 @@ public class FinalizarCompraServlet extends HttpServlet {
             response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Erro ao processar a finalização da compra");
         }
     }
-
 }
 
-
-
-
-
-
-
-
-/*
-        if (session.getAttribute("logadoUsuarioCliente") != null) {
-            String cliente = (String) session.getAttribute("logadoUsuarioCliente");
-
-            DadosEntrega dadosEntrega = ComprasDao.obterUltimaCompraPorCPF(cliente);
-
-            if (dadosEntrega != null) {
-                // Adicione os dados à requisição para uso na JSP
-                request.setAttribute("enderecoUltimaCompra", dadosEntrega.getEndereco());
-                request.setAttribute("cidadeUltimaCompra", dadosEntrega.getCidade());
-                request.setAttribute("estadoUltimaCompra", dadosEntrega.getEstado());
-            }
-
-            // Redirecione para a página de finalizar compra
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/TelaFinalizarCompra/FinalizarCompra.jsp");
-            dispatcher.forward(request, response);
-        } else {
-            // O cliente não está logado, redirecione para a página de login
-            response.sendRedirect("entrarCliente.jsp");
-
-
- */
 
 
 
