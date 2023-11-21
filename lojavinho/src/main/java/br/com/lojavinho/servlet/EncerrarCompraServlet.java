@@ -33,7 +33,7 @@ public class EncerrarCompraServlet extends HttpServlet {
 
         CarrinhoDao.excluirCarrinho(numCPF);
 
-        response.sendRedirect("/paginaDeConfirmacao.jsp");
+        response.sendRedirect("/PaginaDeConfirmacao/paginaDeConfirmacao.jsp");
     }
 
     private BigDecimal calcularValorTotal(List<ItemCarrinho> listaCarrinho) {

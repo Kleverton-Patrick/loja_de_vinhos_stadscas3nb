@@ -4,16 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e38ee1df-dff2-431d-b30f-5b3f61edf900" name="Changes" comment="Melhorias nas telas de RegistrarEndereco.jsp e AtualizarEndereco.jsp">
+    <list default="true" id="e38ee1df-dff2-431d-b30f-5b3f61edf900" name="Changes" comment="Melhorias nas mascaras dos campos de CadastroPagamento.jsp">
       <change beforePath="$PROJECT_DIR$/../ScriptBD/Scripts_Create_Tabelas.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../ScriptBD/Scripts_Create_Tabelas.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/lojavinho/dao/ComprasDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/lojavinho/dao/ComprasDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/lojavinho/model/DadosEntrega.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/lojavinho/model/DadosEntrega.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/AtualizarEndereco2Servlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/AtualizarEndereco2Servlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/FinalizarCompraServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/FinalizarCompraServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/RegistroEnderecoServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/RegistroEnderecoServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/TelaCadastroPagamento/CadastroPagamento.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/TelaCadastroPagamento/CadastroPagamento.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/TelaFinalizarCompra/FinalizarCompra.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/TelaFinalizarCompra/FinalizarCompra.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/EncerrarCompraServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/EncerrarCompraServlet.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -248,7 +242,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700519136131</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Melhorias nas mascaras dos campos de CadastroPagamento.jsp">
+      <option name="closed" value="true" />
+      <created>1700595869481</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1700595869481</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -274,7 +276,8 @@
     <MESSAGE value="inserção campos de pagamento" />
     <MESSAGE value="Correção de bug de listagem de itens na tela FinalizarCompra.jsp" />
     <MESSAGE value="Melhorias nas telas de RegistrarEndereco.jsp e AtualizarEndereco.jsp" />
-    <option name="LAST_COMMIT_MESSAGE" value="Melhorias nas telas de RegistrarEndereco.jsp e AtualizarEndereco.jsp" />
+    <MESSAGE value="Melhorias nas mascaras dos campos de CadastroPagamento.jsp" />
+    <option name="LAST_COMMIT_MESSAGE" value="Melhorias nas mascaras dos campos de CadastroPagamento.jsp" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
