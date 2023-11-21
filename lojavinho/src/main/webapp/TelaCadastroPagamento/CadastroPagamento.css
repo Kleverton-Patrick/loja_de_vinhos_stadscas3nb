@@ -1,0 +1,88 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+.header {
+    background-color: #950000;
+    padding: 13px 0;
+    color: #ffffff;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo a:not(.logo-text) {
+    text-decoration: none;
+}
+
+.logo-image {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.logo-text {
+    color: white;
+    margin-left: 30px;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.suggestion-button {
+    margin-left: 8px;
+}
+
+.suggestion-link {
+    background-color: #950000;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 24px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-right: 30px;
+    transition: background-color 0.4s ease, border-radius 0.4s ease;
+}
+
+.suggestion-link:hover {
+    background-color: #770000;
+    border-radius: 90px;
+}
+
+.footer {
+    background-color: #950000;
+    color: #ffffff;
+    text-align: center;
+    padding: 13px 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer p {
+    margin: 0;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 30px;
+    color: #333;
+}
+
+/* Adicione estilos adicionais conforme necessário */

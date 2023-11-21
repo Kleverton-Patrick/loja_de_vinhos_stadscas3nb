@@ -3,10 +3,13 @@ package br.com.lojavinho.dao;
 import br.com.lojavinho.config.ConnectionPoolConfig;
 import br.com.lojavinho.model.Compras;
 import br.com.lojavinho.model.DadosEntrega;
+import br.com.lojavinho.model.DadosPagamento;
 import br.com.lojavinho.model.ItemCarrinho;
 
 import java.math.BigDecimal;
 import java.sql.*;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 public class ComprasDao {
@@ -47,6 +50,7 @@ public class ComprasDao {
             ResultSet resultSet = statement.executeQuery();
 
             if (resultSet.next()) {
+                String numCPF = resultSet.getString("NUM_CPF");
                 String CEP = resultSet.getString("COD_CEP");
                 String endereco = resultSet.getString("DSC_ENDERECO");
                 String numEndereco = resultSet.getString("NUM_ENDERECO");
@@ -56,7 +60,7 @@ public class ComprasDao {
                 String estado = resultSet.getString("DSC_ESTADO");
 
 
-                DadosEntrega dadosEntrega = new DadosEntrega(CEP, endereco, numEndereco, complEndereco, bairro, cidade, estado);
+                DadosEntrega dadosEntrega = new DadosEntrega(numCPF, CEP, endereco, numEndereco, complEndereco, bairro, cidade, estado);
 
                 System.out.println("Encontrada compra registrada anteriormente para o CPF");
                 connection.close();
@@ -135,6 +139,38 @@ public class ComprasDao {
         }
 
         return null;
+    }
+    public static DadosPagamento obterDadosPagamentoPorCPF(String cpf) {
+        String sql = "SELECT * FROM DADOS_PAGAMENTO WHERE FK_NUM_CPF = ?";
+
+        try (Connection connection = ConnectionPoolConfig.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+
+            preparedStatement.setString(1, cpf);
+
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                if (resultSet.next()) {
+                    int numSequencia = resultSet.getInt("NUM_SEQUENCIA");
+                    String numCPF = resultSet.getString("FK_NUM_CPF");
+                    String nomeCliente = resultSet.getString("DSC_NOME_CLIENTE");
+                    String numCartao = resultSet.getString("NUM_CARTAO");
+                    int cvc = resultSet.getInt("CVC");
+                    String dataValidade = resultSet.getString("DATA_VALIDADE");
+
+                    DadosPagamento dadosPagamento = new DadosPagamento(numSequencia, numCPF, nomeCliente, numCartao, cvc, dataValidade);
+
+                    System.out.println("Encontrados dados de pagamento para o CPF");
+                    return dadosPagamento;
+                } else {
+                    System.out.println("Nenhum dado de pagamento encontrado para o CPF");
+                    return null;
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println("Erro na conexão com o banco de dados ou na consulta SQL");
+            System.out.println("Erro: " + e.getMessage());
+            return null;
+        }
     }
 }
 

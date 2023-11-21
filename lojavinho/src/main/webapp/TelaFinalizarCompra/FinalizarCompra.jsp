@@ -43,33 +43,25 @@
      <div>
             <h1>Informações de pagamento:</h1>
 
-             <form action="/EncerrarCompra" method="post">
+             <h2>Dados do Pagamento:</h2>
+                 <p>Titular do Cartão: ${titularCartao}</p>
+                 <p>Data de Validade: ${dataValidade}</p>
+                 <p>Número do Cartão: ${numCartao}</p>
 
+    <!-- Restante do código ... -->
+     <c:if test="${not empty erroCvc}">
+            <p style="color: red;">${erroCvc}</p>
+     </c:if>
 
-                        <div>
-                            <label for="numCartao">Número do cartão:</label>
-                            <input type="text" id="numCartao" name="numCartao" required>
-                        </div>
+     <form action="/processarPagamento" method="GET">
+             <input type="hidden" name="qtdTotal" value="${carrinho.qtdTotal}">
+                              <input type="hidden" name="vlrTotal" value="${carrinho.vlrTotal}">
 
-                        <div>
-                            <label for="dataValidade">Data de validade:</label>
-                            <input type="text" id="dataValidade" name="dataValidade" required>
-                        </div>
-
-                        <div>
-                            <label for="CVV">CVV(Código de segurança):</label>
-                            <input type="text" id="CVV" name="CVV" required>
-                        </div>
-
-                        <div>
-                            <label for="titularCartao">Nome do titular do cartão:</label>
-                            <input type="text" id="titularCartao" name="titularCartao" required>
-                        </div>
-
-             </form>
-
-        </div>
-
+            <label for="cvc">CVC:</label>
+            <input type="text" id="cvc" name="cvc" value="${cvcParameter}" ${cvcParameter != null ? 'disabled' : ''} required>
+            <input type="submit" value="Verificar" ${cvcParameter != null ? 'disabled' : ''}>
+        </form>
+</form>
     <div class="endereco-entrega">
         <h1>Endereço de entrega:</h1>
 

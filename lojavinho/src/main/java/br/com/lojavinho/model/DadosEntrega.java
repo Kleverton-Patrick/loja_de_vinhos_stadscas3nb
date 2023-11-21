@@ -12,7 +12,8 @@ public class DadosEntrega {
     private String cidade;
     private String estado;
 
-    public DadosEntrega(String CEP, String endereco, String numEndereco, String complEndereco, String bairro, String cidade, String estado) {
+    public DadosEntrega(String numCPF, String CEP, String endereco, String numEndereco, String complEndereco, String bairro, String cidade, String estado) {
+        this.numCPF = numCPF;
         this.CEP = CEP;
         this.endereco = endereco;
         this.numEndereco = numEndereco;
