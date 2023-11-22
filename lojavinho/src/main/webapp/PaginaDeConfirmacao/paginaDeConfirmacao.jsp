@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/PaginaDeConfirmacao/paginaDeConfirmacao.css">
     <link rel="stylesheet" href="index.css">
     <title>Carrinho</title>
-</head>
+</head
 
 <body>
     <!-- Aqui fica o cabeçalho -->
@@ -43,7 +43,7 @@
   <H1 style="margin-bottom: 20px;">PARABÉNS, COMPRA REALIZADA COM SUCESSO!</H1>
 
   <form action='/TelaDeProdutos' method="GET">
-        <button type="submit" class="continuarComprando-button">Continuar comprando</button>
+        <button type="submit" class="continuarComprando-button">Voltar ao site</button>
   </form>
 
   </div>

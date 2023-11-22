@@ -112,6 +112,8 @@
         </table>
         <form action="/EncerrarCompra" method="post">
             <input type="hidden" name="numCPF" value="${carrinho.numCPF}">
+            <input type="hidden" name="numSeqPag" value="${numSeqPag}">
+            <input type="hidden" name="numSeqEntrega" value="${numSeqEntrega}">
             <button type="submit" class="finalizar-compra-button">Finalizar Compra</button>
         </form>
 

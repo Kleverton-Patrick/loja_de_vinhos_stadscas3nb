@@ -29,6 +29,13 @@ public class DadosPagamento {
         this.dataValidade = dataValidade;
     }
 
+    public int getNumSequencia() {
+        return numSequencia;
+    }
+
+    public void setNumSequencia(int numSequencia) {
+        this.numSequencia = numSequencia;
+    }
 
     public String getNumCPF() {
         return numCPF;

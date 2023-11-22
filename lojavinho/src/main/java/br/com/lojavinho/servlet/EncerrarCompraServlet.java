@@ -20,6 +20,9 @@ import javax.servlet.http.HttpSession;
 public class EncerrarCompraServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String numCPF = request.getParameter("numCPF");
+        String numSeqPag = request.getParameter("numSeqPag");
+        String numSeqEntrega = request.getParameter("numSeqEntrega");
+
         List<ItemCarrinho> listaCarrinho = CarrinhoDao.lerItemCarrinho(numCPF);
 
         BigDecimal valorTotalVenda = calcularValorTotal(listaCarrinho);
@@ -28,6 +31,8 @@ public class EncerrarCompraServlet extends HttpServlet {
         compras.setCpfCliente(numCPF);
         compras.setDataOperacao(LocalDateTime.now());
         compras.setValorTotalVenda(valorTotalVenda);
+        compras.setNumSeqPag(numSeqPag);
+        compras.setNumSeqEntrega(numSeqEntrega);
 
         ComprasDao.registrarCompra(compras, listaCarrinho);
 
