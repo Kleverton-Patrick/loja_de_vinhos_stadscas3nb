@@ -72,6 +72,10 @@ public class RegistroEnderecoServlet extends HttpServlet {
         }
 
         else {
+            request.setAttribute("titularCartao", dadosPagamento.getNomeCartao());
+            request.setAttribute("dataValidade", dadosPagamento.getDataValidade());
+            request.setAttribute("numCartao", dadosPagamento.getNumCartao());
+
             RequestDispatcher dispatcher = request.getRequestDispatcher("/TelaFinalizarCompra/FinalizarCompra.jsp");
             dispatcher.forward(request, response);
 

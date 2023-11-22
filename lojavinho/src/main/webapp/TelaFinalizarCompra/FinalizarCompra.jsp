@@ -32,21 +32,18 @@
     </header>
 
     <!-- Conteúdo -->
-    <div class="detalhes-pedido">
+
+  <div class="detalhes-pedido">
         <h1>Detalhes do Pedido:</h1>
 
         <p><strong>CPF Cliente</strong> ${carrinho.numCPF}</p>
         <p><strong>Quantidade de itens do pedido:</strong> ${carrinho.qtdTotal}</p>
         <p><strong>Valor total do pedido:</strong> ${carrinho.vlrTotal}</p>
-    </div>
 
-     <div>
-            <h1>Informações de pagamento:</h1>
-
-             <h2>Dados do Pagamento:</h2>
-                 <p>Titular do Cartão: ${titularCartao}</p>
-                 <p>Data de Validade: ${dataValidade}</p>
-                 <p>Número do Cartão: ${numCartao}</p>
+       <h1>Informações de pagamento:</h1>
+       <p>Titular do Cartão: ${titularCartao}</p>
+       <p>Data de Validade: ${dataValidade}</p>
+       <p>Número do Cartão: ${numCartao}</p>
 
     <!-- Restante do código ... -->
      <c:if test="${not empty erroCvc}">
@@ -55,13 +52,13 @@
 
      <form action="/processarPagamento" method="GET">
              <input type="hidden" name="qtdTotal" value="${carrinho.qtdTotal}">
-                              <input type="hidden" name="vlrTotal" value="${carrinho.vlrTotal}">
+             <input type="hidden" name="vlrTotal" value="${carrinho.vlrTotal}">
 
             <label for="cvc">CVC:</label>
             <input type="text" id="cvc" name="cvc" value="${cvcParameter}" ${cvcParameter != null ? 'disabled' : ''} required>
             <input type="submit" value="Verificar" ${cvcParameter != null ? 'disabled' : ''}>
         </form>
-</form>
+   </form>
     <div class="endereco-entrega">
         <h1>Endereço de entrega:</h1>
 
@@ -75,7 +72,7 @@
         <p><strong>Estado:</strong> ${estado}</p>
     </div>
 
-     <form action="/atualizarEndereco" method="post">
+        <form action="/atualizarEndereco" method="post">
 
                   <input type="hidden" name="numCPF" value="${carrinho.numCPF}">
                   <input type="hidden" name="qtdTotal" value="${carrinho.qtdTotal}">
@@ -84,7 +81,7 @@
 
                   <button type="submit">Escolher outro endereço para entrega</button>
             </form>
-
+</div>
     <!-- Lista de Produtos do Carrinho -->
     <div class="lista-carrinho">
         <h1>Itens do Carrinho:</h1>

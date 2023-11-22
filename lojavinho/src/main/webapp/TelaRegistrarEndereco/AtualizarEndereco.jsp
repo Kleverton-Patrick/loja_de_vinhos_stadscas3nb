@@ -40,7 +40,7 @@
 
 
         <div>
-         <div class="Card-endereco">
+       <div class="Card-endereco">
          <div class="txt text-center">
                     <h1>Atualizar endereço de entrega</h1>
                 </div>
@@ -84,7 +84,7 @@
                          </div>
 
 
-<div>
+
                              <label for="estado">Estado:</label>
                              <select id="estado" name="estado" required>
                                  <option value="" disabled selected>Selecione um estado</option>
@@ -116,16 +116,17 @@
                                  <option value="SE">SE</option>
                                  <option value="TO">TO</option>
                              </select>
-                         </div>
+
 
 
                         <!-- Botão de submissão do formulário -->
                         <button type="submit">Atualizar Endereço</button>
 
-                    </form>
+                   </form>
+       </div>
 
 
-        </div>
+
 
 
         <!-- INÍCIO DO RODAPÉ -->
