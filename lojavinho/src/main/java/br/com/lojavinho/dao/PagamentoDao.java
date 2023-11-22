@@ -19,7 +19,6 @@ public class PagamentoDao {
             statement.setInt(4, dadosPagamento.getCvc());
             statement.setDate(5, Date.valueOf(((dadosPagamento.getDataValidade()))));
 
-            // Executar a instrução SQL
             statement.executeUpdate();
 
             System.out.println("Dados de pagamento inseridos com sucesso!");
@@ -30,14 +29,14 @@ public class PagamentoDao {
             e.printStackTrace();
         }
     }
-    public static boolean verificarCvc(String numCPF, int cvc) {
+    public static boolean verificarCvc(String numCPF, String cvc) {
         String sql = "SELECT COUNT(*) FROM Dados_pagamento WHERE FK_NUM_CPF = ? AND CVC = ?";
 
         try (Connection connection = ConnectionPoolConfig.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql)) {
 
             statement.setString(1, numCPF);
-            statement.setInt(2, cvc);
+            statement.setInt(2, Integer.parseInt(cvc));
 
             try (ResultSet resultSet = statement.executeQuery()) {
                 if (resultSet.next()) {

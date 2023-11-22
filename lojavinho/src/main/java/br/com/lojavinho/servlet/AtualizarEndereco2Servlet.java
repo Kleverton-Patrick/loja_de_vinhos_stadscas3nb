@@ -21,6 +21,7 @@ public class AtualizarEndereco2Servlet extends HttpServlet  {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+
         String CPF = request.getParameter("numCPF");
         String CEP = request.getParameter("CEP");
         String endereco = request.getParameter("endereco");
@@ -34,11 +35,8 @@ public class AtualizarEndereco2Servlet extends HttpServlet  {
 
         ClienteDao clienteDao = new ClienteDao();
 
-
-        //chama a DAO para atualizar o banco com os dados do formulário
         clienteDao.atualizarEndereco(CPF, CEP, endereco, numero, complemento, bairro, cidade, estado);
 
-        //Busca do front duas entradas do tipo hidden com o valor e quantidade total da compra
         String qtdTotal = request.getParameter("qtdTotal");
         String vlrTotal = request.getParameter("vlrTotal");
 

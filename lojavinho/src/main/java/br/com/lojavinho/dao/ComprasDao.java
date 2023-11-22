@@ -8,6 +8,8 @@ import br.com.lojavinho.model.ItemCarrinho;
 
 import java.math.BigDecimal;
 import java.sql.*;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 public class ComprasDao {
@@ -159,15 +161,14 @@ public class ComprasDao {
 
                     DadosPagamento dadosPagamento = new DadosPagamento(numSequencia, numCPF, nomeCliente, numCartao, cvc, dataValidade);
 
-                    System.out.println("Encontrados dados de pagamento para o CPF");
+
                     return dadosPagamento;
                 } else {
-                    System.out.println("Nenhum dado de pagamento encontrado para o CPF");
+
                     return null;
                 }
             }
         } catch (SQLException e) {
-            System.out.println("Erro na conexão com o banco de dados ou na consulta SQL");
             System.out.println("Erro: " + e.getMessage());
             return null;
         }

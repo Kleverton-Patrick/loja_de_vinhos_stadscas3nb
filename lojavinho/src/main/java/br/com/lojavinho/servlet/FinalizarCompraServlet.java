@@ -46,11 +46,14 @@ public class FinalizarCompraServlet extends HttpServlet {
                 DadosEntrega dadosEntrega = ComprasDao.obterUltimaCompraPorCPF(numCPF);
                 DadosPagamento dadosPagamento = ComprasDao.obterDadosPagamentoPorCPF(numCPF);
 
-
                 if (dadosPagamento == null) {
                     response.sendRedirect("/TelaCadastroPagamento/CadastroPagamento.jsp");
                     return;
                 }
+
+                    request.setAttribute("titularCartao", dadosPagamento.getNomeCartao());
+                    request.setAttribute("dataValidade", dadosPagamento.getDataValidade());
+                    request.setAttribute("numCartao", dadosPagamento.getNumCartao());
 
 
                 request.setAttribute("numSeqEntrega", dadosEntrega.getNumSeqEntrega());

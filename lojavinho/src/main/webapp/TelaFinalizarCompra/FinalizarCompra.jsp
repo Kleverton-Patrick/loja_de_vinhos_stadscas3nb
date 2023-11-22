@@ -58,7 +58,7 @@
             <input type="text" id="cvc" name="cvc" value="${cvcParameter}" ${cvcParameter != null ? 'disabled' : ''} required>
             <input type="submit" value="Verificar" ${cvcParameter != null ? 'disabled' : ''}>
         </form>
-   </form>
+</form>
     <div class="endereco-entrega">
         <h1>Endereço de entrega:</h1>
 
@@ -111,6 +111,10 @@
             <input type="hidden" name="numCPF" value="${carrinho.numCPF}">
             <input type="hidden" name="numSeqPag" value="${numSeqPag}">
             <input type="hidden" name="numSeqEntrega" value="${numSeqEntrega}">
+            <input type="hidden" id="cvc" name="cvc" value="${cvcParameter}">
+            <input type="hidden" name="qtdTotal" value="${carrinho.qtdTotal}">
+            <input type="hidden" name="vlrTotal" value="${carrinho.vlrTotal}">
+
             <button type="submit" class="finalizar-compra-button">Finalizar Compra</button>
         </form>
 
@@ -122,5 +126,16 @@
             <p>&copy; 2023 WIN-E. Todos os direitos reservados.</p>
         </div>
     </footer>
+    <script>
+                document.getElementById('cvc').addEventListener('input', function (e) {
+                    let inputValue = e.target.value.replace(/\D/g, '');
+                    let formattedValue = formatCVC(inputValue);
+                    e.target.value = formattedValue;
+                });
+
+                function formatCVC(value) {
+                    return value.slice(0, 3);
+                }
+        </script>
 </body>
 </html>

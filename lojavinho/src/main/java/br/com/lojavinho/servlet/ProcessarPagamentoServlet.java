@@ -79,7 +79,7 @@ public class ProcessarPagamentoServlet extends HttpServlet {
         String numCPF = (String) session.getAttribute("CPFCliente");
 
 
-        int cvc = Integer.parseInt(request.getParameter("cvc"));
+        String cvc = String.valueOf(Integer.parseInt(request.getParameter("cvc")));
 
         boolean cvcExiste = PagamentoDao.verificarCvc(numCPF, cvc);
 
