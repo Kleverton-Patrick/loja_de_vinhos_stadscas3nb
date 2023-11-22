@@ -5,6 +5,7 @@ import br.com.lojavinho.dao.ClienteDao;
 import br.com.lojavinho.dao.ComprasDao;
 import br.com.lojavinho.model.Carrinho;
 import br.com.lojavinho.model.DadosEntrega;
+import br.com.lojavinho.model.DadosPagamento;
 import br.com.lojavinho.model.ItemCarrinho;
 
 import javax.servlet.RequestDispatcher;
@@ -59,6 +60,11 @@ public class AtualizarEndereco2Servlet extends HttpServlet  {
         request.setAttribute("listaCarrinho", listaCarrinho);
 
         request.setAttribute("carrinho", carrinho);
+
+        DadosPagamento dadosPagamento = ComprasDao.obterDadosPagamentoPorCPF(CPF);
+        request.setAttribute("titularCartao", dadosPagamento.getNomeCartao());
+        request.setAttribute("dataValidade", dadosPagamento.getDataValidade());
+        request.setAttribute("numCartao", dadosPagamento.getNumCartao());
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/TelaFinalizarCompra/FinalizarCompra.jsp");
         dispatcher.forward(request, response);
