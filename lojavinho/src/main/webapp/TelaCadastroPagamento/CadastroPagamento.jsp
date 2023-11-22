@@ -19,7 +19,8 @@
     </header>
 
     <!-- Conteúdo -->
-    <div class="Card-dados">
+
+   <div class="Card-dado">
         <h1>Cadastro de Cartão de Crédito</h1>
 
         <!-- Formulário para informações do cartão de crédito -->
@@ -49,16 +50,17 @@
 
             <!-- Botão de Submissão -->
             <button type="submit">Salvar</button>
-        </form>
-    </div>
+       </form>
+      </div>
+ </div>
 
-    <!-- Rodapé -->
-    <footer class="footer">
+     <!-- Rodapé -->
+     <footer class="footer">
         <!-- Seu rodapé aqui -->
-    </footer>
+     </footer>
 
-<script src="script.js"></script>
+     <script src="script.js"></script>
 
-</body>
+     </body>
 
-</html>
+     </html>

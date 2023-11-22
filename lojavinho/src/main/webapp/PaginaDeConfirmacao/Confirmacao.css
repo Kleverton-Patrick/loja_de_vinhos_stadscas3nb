@@ -69,44 +69,20 @@ padding: 0;
     position: absolute;
     bottom: 0;
     width: 100%;
-}
 
-.footer p {
-    margin: 0;
-}
-
-
-
-
-.Card-endereco{
-  width: 400px; /* Ajuste a largura conforme necessário */
-  padding: 18px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
-  margin: 20px;
-  display: flex;
-  flex-direction: column;
-  align-text:center;
-   margin: 0 auto; /* Centraliza o card na tela */
-   margin-top: 20px;
-}
-
-.Card-endereco h1{
-font-size:20px;
-}
-
-.Card-endereco input, #estado{
-    width: 90%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    margin-top: absolute; /* Empurra o rodapé para o final da página */
 
 }
 
 
-.Card-endereco button{
-    background-color: #950000;
+.Card-final{
+color:#950000;
+margin-top:200px;
+text-align: center;
+}
+
+.Card-final button{
+background-color: #950000;
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -114,8 +90,14 @@ font-size:20px;
     cursor: pointer;
     font-weight: bold;
     text-align: center;
-    margin-top:20px;
+    margin-top:80px;
 }
 
 
 
+
+
+
+.footer p {
+    margin: 0;
+}

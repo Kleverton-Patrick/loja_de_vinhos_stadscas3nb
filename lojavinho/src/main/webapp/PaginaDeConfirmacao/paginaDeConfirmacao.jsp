@@ -8,7 +8,7 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/PaginaDeConfirmacao/paginaDeConfirmacao.css">
+    <link rel="stylesheet" href="/PaginaDeConfirmacao/Confirmacao.css">
     <link rel="stylesheet" href="index.css">
     <title>Carrinho</title>
 </head
@@ -37,16 +37,16 @@
     </header>
 
 
-  <div>
 
 
-  <H1 style="margin-bottom: 20px;">PARABÉNS, COMPRA REALIZADA COM SUCESSO!</H1>
+  <div class="Card-final">
+        <H1>PARABÉNS, COMPRA REALIZADA COM SUCESSO!</H1>
 
-  <form action='/TelaDeProdutos' method="GET">
-        <button type="submit" class="continuarComprando-button">Voltar ao site</button>
-  </form>
-
+         <form action='/TelaDeProdutos' method="GET">
+          <button type="submit" class="continuarComprando-button">Voltar ao site</button>
+         </form>
   </div>
+
 
 
     <!-- INÍCIO DO RODAPÉ -->
