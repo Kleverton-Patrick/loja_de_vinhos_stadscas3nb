@@ -6,13 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e38ee1df-dff2-431d-b30f-5b3f61edf900" name="Changes" comment="Melhorias nas mascaras dos campos de CadastroPagamento.jsp">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/lojavinho/dao/ComprasDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/lojavinho/dao/ComprasDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/lojavinho/model/Compras.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/lojavinho/model/Compras.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/lojavinho/model/DadosPagamento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/lojavinho/model/DadosPagamento.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/EncerrarCompraServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/EncerrarCompraServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/ProcessarPagamentoServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/ProcessarPagamentoServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/PaginaDeConfirmacao/paginaDeConfirmacao.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/PaginaDeConfirmacao/paginaDeConfirmacao.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/TelaFinalizarCompra/FinalizarCompra.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/TelaFinalizarCompra/FinalizarCompra.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/EntrarClienteServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/EntrarClienteServlet.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,11 +51,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Talles\Desktop\loja_de_vinhos_stadscas3nb\lojavinho\src\main\webapp\img" />
       <recent name="C:\Users\Talles\Desktop\loja_de_vinhos_stadscas3nb\lojavinho\src\main\webapp\TelaRegistrarEndereco" />
       <recent name="C:\Users\Talles\Desktop\loja_de_vinhos_stadscas3nb\lojavinho\src\main\webapp\TelaDeResultado" />
       <recent name="C:\Users\salomao.flima\IdeaProjects\loja_de_vinhos_stadscas3nb\lojavinho\src\main\webapp\TelaInicial" />
       <recent name="C:\Users\salomao.flima\IdeaProjects\loja_de_vinhos_stadscas3nb\lojavinho\src\main\webapp" />
-      <recent name="C:\Users\salomao.flima\IdeaProjects\loja_de_vinhos_stadscas3nb\lojavinho\src\main\webapp\TelaDeBusca" />
     </key>
   </component>
   <component name="RunManager">
@@ -354,7 +348,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/dao/PagamentoDao.java</url>
-          <line>24</line>
+          <line>23</line>
           <option name="timeStamp" value="99" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -364,17 +358,17 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/dao/PagamentoDao.java</url>
-          <line>26</line>
+          <line>25</line>
           <option name="timeStamp" value="101" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/dao/PagamentoDao.java</url>
-          <line>28</line>
+          <line>27</line>
           <option name="timeStamp" value="102" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/dao/PagamentoDao.java</url>
-          <line>29</line>
+          <line>28</line>
           <option name="timeStamp" value="103" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -391,6 +385,81 @@
           <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/dao/PagamentoDao.java</url>
           <line>12</line>
           <option name="timeStamp" value="106" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/EntrarClienteServlet.java</url>
+          <line>27</line>
+          <option name="timeStamp" value="107" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/servlet/EntrarClienteServlet.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="108" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/dao/ClienteDao.java</url>
+          <line>62</line>
+          <option name="timeStamp" value="111" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/dao/ClienteDao.java</url>
+          <line>59</line>
+          <option name="timeStamp" value="112" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/dao/ClienteDao.java</url>
+          <line>58</line>
+          <option name="timeStamp" value="113" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/dao/ClienteDao.java</url>
+          <line>63</line>
+          <option name="timeStamp" value="114" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/dao/ClienteDao.java</url>
+          <line>64</line>
+          <option name="timeStamp" value="115" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/dao/ClienteDao.java</url>
+          <line>65</line>
+          <option name="timeStamp" value="116" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/dao/ClienteDao.java</url>
+          <line>66</line>
+          <option name="timeStamp" value="117" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/dao/ClienteDao.java</url>
+          <line>67</line>
+          <option name="timeStamp" value="118" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/dao/ClienteDao.java</url>
+          <line>68</line>
+          <option name="timeStamp" value="119" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/dao/ClienteDao.java</url>
+          <line>74</line>
+          <option name="timeStamp" value="120" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/dao/ClienteDao.java</url>
+          <line>54</line>
+          <option name="timeStamp" value="121" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/dao/ClienteDao.java</url>
+          <line>55</line>
+          <option name="timeStamp" value="122" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/lojavinho/dao/ClienteDao.java</url>
+          <line>45</line>
+          <option name="timeStamp" value="123" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

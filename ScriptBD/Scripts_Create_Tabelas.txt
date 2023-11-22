@@ -11,11 +11,11 @@ CREATE TABLE PAIS(NUM_SEQUENCIA INT PRIMARY KEY AUTO_INCREMENT,
 );
 
 INSERT INTO PAIS (DSC_PAIS_PRODUTOR) VALUES
-('Italia'),
-('Espanha'),
+('Argentina'),
 ('Chile'),
-('Portugal'),
-('Argentina');
+('Espanha'),
+('Italia'),
+('Portugal');
 
 
 
@@ -25,10 +25,9 @@ CREATE TABLE TIPO_VINHO(NUM_SEQUENCIA INT PRIMARY KEY AUTO_INCREMENT,
 
 INSERT INTO TIPO_VINHO (DSC_TIPO_VINHO) VALUES
 ('Branco'),
-('Tinto'),
+('Espumante'),
 ('Rosé'),
-('Espumante');
-
+('Tinto');
 
 
 
@@ -37,14 +36,14 @@ CREATE TABLE TIPO_UVA(NUM_SEQUENCIA INT PRIMARY KEY AUTO_INCREMENT,
 );
 
 INSERT INTO TIPO_UVA (DSC_TIPO_UVA) VALUES
+('Cabernet Sauvignon'),  
+('Castelão'), 
 ('Chardonay'),
-('Carenet Sauvignon'),
 ('Merlot'),
+('Pinot noir'), 
+('Sangiovese'),
 ('Syrah'),
-('Pinot noir'),
-('Tempranillo'),
-('Castelão'),
-('Sangiovese');
+('Tempranillo');
 
 
 CREATE TABLE HARMONIZACAO(NUM_SEQUENCIA INT PRIMARY KEY AUTO_INCREMENT,
@@ -77,14 +76,18 @@ CREATE TABLE VINHO(NUM_SEQUENCIA INT PRIMARY KEY AUTO_INCREMENT,
 
 
 INSERT INTO VINHO (DSC_NOME_VINHO, VLR_VENDA, QTD_ESTOQUE,  FK_NUM_SEQ_PAIS, FK_NUM_SEQ_TIPO_UVA, FK_NUM_SEQ_TIPO_VINHO, FK_NUM_SEQ_HARMONIZACAO, DESCRICAO, IMAGEM) values 
-('Santa carolina', 25.90 ,  20, 3, 3, 2 , 1,'Vinho santa carolina safra 2023' ,'/img/santaCarolina.jpg'),
-('Santa carolina Branco', 33.75 ,30 , 3, 2, 2, 2,'Vinho Santa Carolina Branco safra 2013' ,'/img/santaCarolinaBranco.jpg'),
-('Pata negra', 104.50 , 30, 2, 6, 2, 1,'Vinho pata negra safra 2018','/img/pataNegra.jpg'),
-('DV catena', 89.99 , 12, 5, 1, 1, 2,'Vinho DV Catena safra 2019','/img/dvCatena.jpg'),
-('Virrey Loreto', 55.00 , 30, 5, 4, 2, 3,'Vinho Virrey Loreto safra 2015','/img/virreyLoreto.jpg'),
-('Julia florista', 35.50 , 30, 4, 7, 2, 1,'Vinho Julia florista safra 2022','/img/juliaFlorista.jpg'),
-('Fonte Regia Chianti', 60.50 , 25, 1, 8, 2, 1,'Vinho Fonte Regia Chianti safra 2019','/img/fonteRegia.jpg');
-
+('Santa carolina', 25.50 ,  20, 2, 4, 4 , 1,'Vinho santa carolina safra 2023' ,'/img/santaCarolina.jpg'),
+('Santa carolina Branco', 33.75 ,30 , 4, 1, 1, 2,'Vinho Santa Carolina Branco safra 2013' ,'/img/santaCarolinaBranco.jpg'),
+('Pata negra', 104.50 , 30, 3, 8, 4, 1,'Vinho pata negra safra 2018','/img/pataNegra.jpg'),
+('DV catena', 89.00 , 12, 1, 3, 1, 2,'Vinho DV Catena safra 2019','/img/dvCatena.jpg'),
+('Virrey Loreto', 55.00 , 30, 1, 7, 4, 3,'Vinho Virrey Loreto safra 2015','/img/virreyLoreto.jpg'),
+('Julia florista', 35.50 , 30, 5, 2, 4, 1,'Vinho Julia florista safra 2022','/img/juliaFlorista.jpg'),
+('Petit Vega', 109.00 , 80, 3, 5, 4, 3,'Vinho Tinto Espanhol Petit Vega 18 meses','/img/petitVega.jpeg'),
+('Mumm Cuvée Reserve', 90.00 , 70 , 1 , 5 , 2, 2 ,'Espumante Branco argentino Reserve Brut','/img/mumm.jpg'),
+('Taylors Porto', 600.00 , 12 , 5 , 1 , 4 , 4 ,'Taylors porto 20 anos','/img/taylor.jpg'),
+('Villa Riviera', 129.00 , 80, 4, 7, 3, 2,'Splendid Côtes de Provence Rosé 2020','/img/villa.JPG'),
+('Fonte Regia Chianti', 60.50 , 25, 4, 6, 4, 1,'Vinho Fonte Regia Chianti safra 2019','/img/fonteRegia.jpg'),
+('VIN SANTO DEL CHIANTI', 240 , 50 , 4, 4 , 4, 4 ,'Il Nostro Safra 2003','/img/vinsanto.jpg');
 
 
 
@@ -96,27 +99,14 @@ CREATE TABLE CLIENTE(NUM_CPF VARCHAR(14) PRIMARY KEY,
 		     STATUS BIT
 );
 
-CREATE TABLE ITEM_COMPRA(NUM_SEQUENCIA INT PRIMARY KEY AUTO_INCREMENT,
-                         DSC_NOME_VINHO VARCHAR(40),
-                         QTD_VENDIDA_PRODUTO SMALLINT,
-                         VLR_VENDIDO_PRODUTO DECIMAL(9,2),
-                         FK_NUM_SEQ_VINHO INT NOT NULL,
-                         FOREIGN KEY(FK_NUM_SEQ_VINHO) REFERENCES VINHO(NUM_SEQUENCIA),
-                         FK_NUM_SEQ_COMPRA INT NOT NULL,
-                         FOREIGN KEY(FK_NUM_SEQ_COMPRA) REFERENCES COMPRA(NUM_SEQUENCIA)
-);
-
-
-CREATE TABLE COMPRA(NUM_SEQUENCIA INT PRIMARY KEY AUTO_INCREMENT, 
-                    DTA_OPERACAO DATETIME, 
-                    VLR_TOTAL_VENDA DECIMAL(11,2), 
-                    FK_NUM_CPF VARCHAR(14), 
-                    FOREIGN KEY(FK_NUM_CPF) REFERENCES CLIENTE(NUM_CPF),
-		    FK_NUM_SEQ_PAG INT, 
-                    FOREIGN KEY(FK_NUM_SEQ_PAG) REFERENCES DADOS_PAGAMENTO(NUM_SEQUENCIA), 
-		    FK_NUM_SEQ_ENTREGA INT, 
-                    FOREIGN KEY(FK_NUM_SEQ_ENTREGA) REFERENCES DADOS_ENTREGA(NUM_SEQ_ENTREGA)  
-		    
+CREATE TABLE DADOS_PAGAMENTO (
+    NUM_SEQUENCIA INT PRIMARY KEY AUTO_INCREMENT,
+    FK_NUM_CPF VARCHAR(14),
+    FOREIGN KEY(FK_NUM_CPF) REFERENCES CLIENTE(NUM_CPF),
+    DSC_NOME_CLIENTE VARCHAR(60),
+    NUM_CARTAO VARCHAR(19) NOT NULL,
+    CVC INT NOT NULL,
+    DATA_VALIDADE DATE NOT NULL
 );
 
 CREATE TABLE DADOS_ENTREGA(NUM_SEQ_ENTREGA INT PRIMARY KEY AUTO_INCREMENT,
@@ -131,6 +121,33 @@ CREATE TABLE DADOS_ENTREGA(NUM_SEQ_ENTREGA INT PRIMARY KEY AUTO_INCREMENT,
  );
 
 
+
+
+CREATE TABLE COMPRA(NUM_SEQUENCIA INT PRIMARY KEY AUTO_INCREMENT, 
+                    DTA_OPERACAO DATETIME, 
+                    VLR_TOTAL_VENDA DECIMAL(11,2), 
+                    FK_NUM_CPF VARCHAR(14), 
+                    FOREIGN KEY(FK_NUM_CPF) REFERENCES CLIENTE(NUM_CPF),
+		    FK_NUM_SEQ_PAG INT, 
+                    FOREIGN KEY(FK_NUM_SEQ_PAG) REFERENCES DADOS_PAGAMENTO(NUM_SEQUENCIA), 
+		    FK_NUM_SEQ_ENTREGA INT, 
+                    FOREIGN KEY(FK_NUM_SEQ_ENTREGA) REFERENCES DADOS_ENTREGA(NUM_SEQ_ENTREGA)  
+		    
+);
+
+
+CREATE TABLE ITEM_COMPRA(NUM_SEQUENCIA INT PRIMARY KEY AUTO_INCREMENT,
+                         DSC_NOME_VINHO VARCHAR(40),
+                         QTD_VENDIDA_PRODUTO SMALLINT,
+                         VLR_VENDIDO_PRODUTO DECIMAL(9,2),
+                         FK_NUM_SEQ_VINHO INT NOT NULL,
+                         FOREIGN KEY(FK_NUM_SEQ_VINHO) REFERENCES VINHO(NUM_SEQUENCIA),
+                         FK_NUM_SEQ_COMPRA INT NOT NULL,
+                         FOREIGN KEY(FK_NUM_SEQ_COMPRA) REFERENCES COMPRA(NUM_SEQUENCIA)
+);
+
+
+
 CREATE TABLE ITEM_CARRINHO(NUM_SEQUENCIA INT PRIMARY KEY AUTO_INCREMENT,
                            NUM_SEQ_VINHO INT,
 			   DSC_NOME_VINHO VARCHAR(40),
@@ -140,17 +157,6 @@ CREATE TABLE ITEM_CARRINHO(NUM_SEQUENCIA INT PRIMARY KEY AUTO_INCREMENT,
 			   IMAGEM VARCHAR(255)                  
 );
 
-
-
-CREATE TABLE DADOS_PAGAMENTO (
-    NUM_SEQUENCIA INT PRIMARY KEY AUTO_INCREMENT,
-    FK_NUM_CPF VARCHAR(14),
-    FOREIGN KEY(FK_NUM_CPF) REFERENCES CLIENTE(NUM_CPF),
-    DSC_NOME_CLIENTE VARCHAR(60),
-    NUM_CARTAO VARCHAR(19) NOT NULL,
-    CVC INT NOT NULL,
-    DATA_VALIDADE DATE NOT NULL
-);
 
 
 
