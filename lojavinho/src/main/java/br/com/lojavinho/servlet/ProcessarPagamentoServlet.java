@@ -85,6 +85,7 @@ public class ProcessarPagamentoServlet extends HttpServlet {
 
         if (cvcExiste) {
             DadosEntrega dadosEntrega = ComprasDao.obterUltimaCompraPorCPF(numCPF);
+            request.setAttribute("numSeqEntrega", dadosEntrega.getNumSeqEntrega());
             request.setAttribute("numCPF", dadosEntrega.getNumCPF());
             request.setAttribute("CEP", dadosEntrega.getCEP());
             request.setAttribute("endereco", dadosEntrega.getEndereco());
@@ -95,6 +96,7 @@ public class ProcessarPagamentoServlet extends HttpServlet {
             request.setAttribute("estado", dadosEntrega.getEstado());
 
             DadosPagamento dadosPagamento = ComprasDao.obterDadosPagamentoPorCPF(numCPF);
+            request.setAttribute("numSeqPag", dadosPagamento.getNumSequencia());
             request.setAttribute("titularCartao", dadosPagamento.getNomeCartao());
             request.setAttribute("dataValidade", dadosPagamento.getDataValidade());
             request.setAttribute("numCartao", dadosPagamento.getNumCartao());
@@ -116,6 +118,7 @@ public class ProcessarPagamentoServlet extends HttpServlet {
             dispatcher.forward(request, response);
         } else {
             DadosEntrega dadosEntrega = ComprasDao.obterUltimaCompraPorCPF(numCPF);
+            request.setAttribute("numSeqEntrega", dadosEntrega.getNumSeqEntrega());
             request.setAttribute("numCPF", dadosEntrega.getNumCPF());
             request.setAttribute("CEP", dadosEntrega.getCEP());
             request.setAttribute("endereco", dadosEntrega.getEndereco());
@@ -126,6 +129,7 @@ public class ProcessarPagamentoServlet extends HttpServlet {
             request.setAttribute("estado", dadosEntrega.getEstado());
 
             DadosPagamento dadosPagamento = ComprasDao.obterDadosPagamentoPorCPF(numCPF);
+            request.setAttribute("numSeqPag", dadosPagamento.getNumSequencia());
             request.setAttribute("titularCartao", dadosPagamento.getNomeCartao());
             request.setAttribute("dataValidade", dadosPagamento.getDataValidade());
             request.setAttribute("numCartao", dadosPagamento.getNumCartao());

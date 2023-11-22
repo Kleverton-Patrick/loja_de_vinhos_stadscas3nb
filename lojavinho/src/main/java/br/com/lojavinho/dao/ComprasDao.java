@@ -80,11 +80,13 @@ public class ComprasDao {
     public static int registrarCompra(Compras compra, List<ItemCarrinho> listaCarrinho) {
         try (Connection connection = ConnectionPoolConfig.getConnection()) {
 
-            String sqlCompra = "INSERT INTO COMPRA (DTA_OPERACAO, VLR_TOTAL_VENDA, FK_NUM_CPF) VALUES (?, ?, ?)";
+            String sqlCompra = "INSERT INTO COMPRA (DTA_OPERACAO, VLR_TOTAL_VENDA, FK_NUM_CPF, FK_NUM_SEQ_PAG, FK_NUM_SEQ_ENTREGA) VALUES (?, ?, ?, ?, ?)";
             try (PreparedStatement preparedStatementCompra = connection.prepareStatement(sqlCompra, Statement.RETURN_GENERATED_KEYS)) {
                 preparedStatementCompra.setObject(1, compra.getDataOperacao());
                 preparedStatementCompra.setBigDecimal(2, compra.getValorTotalVenda());
                 preparedStatementCompra.setString(3, compra.getCpfCliente());
+                preparedStatementCompra.setString(4, compra.getNumSeqPag());
+                preparedStatementCompra.setString(5, compra.getNumSeqEntrega());
                 preparedStatementCompra.executeUpdate();
 
                 try (ResultSet generatedKeys = preparedStatementCompra.getGeneratedKeys()) {
