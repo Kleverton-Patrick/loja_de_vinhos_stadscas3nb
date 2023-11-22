@@ -13,8 +13,11 @@
 
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="/Carrinho/Carrinho.css">
+        <link rel="stylesheet" href="TelaRegistrarEndereco/Registro.css">
+        <link rel="stylesheet" href="Carrinho/Carrinho.css">
         <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="TelaRegistrar/Registro.css">
+
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
         <title>Registrar Endereco</title>
@@ -49,10 +52,10 @@
 
 
         <div>
-
+ <div class="Card-endereco">
          <div class="txt text-center">
                     <h1>Cadastro de Endereço</h1>
-                </div>
+
 
                     <form action="/registroEndereco" method="post">
 
@@ -127,7 +130,7 @@
                                  <option value="TO">TO</option>
                              </select>
                          </div>
-
+</div>
                         <!-- Botão de submissão do formulário -->
                         <button type="submit">Cadastrar Endereço</button>
 

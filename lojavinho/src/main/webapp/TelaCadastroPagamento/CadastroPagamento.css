@@ -102,10 +102,27 @@ h1 {
 }
 
 .Card-dado input{
-
 width: 300px
 
 }
+
+
+.Card-dado button{
+background-color: #950000;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+    margin-top:50px;
+
+}
+
+
+
+
 
 
 
