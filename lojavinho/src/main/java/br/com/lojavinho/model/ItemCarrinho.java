@@ -12,8 +12,6 @@ public class ItemCarrinho {
 
     public ItemCarrinho() {
     }
-
-
     public ItemCarrinho(String numSeqVinho, String descNomeVinho, String qtdProduto, String vlrProduto, String numCPF, String imagem) {
         this.numSeqVinho = numSeqVinho;
         this.descNomeVinho = descNomeVinho;

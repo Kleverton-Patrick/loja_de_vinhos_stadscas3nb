@@ -9,7 +9,6 @@ public class UsuarioAdmin {
         this.emailAdmin = emailAdmin;
         this.senhaAdmin = senhaAdmin;
     }
-
     public String getEmailAdmin() {
         return emailAdmin;
     }

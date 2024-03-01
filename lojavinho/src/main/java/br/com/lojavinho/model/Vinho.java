@@ -9,7 +9,6 @@ public class Vinho {
     private String estoque;
     private String imagem;
 
-
     public Vinho(String id, String nome, String valor, String estoque, String descricao, String imagem) {
         this.id = id;
         this.nome = nome;
@@ -18,7 +17,6 @@ public class Vinho {
         this.descricao = descricao;
         this.imagem = imagem;
     }
-
 
     public String getNome() {
         return nome;

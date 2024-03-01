@@ -11,8 +11,6 @@ import java.math.BigDecimal;
         private int fkNumSeqVinho;
         private int fkNumSeqCompra;
 
-
-
         public ItemCompra() {
 
         }

@@ -11,7 +11,6 @@ public class Pais {
         this.paisID = paisID;
         this.nomePais = nomePais;
     }
-
     public int getPaisID() {
         return paisID;
     }

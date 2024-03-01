@@ -7,7 +7,6 @@ public class TipoUva {
     public TipoUva()
     {
     }
-
     public TipoUva(int tipoUvaID, String nomeTipoUva)
 
     {
